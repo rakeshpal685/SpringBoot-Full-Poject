@@ -45,7 +45,8 @@ in large scale applications, and we should consider using this only. here hibern
  Note: Default value of Strategy attribute is AUTO.
 */
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "product_generator")// Here we are telling to use the below sequence generator by referring the name of the sequence.
+            generator = "product_generator")
+// Here we are telling to use the below sequence generator by referring the name of the sequence.
     @SequenceGenerator(//If we don't provide this then hibernate will automatically generate a sequence.
             name = "product_generator",// This is the name of the sequence generator which is used in @GeneratedValue to tell which sequence is used.
             sequenceName = "product_sequence_name",// This is the name of the sequence table that hibernate will create to store the generated sequence.
@@ -53,10 +54,12 @@ in large scale applications, and we should consider using this only. here hibern
     )
     private Long id;
 
-    @Column(name = "stock_keeping_unit", nullable = false)//This was we can change the name of the column in the database.
+    @Column(name = "stock_keeping_unit", nullable = false)
+//This was we can change the name of the column in the database.
     private String sku;
 
-    @Column(nullable = false, length = 20)//This ensures that the name column is not null. We can specify the size of the column by using length.
+    @Column(nullable = false, length = 20)
+//This ensures that the name column is not null. We can specify the size of the column by using length.
     private String name;
 
     private String description;
@@ -64,9 +67,11 @@ in large scale applications, and we should consider using this only. here hibern
     private boolean active;
     private String imageUrl;
 
-    @CreationTimestamp//This annotation is provided by hibernate, and it will get the current timestamp from JVM and assign it to the field.
+    @CreationTimestamp
+//This annotation is provided by hibernate, and it will get the current timestamp from JVM and assign it to the field.
     private LocalDateTime dateCreated;
 
-    @UpdateTimestamp//This annotation is provided by hibernate,it will get the timestamp automatically when the field was updated.
+    @UpdateTimestamp
+//This annotation is provided by hibernate,it will get the timestamp automatically when the field was updated.
     private LocalDateTime lastUpdated;
 }
