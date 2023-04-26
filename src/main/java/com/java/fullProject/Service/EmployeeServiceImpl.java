@@ -4,8 +4,6 @@ package com.java.fullProject.Service;
 import com.java.fullProject.CustomExceptions.ResourceNotFound;
 import com.java.fullProject.Entity.Employees;
 import com.java.fullProject.Repository.EmployeeRepo;
-import com.java.fullProject.Service.EmployeeService;
-import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeServiceImpl.class);
     @Autowired
     EmployeeRepo employeeRepo;
-    @Value("${topic.name}")
+   /* @Value("${topic.name}")
     private String topicName;
-
+*/
     @Override
     public Employees saveEmployees(Employees employees) {
         return employeeRepo.save(employees);
