@@ -1,12 +1,12 @@
 package com.java.fullProject.Entity;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 import lombok.*;
-import java.sql.Timestamp;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -19,18 +19,20 @@ public class Employees {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
 
-  @Column(name = "messageid")
-  private int message_id;
+  @Column(name = "empName")
+  private String emName;
 
   @Column(name = "status")
   private String status;
 
-  @Column(name = "version_id")
-  private int version_id;
+  @Column(name = "salary")
+  private Integer salary;
 
-  @Column(name = "date_created")
-  private Timestamp date_created;
+  @Column(name = "date_created",updatable = false)
+  @CreationTimestamp
+  private LocalDate date_created;
 
-  @Column(name = "date_updated")
-  private Timestamp date_updated;
+  @Column(name = "date_updated",insertable = false)
+  @UpdateTimestamp
+  private LocalDate date_updated;
 }

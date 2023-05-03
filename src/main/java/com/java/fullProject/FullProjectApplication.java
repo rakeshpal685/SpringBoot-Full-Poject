@@ -8,6 +8,10 @@ public class FullProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FullProjectApplication.class, args);
+
+
+
 	}
 
 }
+

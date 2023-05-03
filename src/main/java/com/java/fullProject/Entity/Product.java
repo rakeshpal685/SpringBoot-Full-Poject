@@ -80,10 +80,12 @@ public class Product {
   @CreationTimestamp
   // This annotation is provided by hibernate, and it will get the current timestamp from JVM and
   // assign it to the field.
+  @Column(updatable = false)
   private LocalDateTime dateCreated;
 
   @UpdateTimestamp
   // This annotation is provided by hibernate,it will get the timestamp automatically when the field
   // was updated.
+  @Column(insertable = false)
   private LocalDateTime lastUpdated;
 }

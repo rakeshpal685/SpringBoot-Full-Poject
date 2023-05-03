@@ -4,17 +4,11 @@ package com.java.fullProject.Service;
 import com.java.fullProject.CustomExceptions.ResourceNotFound;
 import com.java.fullProject.Entity.Employees;
 import com.java.fullProject.Repository.EmployeeRepo;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-
 import org.springframework.stereotype.Service;
-
-import java.sql.Timestamp;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -55,9 +49,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employees existingEmployee = employeeRepo.findById(id).orElseThrow(() -> new ResourceNotFound("Employee", "id", id));
 
         // Now we will set our data from the newly fetched data.
-        existingEmployee.setMessage_id(updatedEmployeeData.getMessage_id());
+        existingEmployee.setEmName(updatedEmployeeData.getEmName());
         existingEmployee.setStatus(updatedEmployeeData.getStatus());
-        existingEmployee.setVersion_id(updatedEmployeeData.getVersion_id());
+        existingEmployee.setSalary(updatedEmployeeData.getSalary());
 
         //Now we will save the updated data
         employeeRepo.save(existingEmployee);
