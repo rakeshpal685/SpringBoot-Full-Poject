@@ -1,4 +1,4 @@
-package com.java.fullProject.CustomExceptions;
+package com.java.fullProject.exception.customException;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

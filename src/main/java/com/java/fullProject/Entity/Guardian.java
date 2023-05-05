@@ -18,7 +18,7 @@ entity where I will use @Embeddable (Student in our case).
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-/*We will use this annotation when we have Embaddable classs and the row names are already present in the table,
+/*We will use this annotation when we have Embeddable classes and the row names are already present in the table,
 this is somewhat similar to the @Column(name="student_email") annotation in the entity class.*/
 @AttributeOverrides({
   @AttributeOverride(name = "name", column = @Column(name = "guardian_name")),

@@ -2,24 +2,23 @@ package com.java.fullProject.Controller;
 
 import com.java.fullProject.Entity.Employees;
 import com.java.fullProject.Service.EmployeeService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
 
-  //@Autowired
+  @Autowired
   EmployeeService employeeService;
 
-  @Autowired
+/*  @Autowired
   public EmployeeController(EmployeeService employeeService) {
     this.employeeService = employeeService;
-  }
+  }*/
 
   // Here I am using ResponseEntity as the return type because it can give a lot of info back when
   // this

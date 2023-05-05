@@ -1,9 +1,10 @@
 package com.java.fullProject.Service;
 
 
-import com.java.fullProject.CustomExceptions.ResourceNotFound;
+
 import com.java.fullProject.Entity.Employees;
 import com.java.fullProject.Repository.EmployeeRepo;
+import com.java.fullProject.exception.customException.ResourceNotFound;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeServiceImpl.class);
     @Autowired
-    EmployeeRepo employeeRepo;
+    private EmployeeRepo employeeRepo;
    /* @Value("${topic.name}")
     private String topicName;
 */
