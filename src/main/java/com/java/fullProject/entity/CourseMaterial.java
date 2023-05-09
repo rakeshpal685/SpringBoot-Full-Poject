@@ -1,4 +1,4 @@
-package com.java.fullProject.Entity;
+package com.java.fullProject.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

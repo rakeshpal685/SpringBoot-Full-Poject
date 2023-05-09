@@ -1,6 +1,6 @@
-package com.java.fullProject.Repository;
+package com.java.fullProject.repository;
 
-import com.java.fullProject.Entity.Student;
+import com.java.fullProject.entity.Student;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

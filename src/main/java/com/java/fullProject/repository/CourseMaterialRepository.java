@@ -1,6 +1,6 @@
-package com.java.fullProject.Repository;
+package com.java.fullProject.repository;
 
-import com.java.fullProject.Entity.CourseMaterial;
+import com.java.fullProject.entity.CourseMaterial;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

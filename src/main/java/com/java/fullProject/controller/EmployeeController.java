@@ -1,9 +1,15 @@
-package com.java.fullProject.Controller;
+package com.java.fullProject.controller;
 
-import com.java.fullProject.Entity.Employees;
-import com.java.fullProject.Service.EmployeeService;
+import com.java.fullProject.entity.Employees;
+import com.java.fullProject.service.EmployeeService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +27,7 @@ public class EmployeeController {
   }*/
 
 /*  Here I am using ResponseEntity as the return type because it can give a lot of info back when
-  this url is hit, like header, code etc. @PostMapping wil;l map the request to the url and @RequestBody will
+  this url is hit, like header, code etc. @PostMapping will map the request to the url and @RequestBody will
   take the  body of the request (json) and add to our method, (Internally DispatcherServlet will convert the json to 
   java object and map it to the parameter of the method*/  
   @PostMapping(value = "/save",
@@ -32,6 +38,16 @@ public class EmployeeController {
   }
 
   @GetMapping(value = "/getAll")
+  //Below annotations are for swagger
+  @Operation(summary = "Get all employees")// Description of the controller method.
+  @ApiResponses(value = { //what to show when we have different status codes.
+          @ApiResponse(responseCode = "200", description = "Found all employees",
+                  content = {@Content(mediaType = "application/json",
+                          schema = @Schema(implementation = Employees.class)) }),
+          @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                  content = @Content),
+          @ApiResponse(responseCode = "404", description = "Employee not found",
+                  content = @Content) })
   public List<Employees> getAllEmployee() {
     return employeeService.getAllEmployees();
   }
@@ -64,5 +80,11 @@ public class EmployeeController {
   public ResponseEntity<String> deleteEmployee(@PathVariable("id") int empid) {
     employeeService.deleteEmployee(empid);
     return new ResponseEntity<String>("Employee deleted successfully", HttpStatus.OK);
+  }
+
+  @GetMapping(value = "/listPageable")
+  //http://localhost:8080/empController/listPageable?page=0&size=2
+  public ResponseEntity<List<Employees>> employeesPageable(Pageable pageable) {
+    return new ResponseEntity<List<Employees>>(employeeService.employeesPageable(pageable), HttpStatus.OK);
   }
 }

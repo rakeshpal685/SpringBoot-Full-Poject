@@ -1,4 +1,4 @@
-package com.java.fullProject.Repository;
+package com.java.fullProject.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

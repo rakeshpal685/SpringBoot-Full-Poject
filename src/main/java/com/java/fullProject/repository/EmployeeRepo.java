@@ -1,6 +1,6 @@
-package com.java.fullProject.Repository;
+package com.java.fullProject.repository;
 
-import com.java.fullProject.Entity.Employees;
+import com.java.fullProject.entity.Employees;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -1,9 +1,9 @@
-package com.java.fullProject.Repository;
+package com.java.fullProject.repository;
 
-import com.java.fullProject.Entity.Course;
-import com.java.fullProject.Entity.Guardian;
-import com.java.fullProject.Entity.Student;
-import com.java.fullProject.Entity.Teacher;
+import com.java.fullProject.entity.Course;
+import com.java.fullProject.entity.Guardian;
+import com.java.fullProject.entity.Student;
+import com.java.fullProject.entity.Teacher;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
