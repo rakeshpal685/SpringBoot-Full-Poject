@@ -1,9 +1,11 @@
 package com.java.fullProject.service;
 
+import com.java.fullProject.EmployeeModel.EmployeesResponse;
 import com.java.fullProject.entity.Employees;
 import com.java.fullProject.exception.customException.ResourceNotFound;
 import com.java.fullProject.repository.EmployeeRepo;
 import java.util.List;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +14,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-
   private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeServiceImpl.class);
   @Autowired private EmployeeRepo employeeRepo;
-  /* @Value("${topic.name}")
-      private String topicName;
-  */
+
+  @Autowired
+  /*We will use modelMapper to map our entity to the model mapper, for this we have to adda maven dependency
+  and create a bean also */
+  private ModelMapper modelMapper;
+
   @Override
   public Employees saveEmployees(Employees employees) {
     return employeeRepo.save(employees);
@@ -29,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     return employeesList;
   }
 
-  public Employees getEmployeeById(int id) {
+  public EmployeesResponse getEmployeeById(int id) {
     //        Optional<Employees> employees= employeeRepo.findById(id);
     //        if(employees.isPresent()){
     //            return employees.get();
@@ -38,7 +42,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     //            throw new ResourceNotFound("Employee", "id", id);
     //        }
     // same in lambda
-    return employeeRepo.findById(id).orElseThrow(() -> new ResourceNotFound("Employee", "id", id));
+    Employees employee =
+        employeeRepo.findById(id).orElseThrow(() -> new ResourceNotFound("Employee", "id", id));
+    // All the fields of our Employees entity will be mappd to the EmployeeResponse model
+    EmployeesResponse employeesResponse = modelMapper.map(employee, EmployeesResponse.class);
+    return employeesResponse;
   }
 
   @Override

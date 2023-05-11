@@ -1,5 +1,6 @@
 package com.java.fullProject.service;
 
+import com.java.fullProject.EmployeeModel.EmployeesResponse;
 import com.java.fullProject.entity.Employees;
 import org.springframework.data.domain.Pageable;
 
@@ -11,7 +12,7 @@ public interface EmployeeService {
 
    List<Employees> getAllEmployees();
 
-  Employees getEmployeeById(int id);
+    EmployeesResponse getEmployeeById(int id);
 
   Employees updateEmployee(Employees employees, int id);
 
