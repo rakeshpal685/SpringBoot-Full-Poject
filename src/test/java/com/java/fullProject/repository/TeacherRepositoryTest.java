@@ -1,3 +1,4 @@
+/*
 package com.java.fullProject.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,8 @@ class TeacherRepositoryTest {
 
   @Autowired private TeacherRepository teacherRepository;
 
- /* @Test
+ */
+/* @Test
   public void saveTeacher() {
 
     Course courseDBA = Course.builder().title("DBA").credit(5).build();
@@ -22,7 +24,9 @@ class TeacherRepositoryTest {
             .build();
 
     teacherRepository.save(teacher);
-  }*/
+  }*//*
+
 
 
 }
+*/

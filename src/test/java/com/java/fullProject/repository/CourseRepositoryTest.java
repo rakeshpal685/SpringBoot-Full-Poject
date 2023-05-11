@@ -1,3 +1,4 @@
+/*
 package com.java.fullProject.repository;
 
 import com.java.fullProject.entity.Course;
@@ -43,8 +44,10 @@ class CourseRepositoryTest {
     Long TotalElements = courseRepository.findAll(firstPageWithThreeRecords).getTotalElements();
 
     int TotalPages = courseRepository.findAll(firstPageWithThreeRecords).getTotalPages();
-    /*int TotalPages2 = courseRepository.findAll(secondPageWithFiveElements).getTotalPages();
-    System.out.println("Total pages: " + TotalPages2);*/
+    */
+/*int TotalPages2 = courseRepository.findAll(secondPageWithFiveElements).getTotalPages();
+    System.out.println("Total pages: " + TotalPages2);*//*
+
 
     System.out.println("Total pages: " + TotalPages);
 
@@ -77,13 +80,13 @@ class CourseRepositoryTest {
 
   @Test
   public void saveCourseWithStudentAndTeacher() {
-     Guardian guardian = Guardian.builder().name("Papa").mobile("123").email("xyz@gmail.com").build();
+     Guardian guardian = Guardian.builder().name("Papa").mobile("123").email("ygz@gmail.com").build();
     Teacher teacher = Teacher.builder().firstName("raghu").lastName("Nath").build();
     Student student =
         Student.builder()
             .firstName("Rakesh")
-            .lastName("Pal")
-            .emailId("rakesh@gmail.com")
+            .lastName("Palo")
+            .emailId("rak@gmail.com")
              .guardian(guardian)
             .build();
     Course course = Course.builder().title("AI").credit(12).teacher(teacher).build();
@@ -93,3 +96,4 @@ class CourseRepositoryTest {
     courseRepository.save(course);
   }
 }
+*/

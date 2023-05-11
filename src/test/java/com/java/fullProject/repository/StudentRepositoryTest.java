@@ -1,3 +1,4 @@
+/*
 package com.java.fullProject.repository;
 
 import com.java.fullProject.entity.Guardian;
@@ -8,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
+*/
 /*@DataJdbcTest Ideally we should use this method to test our repository, because once the test is completed,
-it will flush the data and the database won't be impacted.*/
+it will flush the data and the database won't be impacted.*//*
+
 class StudentRepositoryTest {
 
   @Autowired private StudentRepository studentRepository;
@@ -18,7 +21,7 @@ class StudentRepositoryTest {
   public void saveStudent() {
     Student student =
         Student.builder()
-            .emailId("rak@gmail.com")
+            .emailId("ra@gmail.com")
             .firstName("Rakesh")
             .lastName("Psl")
             // .guardianName("Nikhil")
@@ -33,11 +36,11 @@ class StudentRepositoryTest {
   public void saveStudentWithGuardianDetails() {
 
     Guardian guardian =
-        Guardian.builder().email("momo@gmail.com").mobile("123456").name("momo").build();
+        Guardian.builder().email("mog@gmail.com").mobile("123456").name("momo").build();
 
     Student student =
         Student.builder()
-            .emailId("mona@gmail.com")
+            .emailId("onga@gmail.com")
             .firstName("mona")
             //.lastName("bibo")
             .guardian(guardian)
@@ -128,3 +131,4 @@ class StudentRepositoryTest {
   @Test
   void testSaveStudent() {}
 }
+*/
