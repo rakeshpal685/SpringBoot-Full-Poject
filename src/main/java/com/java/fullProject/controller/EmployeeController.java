@@ -8,12 +8,14 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import java.util.List;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/empController")
@@ -31,7 +33,9 @@ public class EmployeeController {
   take the  body of the request (json) and add to our method, (Internally DispatcherServlet will convert the json to
   java object and map it to the parameter of the method*/
   @PostMapping(value = "/save", consumes = "application/json")
-  public ResponseEntity<Employees> saveEmployee(@RequestBody Employees employees) {
+  /*Here we are using @Valid to validate our data that is saved in the entity,in entity we have defined
+  some validations for the fields and it will check whether the validations matches or not*/
+  public ResponseEntity<Employees> saveEmployee(@Valid @RequestBody Employees employees) {
     return new ResponseEntity<Employees>(
         employeeService.saveEmployees(employees), HttpStatus.CREATED);
   }
@@ -52,7 +56,7 @@ public class EmployeeController {
         @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
         @ApiResponse(responseCode = "404", description = "Employee not found", content = @Content)
       })
-  public ResponseEntity<List<Employees>> getAllEmployee() {
+  public ResponseEntity<List<EmployeesResponse>> getAllEmployee() {
     return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAllEmployees());
 /*    Rather than creating a new ResponseEntity<> object like below we can do this also*/
   }

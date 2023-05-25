@@ -1,10 +1,16 @@
 package com.java.fullProject.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
-import lombok.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
@@ -23,9 +29,13 @@ public class Employees {
   private String emName;
 
   @Column(name = "status")
+  @Size(min = 1,max = 5)
   private String status;
 
   @Column(name = "salary")
+  @NotBlank(message = "The salary cannot be blank")
+/*  Most of the time we don't pass our entity directly, we create a dto or model, hence we have to use
+  these validations over there also.*/
   private Integer salary;
 
   @Column(name = "date_created",updatable = false)

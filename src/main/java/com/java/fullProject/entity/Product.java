@@ -1,12 +1,11 @@
 package com.java.fullProject.entity;
 
-import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 /*This annotation is used to tell springframework that this class is an entity,
 i.e, create a database table with the given class name and column name as the local fields name.*/

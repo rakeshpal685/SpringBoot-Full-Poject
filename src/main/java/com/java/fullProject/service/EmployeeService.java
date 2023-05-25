@@ -2,15 +2,14 @@ package com.java.fullProject.service;
 
 import com.java.fullProject.EmployeeModel.EmployeesResponse;
 import com.java.fullProject.entity.Employees;
-import org.springframework.data.domain.Pageable;
-
 import java.util.List;
+import org.springframework.data.domain.Pageable;
 
 public interface EmployeeService {
 
    Employees saveEmployees(Employees employees);
 
-   List<Employees> getAllEmployees();
+    List<EmployeesResponse> getAllEmployees();
 
     EmployeesResponse getEmployeeById(int id);
 

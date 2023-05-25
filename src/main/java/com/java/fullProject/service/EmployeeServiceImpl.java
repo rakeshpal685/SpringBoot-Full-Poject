@@ -4,6 +4,7 @@ import com.java.fullProject.EmployeeModel.EmployeesResponse;
 import com.java.fullProject.entity.Employees;
 import com.java.fullProject.exception.customException.ResourceNotFound;
 import com.java.fullProject.repository.EmployeeRepo;
+import java.util.Arrays;
 import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Autowired private EmployeeRepo employeeRepo;
 
   @Autowired
-  /*We will use modelMapper to map our entity to the model mapper, for this we have to adda maven dependency
+  /*We will use modelMapper to map our entity to the model mapper, for this we have to add a maven dependency
   and create a bean also */
   private ModelMapper modelMapper;
 
@@ -28,9 +29,11 @@ public class EmployeeServiceImpl implements EmployeeService {
   }
 
   @Override
-  public List<Employees> getAllEmployees() {
+  public List<EmployeesResponse> getAllEmployees() {
     List<Employees> employeesList = employeeRepo.findAll();
-    return employeesList;
+    List<EmployeesResponse> employeesResponse =
+        Arrays.asList(modelMapper.map(employeesList, EmployeesResponse[].class));
+    return employeesResponse;
   }
 
   public EmployeesResponse getEmployeeById(int id) {

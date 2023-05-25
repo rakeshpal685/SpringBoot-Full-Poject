@@ -44,8 +44,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
   @Query("select s.firstName from Student s where s.guardian.name = ?1")
   List<String> getStudentFirstNameByGuardianName(String guardianName);
 
-  /*If we have some complex query that we cannot define by using JPQL then we can use DB native query also
-   * we have to use native=true with the query*/
+    /*If we have some complex query that we cannot define by using JPQL then we can use DB native query also
+     * we have to use native=true with the query*/
   @Query(
       value = "select first_name from tbl_student s where s.guardian_name = ?1",
       nativeQuery = true)
