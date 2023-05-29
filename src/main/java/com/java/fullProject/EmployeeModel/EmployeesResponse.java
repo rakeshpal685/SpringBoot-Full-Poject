@@ -1,6 +1,6 @@
 package com.java.fullProject.EmployeeModel;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -18,7 +18,7 @@ public class EmployeesResponse {
   private String status;
 
   //see the entity class for more information
-  @NotBlank(message = "The salary cannot be blank")
+  @NotNull(message = "The salary cannot be blank")
   private Integer salary;
 
   private LocalDate date_created;

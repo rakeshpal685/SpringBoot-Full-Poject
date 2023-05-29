@@ -10,7 +10,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -85,11 +84,11 @@ public class EmployeeController {
         employeeService.getEmployeeById(id), HttpStatus.OK);
   }
 
-  @GetMapping(value = "/listPageable")
-  // http://localhost:8080/empController/listPageable?page=0&size=2
-  public ResponseEntity<List<Employees>> employeesPageable(Pageable pageable) {
+  @GetMapping(value = "/pagination/{offset}/{pageSize}")
+  // http://localhost:8080/empController/listPageable/0/2
+  public ResponseEntity<List<Employees>> employeesPageable(@PathVariable int offset, @PathVariable int pageSize) {
     return new ResponseEntity<List<Employees>>(
-            employeeService.employeesPageable(pageable), HttpStatus.OK);
+            employeeService.employeesPageable(offset, pageSize), HttpStatus.OK);
   }
   
   @PutMapping("{id}")
@@ -105,5 +104,19 @@ public class EmployeeController {
     return new ResponseEntity<String>("Employee deleted successfully", HttpStatus.OK);
   }
 
- 
+
+//  Here we are sorting the employees based on the attribute of the employee class that we will pass in the URL
+  @GetMapping("/{field}")
+  public ResponseEntity<List<Employees>> getEmployeeWithSort(@PathVariable String field) {
+    return new ResponseEntity<>(employeeService.findEmployeeWithSorting(field), HttpStatus.OK);
+  }
+
+  //Here we are applying both pagination and sorting
+  @GetMapping(value = "/paginationAndSort/{offset}/{pageSize}/{field}")
+  // http://localhost:8080/empController/listPageable/0/2
+  public ResponseEntity<List<Employees>> employeesPageableAndSorting(@PathVariable int offset, @PathVariable int pageSize, @PathVariable String field) {
+    return new ResponseEntity<List<Employees>>(
+            employeeService.findEmployeeWithPaginationAndSorting(offset, pageSize,field), HttpStatus.OK);
+  }
+
 }

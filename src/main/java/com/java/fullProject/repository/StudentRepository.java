@@ -1,13 +1,14 @@
 package com.java.fullProject.repository;
 
 import com.java.fullProject.entity.Student;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
@@ -76,5 +77,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
   @Modifying
   @Transactional
   int updateStudentByEmailId(@Param("name") String name, @Param("mail") String email);
-  
+
+
+
 }
