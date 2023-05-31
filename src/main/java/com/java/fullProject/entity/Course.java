@@ -1,12 +1,13 @@
 package com.java.fullProject.entity;
 
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*Here my Course Class has one to one mapping with the CourseMaterial class and I have already defined the
 relationship in CourseMaterial class. Now here I have to define CourseMaterial also and provide just
@@ -32,7 +33,7 @@ public class Course {
   private CourseMaterial courseMaterial;
 
   // Many Courses are taught by any one teacher.
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
   @JoinColumn(name = "teacher_Id", referencedColumnName = "teacherId")
   private Teacher teacher;
 
