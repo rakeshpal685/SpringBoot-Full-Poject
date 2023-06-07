@@ -16,7 +16,7 @@ public class JsonConverter {
         File JsonFile = new File("C:\\WorkSpace\\springBootPractice\\springBootPractice\\src\\main\\java\\com\\example\\springBootPractice\\Testing\\Sample.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
-        //This is used if we don't want any property from json in our object adn still want to construct the object
+        //This is used if we don't want any property from json in our object and still want to construct the object
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         //To read the json from the file and get the output as Array.
@@ -35,6 +35,18 @@ public class JsonConverter {
 
        //map.values().forEach(n-> System.out.println(n));
        // list.stream().filter(c->c.getColor().equals("black")).forEach(c-> System.out.println(c.getClass().getName()));
+
+        //To write an object to json format
+        Color color= new Color();
+        color.setColor("Blundi");
+        color.setCategory("mustin");
+        color.setType("Bald");
+        Code code= new Code();
+        code.setRgba(new String[]{"12","4","43"});
+        code.setHex("111111");
+        color.setCode(code);
+
+        objectMapper.writeValue(new File("path of the file where you want to store JSON"),color);
     }
 
 
