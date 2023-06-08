@@ -67,6 +67,11 @@ public class EmployeeController {
         "application/json",
         "application/xml"
       } // If our project has JAX-B dependency then it will return xml value.
+        /*Or we can use
+      produces={
+                  MediaType.APPLICATION_JSON_VALUE,
+                  MediaType.APPLICATION_XML_VALUE
+      }*/
       )
   public ResponseEntity<EmployeesResponse> getEmployeeById(@PathVariable("id") int empid) {
     return new ResponseEntity<EmployeesResponse>(
