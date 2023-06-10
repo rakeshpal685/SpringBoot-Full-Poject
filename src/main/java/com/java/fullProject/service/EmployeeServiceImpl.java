@@ -2,7 +2,7 @@ package com.java.fullProject.service;
 
 import com.java.fullProject.EmployeeModel.EmployeesResponse;
 import com.java.fullProject.entity.Employees;
-import com.java.fullProject.exception.customException.ResourceNotFound;
+import com.java.fullProject.exception.customException.EmployeeNotFound;
 import com.java.fullProject.repository.EmployeeRepo;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -49,7 +49,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         //        }
         // same in lambda
         Employees employee =
-                employeeRepo.findById(id).orElseThrow(() -> new ResourceNotFound("Employee", "id", id));
+                employeeRepo.findById(id).orElseThrow(() -> new EmployeeNotFound("Employee not found in the database"));
         // All the fields of our Employees entity will be mappd to the EmployeeResponse model
         EmployeesResponse employeesResponse = modelMapper.map(employee, EmployeesResponse.class);
         return employeesResponse;
@@ -60,7 +60,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         // We need to check if the id is present or not
         Employees existingEmployee =
-                employeeRepo.findById(id).orElseThrow(() -> new ResourceNotFound("Employee", "id", id));
+                employeeRepo.findById(id).orElseThrow(() -> new EmployeeNotFound("Employee not found in the database"));
 
         // Now we will set our data from the newly fetched data.
         existingEmployee.setEmName(updatedEmployeeData.getEmName());
@@ -74,7 +74,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void deleteEmployee(int id) {
-        employeeRepo.findById(id).orElseThrow(() -> new ResourceNotFound("Employee", "id", id));
+        employeeRepo.findById(id).orElseThrow(() -> new EmployeeNotFound("Employee not found in the database"));
         employeeRepo.deleteById(id);
     }
 

@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +34,10 @@ public class EmployeeController {
   java object and map it to the parameter of the method*/
   @PostMapping(value = "/save", consumes = "application/json")
   /*Here we are using @Valid to validate our data that is saved in the entity,in entity we have defined
-  some validations for the fields and it will check whether the validations matches or not*/
+  some validations for the fields and it will check whether the validations matches or not.
+
+  Here we are using @RequestBody, so that the value that is passed in the request body when we call the POST method, will get converted to Employee
+  object and the values will be mapped to the employee variables*/
   public ResponseEntity<Employees> saveEmployee(@Valid @RequestBody Employees employees) {
     return new ResponseEntity<Employees>(
         employeeService.saveEmployees(employees), HttpStatus.CREATED);
@@ -60,23 +64,51 @@ public class EmployeeController {
 /*    Rather than creating a new ResponseEntity<> object like below we can do this also*/
   }
 
-  /*PathParameter can be present anywhere in the URl, we just have to keep it inside the {}, /getEmployeeById/{id}/data*/
+  /*Path variable can be present anywhere in the URl, we just have to keep it inside the {}, /getEmployeeById/{id}/data*/
   @GetMapping(
       value = "/getEmployeeById/{id}",
-      produces = {
+     /* produces = {
         "application/json",
         "application/xml"
-      } // If our project has JAX-B dependency then it will return xml value.
+      } // If our project has JAX-B dependency then it will return xml value.*/
+          produces = {
+                  MediaType.APPLICATION_JSON_VALUE,
+                  MediaType.APPLICATION_XML_VALUE}
       )
-  public ResponseEntity<EmployeesResponse> getEmployeeById(@PathVariable("id") int empid) {
+  public ResponseEntity<EmployeesResponse> getEmployeeById(@PathVariable("id") int eId) {
+   /* Here if the "/getEmployeeById/{NAME}" is same as "int NAME" then we don't have to give "@PathVariable("NAME")"
+      or else we have any other reference "int xyz" then we have to use "@PathVariable("NAME")"*/
     return new ResponseEntity<EmployeesResponse>(
-        employeeService.getEmployeeById(empid), HttpStatus.OK);
+        employeeService.getEmployeeById(eId), HttpStatus.OK);
   }
 
+/*  Here in this case, Spring will throw an error, it will say ambiguous handler mapper, because the above
+ uri "/getEmployeeById/{id}" and the below uri "/getEmployeeByName/{name}" is same for the spring, here
+ id and name are path variable not parameters, hence spring will get confused that which uri to call
+ because id and name are passed dynamically. This will happen if both the uri is of same request type, if
+  they are of different request type,let's say GET and POST then for same uri, there won't be any issue,
+  to resolve this we have to use params="anything", the calling uri will be /getEmployeeByName/rakesh?xyz
+*/
+/*  @GetMapping(
+          value = "/getEmployeeByName/{name}", params = "xyz",
+          produces = {
+                  "application/json",
+                  "application/xml"
+          } // If our project has JAX-B dependency then it will return xml value.
+  )
+  public ResponseEntity<EmployeesResponse> getEmployeeByName(@PathVariable String name) {
+   *//* Here if the "/getEmployeeById/{NAME}" is same as "int NAME" then we don't have to give "@PathVariable("NAME")"
+      or else we have any other reference "int xyz" then we have to use "@PathVariable("NAME")"*//*
+    return new ResponseEntity<EmployeesResponse>(
+            employeeService.getEmployeeByName(name), HttpStatus.OK);
+  }*/
+
+  /*Try to avoid query parameters as much as possible, because we are sending data in the url and moreover
+  if we have multiple parameters to pass then we have to capture all of them using @RequestParam one by one.*/
   @GetMapping(value = "/getEmployeeById")
   /*Here I will use query parameter while calling the get mapping (http://localhost:8080/empController/getEmployeeById?id=5)
   anything after the ? will be treated as Query parameter and we have to use @RequestParam to capture the data, Query param will be present
-  in key:value pair. We can have multiple parameters (they wil be separated by & in the url, http://localhost:8080/empController/getEmployeeById?id=5&userName=rakesh)
+  in key:value pair. We can have multiple parameters (they will be separated by & in the url, http://localhost:8080/empController/getEmployeeById?id=5&userName=rakesh)
   and in that case we have to capture both the parameters using @RequestParam*/
   public ResponseEntity<EmployeesResponse> getEmployeeByIdUsingQueryParam(
       @RequestParam("id") Integer id) {
