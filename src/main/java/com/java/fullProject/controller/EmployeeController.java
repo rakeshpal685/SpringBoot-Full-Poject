@@ -69,6 +69,7 @@ public class EmployeeController {
       } // If our project has JAX-B dependency then it will return xml value.
       )
   public ResponseEntity<EmployeesResponse> getEmployeeById(@PathVariable("id") int empid) {
+    //Here if the name of the argument in uri is same as the name of the parameter in the method, then we don't need to use the name in @PathVariable
     return new ResponseEntity<EmployeesResponse>(
         employeeService.getEmployeeById(empid), HttpStatus.OK);
   }
