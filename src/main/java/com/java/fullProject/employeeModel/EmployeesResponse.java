@@ -1,4 +1,4 @@
-package com.java.fullProject.EmployeeModel;
+package com.java.fullProject.employeeModel;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

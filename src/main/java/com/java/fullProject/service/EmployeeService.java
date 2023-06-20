@@ -1,6 +1,6 @@
 package com.java.fullProject.service;
 
-import com.java.fullProject.EmployeeModel.EmployeesResponse;
+import com.java.fullProject.employeeModel.EmployeesResponse;
 import com.java.fullProject.entity.Employees;
 
 import java.util.List;

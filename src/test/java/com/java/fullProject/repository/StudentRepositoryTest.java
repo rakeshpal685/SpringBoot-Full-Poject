@@ -3,46 +3,50 @@ package com.java.fullProject.repository;
 
 import com.java.fullProject.entity.Guardian;
 import com.java.fullProject.entity.Student;
-import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 */
 /*@DataJdbcTest Ideally we should use this method to test our repository, because once the test is completed,
 it will flush the data and the database won't be impacted.*//*
 
+
 class StudentRepositoryTest {
 
   @Autowired private StudentRepository studentRepository;
 
-  @Test
+*/
+/*  @Test
   public void saveStudent() {
     Student student =
         Student.builder()
             .emailId("ra@gmail.com")
             .firstName("Rakesh")
             .lastName("Psl")
-            // .guardianName("Nikhil")
-            // .guardianEmail("pompom@gmail.com")
-            // .guardianMobile("000909090")
+             .guardianName("Nikhil")
+             .guardianEmail("pompom@gmail.com")
+             .guardianMobile("000909090")
             .build();
 
-   // studentRepository.save(student);
-  }
+    studentRepository.save(student);
+  }*//*
+
 
   @Test
   public void saveStudentWithGuardianDetails() {
 
     Guardian guardian =
-        Guardian.builder().email("mog@gmail.com").mobile("123456").name("momo").build();
+        Guardian.builder().email("moi@gmail.com").mobile(12350).name("mom").build();
 
     Student student =
         Student.builder()
-            .emailId("onga@gmail.com")
-            .firstName("mona")
-            //.lastName("bibo")
+            .emailId("onpii@gmail.com")
+            .firstName("mon")
+            .lastName("bibpiy")
             .guardian(guardian)
             .build();
 
@@ -130,5 +134,12 @@ class StudentRepositoryTest {
 
   @Test
   void testSaveStudent() {}
+
+
+  @Test
+  void findByGuardianMobileBetween() {
+    List<Student> byGuardianMobileBetween = studentRepository.findByGuardianMobileBetween(12345, 12349);
+    byGuardianMobileBetween.forEach(System.out::println);
+  }
 }
 */

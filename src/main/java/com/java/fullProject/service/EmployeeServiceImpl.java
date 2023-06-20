@@ -1,6 +1,6 @@
 package com.java.fullProject.service;
 
-import com.java.fullProject.EmployeeModel.EmployeesResponse;
+import com.java.fullProject.employeeModel.EmployeesResponse;
 import com.java.fullProject.entity.Employees;
 import com.java.fullProject.exception.customException.EmployeeNotFound;
 import com.java.fullProject.repository.EmployeeRepo;

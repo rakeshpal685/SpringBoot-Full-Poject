@@ -16,5 +16,6 @@ public class EmployeeErrorResponse {
     private String errorMessage;
     private LocalDateTime dateTime;
     private String errorClass;
+    private String myCustomErrorMessage;
 
 }

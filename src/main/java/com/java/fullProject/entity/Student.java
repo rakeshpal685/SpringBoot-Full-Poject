@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -43,8 +45,29 @@ public class Student {
   @Column(name = "email_address", nullable = false)
   private String emailId;
 
+  //This is used to store collection type data for a field. default fetch type is lazy.
+  @ElementCollection//This tells hibernate that this is embeddable type.
+  @CollectionTable(name = "nicknamesTable", //name of the 3rd table formed
+          joinColumns=@JoinColumn(name = "stud_id"))//name of the 3rd table foreign key column
+  /*This will tell hibernate that we want to store the list/map of the nickNames in a different table with
+table name as nicknamesTable in OneToMAny mapping kind of thing. which have the foreign key as the primary key
+of this main table (stud_id is the name of the foreign key which will automatically refer to the @id of this
+class as primary key).
+By default, the column name would be CLassname_Variablename.
+Here also we don't have nay primary key for the table that is created, it is somewhat similar to the embedded type
+but just that here a separate table will be created.*/
+  @Column(name = "nick_name")
+/*  @MapKeyColumn(name = "nameType")//If we want to store map value then we can use this, this will ack as a key*/
+  private List<String> nickNames;
+
   @Embedded
-  // This annotation will tell spring that the fields in Guardian class will be added to the Student
-  // entity.
+  /*This annotation will tell spring that the fields in Guardian class will be added to the Student entity.
+  * Here guardian is a value field of type Guardian, just like emailId above is a value field of type String,
+there won't be nay separate table created for the Guardian, when ever we query for the student, the guardian
+will be queried automatically.the embedded class also won't have nay primary key and hence we can't query
+anything individually for the Guardian class.
+To query anything about the embedded class, we have to go through the main class, like here if we want to fetch
+name of the Guardian, then in Jpql we have to write "Student.guardian.name".
+* instead of writing @AttributeOverrides in the @Embeddable class we can write it here too*/
   private Guardian guardian;
 }
