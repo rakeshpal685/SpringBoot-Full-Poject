@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "composit_Id_Example")
-@IdClass(StudentId.class)/*This class will hold the attributes which will make up my composite primary key.
+/*@IdClass(StudentId.class)This class will hold the attributes which will make up my composite primary key.
 If we are using @EmbeddedId then we don't have to write this*/
 public class CompositKey {
 
