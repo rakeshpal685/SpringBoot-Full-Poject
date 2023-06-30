@@ -111,15 +111,15 @@ create table authorities (
     /*This is how we use UserDetailsService for authentication*/
 
 /*    @Autowired
-    private MyUserDetailsServiceForAuthentication userDtlsService;
+    private MyUserDetailsServiceForAuthentication MyUserDtlsService;
 
-    *//*When the data in the form is submitted then AuthenticationManagerBuilder is called, AuthenticationManagerBuilder  will call MyUserDetailsServiceForAuthentication
+    When the data in the form is submitted then AuthenticationManagerBuilder is called, AuthenticationManagerBuilder will call MyUserDetailsServiceForAuthentication
 class and as MyUserDetailsServiceForAuthentication class implements UserDetailsService it will by default call loadUserByUsername method and see if
-the value given in the form is present in the DB or not. *//*
+the value given in the form is present in the DB or not.
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         //Here we are passing our class to AuthenticationManagerBuilder to match the user data
-        auth.userDetailsService(userDtlsService)
+        auth.userDetailsService(MyUserDtlsService)
                 //.passwordEncoder(NoOpPasswordEncoder.getInstance());
                 .passwordEncoder(new BCryptPasswordEncoder());
     }*/

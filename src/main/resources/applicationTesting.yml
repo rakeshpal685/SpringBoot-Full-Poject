@@ -1,0 +1,7 @@
+myaddress: |  #We will use pipe, if we want to print anything just like in the format as we have declared,
+#at the end we have a new line and lets suppose we want to add few blank lines at the end and want spring to
+#pick that up also then we will use |+ for that else only with pipe it will exclude all the blank likes at the end.
+            line 1
+            line 2
+            India
+            178823

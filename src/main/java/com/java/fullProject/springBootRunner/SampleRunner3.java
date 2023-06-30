@@ -9,10 +9,11 @@ import org.springframework.stereotype.Component;
 We have used @Order to tell in which order the runners should be executed, if it is not given then the runners
 will be executed in alphabetical order of the class name*/
 @Component
-@Order(1)
+@Order(1)//If we have multiple runners then this decides in which order they will run
 public class SampleRunner3 implements ApplicationRunner {
     //We can use commandLineRunner too, but it is now legacy
 //public class SampleRunner3 implements CommandLineRunner {
+
 
     @Override
     public void run(ApplicationArguments args) throws Exception {

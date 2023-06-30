@@ -91,6 +91,16 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- This dependency is added when we want to create our own property in the application.properties
+          file, check MyOwnPropertiesForApplicationPropertiesFile for more info, make sure that the lombok dependency is defined before the
+          spring-boot-configuration-processor dependency.-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
     </dependencies>
 
     <build>

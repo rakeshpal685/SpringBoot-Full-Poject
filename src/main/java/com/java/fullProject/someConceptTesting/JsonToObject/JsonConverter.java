@@ -1,4 +1,4 @@
-package com.java.fullProject.JsonToObject;
+package com.java.fullProject.someConceptTesting.JsonToObject;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

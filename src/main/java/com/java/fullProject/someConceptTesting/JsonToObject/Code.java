@@ -1,4 +1,4 @@
-package com.java.fullProject.JsonToObject;
+package com.java.fullProject.someConceptTesting.JsonToObject;
 
 
 import lombok.Data;

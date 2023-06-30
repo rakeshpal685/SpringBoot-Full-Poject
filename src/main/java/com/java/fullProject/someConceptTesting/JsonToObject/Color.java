@@ -1,4 +1,4 @@
-package com.java.fullProject.JsonToObject;
+package com.java.fullProject.someConceptTesting.JsonToObject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,4 +1,4 @@
-package com.java.fullProject.consumingAPIUsingRestTemplate;
+package com.java.fullProject.someConceptTesting.consumingAPIUsingRestTemplate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;

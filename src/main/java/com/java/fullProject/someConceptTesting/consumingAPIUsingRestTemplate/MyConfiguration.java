@@ -1,4 +1,4 @@
-package com.java.fullProject.consumingAPIUsingRestTemplate;
+package com.java.fullProject.someConceptTesting.consumingAPIUsingRestTemplate;
 
 
 import org.springframework.context.annotation.Bean;
