@@ -1,7 +1,7 @@
 package com.java.fullProject.service;
 
 import com.java.fullProject.employeeModel.EmployeesResponse;
-import com.java.fullProject.entity.Employees;
+import com.java.fullProject.entities.Employees;
 
 import java.util.List;
 

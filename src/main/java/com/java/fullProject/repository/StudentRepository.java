@@ -1,6 +1,6 @@
 package com.java.fullProject.repository;
 
-import com.java.fullProject.entity.Student;
+import com.java.fullProject.entities.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -17,8 +17,14 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
   For more info check this https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.details and
   https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords,
   https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
-   Here the name of the method has to be in camel case and must match with the variable name of the entity*/
+
+   Here the name of the method has to be in camel case and must match with the variable name of the entity,
+   WHILE USING JPQL WE WILL USE ENTITY NAME AND VARIABLES NAME, IN NATIVE QUERY WE WILL USE TABLE NAME AND COLUMN NAME,
+   Before writing your custom query just check once that the query is present in boot Query or not
+ */
   List<Student> findByFirstName(String firstName);
+/*  We can use getByXyz also
+List<Student> getByFirstName(String firstName); This will also return the same result as findBy method*/
 
   // This is also Query method, we have to take care while writing the name of the method, camel case and variable name.
   List<Student> readByLastName(String lastName);
@@ -33,6 +39,9 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
   //@Query("FROM Student WHERE guardian.mobile BETWEEN :first AND :last")
   List<Student> findByGuardianMobileBetween(Integer first, Integer last);
 
+  /*Returns the number of Student with the given first name*/
+  long countByFirstName(String firstName);
+
   /*Now if we are not even satisfied with Query Creation we can pass our own JPQL and SQL queries too,JPQL queries uses
   class's attributes not table, and hence these queries are DB independent.
   https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.at-query*/
@@ -40,8 +49,9 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
   /*Here Student is the Entity class name not the table name and emailid is variable name not the table row name
   ?1 maps the first parameter of the method to the placeholder.
   However, rather than placing the values in placeholders like ?1, ?2 ,the better approach is to use named
-  params, see below for example*/
+  params, see below getStudentsByStudentIdAndFirstName() for example*/
   @Query("select s from Student s where s.emailId = ?1")
+  //@Query("from Student s where s.emailId = ?1") select is optional, and we can replace the above query with this
   List<Student> getStudentByEmail(String email);
 
   @Query("select s.firstName from Student s where s.emailId = ?1")
@@ -50,9 +60,11 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
   @Query("select s.firstName from Student s where s.guardian.name = ?1")
   List<String> getStudentFirstNameByGuardianName(String guardianName);
 
-  /*If we have some complex query that we cannot define by using JPQL then we can use DB native query also
+  /*WHILE USING JPQL WE WILL USE ENTITY NAME AND VARIABLES NAME, IN NATIVE QUERY WE WILL USE TABLE NAME AND COLUMN NAME
+  If we have some complex query that we cannot define by using JPQL then we can use DB native query also
   *we have to use native=true with the query and the field names used in the query will be table column names,
-  * while using native query, we don't have to give alias name to the table, the below query can be written as
+  * while using native query,it is not necessary to give alias name to the table, but it's a good practice to do so,
+  *the below query can be written as
   *select first_name from tbl_student where guardian_name = ?1 */
   @Query(
       value = "select first_name from tbl_student s where s.guardian_name = ?1",
@@ -93,4 +105,21 @@ else it will throw an error. eg:-@Query(value=" select * from student where name
   @Query(value = "select s.country, sum(s.age) from student s group by s.country")
   List<Student> getSumOfStudentAgeGroupByCountry();
   instead of sum we can use count(s.id) to get the total number of students from specific countries*/
+
+  //First 2 most costly products or first 2 employees taking most salary
+     List<Student> findTop2ByFirstNameOrderByStudentIdDesc(String name);
+
+     //List<Student> findLastNameByStudentId(int id); not working
+
+/*Here we are using a separate interface called StudentRepositoryDTOForFewFields which have two fields
+of the StudentRepository, so we can get all the values of the Student and map it to this interface to
+get just the fields specified in the new interface.See the test for the output.
+While using native query this might cause an error, so we have to write the native query with alias name
+"select first_name as firstName, last_name as lastname from Student s where s.....".Here we have to use
+column name as usual in native query but for alias we have to use the property name of the main repo
+i.e, StudentRepository. See below getByFirstNameNativeQuery method*/
+  List<StudentRepositoryDTOForFewFields> getByFirstName(String firstName);
+
+  @Query(value = "select first_name as firstName, last_name as lastName from tbl_student s where s.first_name=?1", nativeQuery = true)
+  List<StudentRepositoryDTOForFewFields> getByFirstNameNativeQuery(String firstName);
 }

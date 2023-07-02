@@ -1,4 +1,4 @@
-package com.java.fullProject.entity;
+package com.java.fullProject.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -46,15 +46,15 @@ public class Student {
   private String emailId;
 
   //This is used to store collection type data for a field. default fetch type is lazy.
-  @ElementCollection//This tells hibernate that this is embeddable type.
+  @ElementCollection(fetch = FetchType.EAGER)//This tells hibernate that this is embeddable type.
   @CollectionTable(name = "nicknamesTable", //name of the 3rd table formed
           joinColumns=@JoinColumn(name = "stud_id"))//name of the 3rd table foreign key column
   /*This will tell hibernate that we want to store the list/map of the nickNames in a different table with
 table name as nicknamesTable in OneToMAny mapping kind of thing. which have the foreign key as the primary key
 of this main table (stud_id is the name of the foreign key which will automatically refer to the @id of this
 class as primary key).
-By default, the column name would be CLassname_Variablename.
-Here also we don't have nay primary key for the table that is created, it is somewhat similar to the embedded type
+By default, the column name would be Classname_Variablename.
+Here also we don't have any primary key for the table that is created, it is somewhat similar to the embedded type
 but just that here a separate table will be created.*/
   @Column(name = "nick_name")
 /*  @MapKeyColumn(name = "nameType")//If we want to store map value then we can use this, this will ack as a key*/

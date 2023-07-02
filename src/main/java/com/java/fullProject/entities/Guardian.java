@@ -1,4 +1,4 @@
-package com.java.fullProject.entity;
+package com.java.fullProject.entities;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;

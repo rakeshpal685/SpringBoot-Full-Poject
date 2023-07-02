@@ -1,4 +1,4 @@
-package com.java.fullProject.entity.compositPrimaryKey;
+package com.java.fullProject.entities.compositPrimaryKey;
 
 import jakarta.persistence.*;
 import lombok.Data;

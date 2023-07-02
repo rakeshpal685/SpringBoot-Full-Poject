@@ -1,0 +1,16 @@
+=================Annotations for testing======================
+
+1. @SpringBootTest - This will load all the beans from the context which will be heavy when we are just testing
+for a specific layer only
+
+2. @DataJpaTest - use this to test for repo layer, Ideally we should use this method to test our repository,
+because once the test is completed, it will flush the data and the database won't be impacted.
+
+3.@ComponentScan(basePackage="com,xyz.abc") - Use this to get the beans from the package specified in your
+testing class. We can use this with other annotations too.
+
+4.@ComponentScan(basePackageClasses="com,xyz.abc"), to get the bean of that particular class.
+
+5. When we are saving something in the @Test method, everything happens inside a transactional space,
+everything will be rolled back when the method ends. To persist the changes permanently in testing we can use
+@Rollback(false) or use @commit, which uses @Rollback internally.

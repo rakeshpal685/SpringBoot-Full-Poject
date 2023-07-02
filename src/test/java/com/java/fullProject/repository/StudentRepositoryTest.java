@@ -1,25 +1,30 @@
-/*
 package com.java.fullProject.repository;
 
-import com.java.fullProject.entity.Guardian;
-import com.java.fullProject.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-@SpringBootTest
+@SpringBootTest//This will load all the beans from the context which will be heavy when we are just testing
+/*for the repo layer only
+@DataJpaTest//use this to test for repo layer, Ideally we should use this method to test our repository, because once the test is completed,
+it will flush the data and the database won't be impacted.
+
+If we use the above annotation and try to test our other layers like controller or service then
+those beans won't be available here
+@Autowired
+StudentController studentController;
 */
-/*@DataJdbcTest Ideally we should use this method to test our repository, because once the test is completed,
-it will flush the data and the database won't be impacted.*//*
+
 
 
 class StudentRepositoryTest {
 
-  @Autowired private StudentRepository studentRepository;
+    @Autowired
+    private StudentRepository studentRepository;
 
-*/
+
 /*  @Test
   public void saveStudent() {
     Student student =
@@ -94,15 +99,39 @@ class StudentRepositoryTest {
   void getStudentByEmail() {
     List<Student> studentByEmail = studentRepository.getStudentByEmail("moka");
     studentByEmail.forEach(System.out::println);
-  }
+  }*/
 
-  @Test
-  void getStudentFirstNameByEmail() {
-    List<String> studentFirstNameByEmail = studentRepository.getStudentFirstNameByEmail("sonai@gmail.com");
-    System.out.println(studentFirstNameByEmail);
-  }
 
-  @Test
+    @Test
+    void getStudentFirstNameByEmail() {
+        List<String> studentFirstNameByEmail = studentRepository.getStudentFirstNameByEmail("onpi@gmail.com");
+        System.out.println(studentFirstNameByEmail);
+    }
+
+    @Test
+    void countByFirstName() {
+        System.out.println(studentRepository.countByFirstName("mon"));
+    }
+
+
+    @Test
+    void findTop2ByFirstNameOrderByStudentIdDesc() {
+        System.out.println(studentRepository.findTop2ByFirstNameOrderByStudentIdDesc("mon"));
+    }
+
+    @Test
+    void getByFirstName() {
+        List<StudentRepositoryDTOForFewFields> StudentDTO = studentRepository.getByFirstName("mon");
+        StudentDTO.stream().forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName()));
+    }
+
+    @Test
+    void getByFirstNameNativeQuery() {
+        List<StudentRepositoryDTOForFewFields> StudentDTO = studentRepository.getByFirstName("mon");
+        StudentDTO.stream().forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName()));
+    }
+
+/*  @Test
   void getStudentFirstNameByGuardianName() {
     List<String> name = studentRepository.getStudentFirstNameByGuardianName("lulo");
    name.forEach(System.out::println);
@@ -141,5 +170,7 @@ class StudentRepositoryTest {
     List<Student> byGuardianMobileBetween = studentRepository.findByGuardianMobileBetween(12345, 12349);
     byGuardianMobileBetween.forEach(System.out::println);
   }
+
+ */
 }
-*/
+

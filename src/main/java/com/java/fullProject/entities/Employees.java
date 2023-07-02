@@ -1,4 +1,4 @@
-package com.java.fullProject.entity;
+package com.java.fullProject.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

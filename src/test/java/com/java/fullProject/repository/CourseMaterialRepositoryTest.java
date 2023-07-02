@@ -7,7 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+/*@SpringBootTest//This will load all the beans from the context which will be heavy when we are just testing
+for the repo layer only
+@DataJpaTest//use this to test for repo layer, Ideally we should use this method to test our repository, because once the test is completed,
+it will flush the data and the database won't be impacted.
 class CourseMaterialRepositoryTest {
 
   @Autowired private CourseMaterialRepository courseMaterialRepository;

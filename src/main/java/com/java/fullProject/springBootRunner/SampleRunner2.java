@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Order(2)
-@PropertySource(value ={"classpath:application-anything.properties"})
+@PropertySource(value ={"classpath:application-otherthendefault.properties"})
 public class SampleRunner2 implements CommandLineRunner {
 
 /*    @Autowired

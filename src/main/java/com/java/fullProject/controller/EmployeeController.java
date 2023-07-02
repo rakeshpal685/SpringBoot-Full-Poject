@@ -1,7 +1,7 @@
 package com.java.fullProject.controller;
 
 import com.java.fullProject.employeeModel.EmployeesResponse;
-import com.java.fullProject.entity.Employees;
+import com.java.fullProject.entities.Employees;
 import com.java.fullProject.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -36,7 +36,7 @@ public class EmployeeController {
   /*Here we are using @Valid to validate our data that is saved in the entity,in entity we have defined
   some validations for the fields and it will check whether the validations matches or not*/
     public ResponseEntity<Employees> saveEmployee(@Valid @RequestBody Employees employees) {
-        return new ResponseEntity<Employees>(
+        return new ResponseEntity<>(
                 employeeService.saveEmployees(employees), HttpStatus.CREATED);
     }
 
@@ -71,7 +71,7 @@ public class EmployeeController {
     )
     public ResponseEntity<EmployeesResponse> getEmployeeById(@PathVariable("id") int empid) {
         //Here if the name of the argument in uri is same as the name of the parameter in the method, then we don't need to use the name in @PathVariable
-        return new ResponseEntity<EmployeesResponse>(
+        return new ResponseEntity<>(
                 employeeService.getEmployeeById(empid), HttpStatus.OK);
     }
 
@@ -93,14 +93,14 @@ public class EmployeeController {
   and in that case we have to capture both the parameters using @RequestParam*/
     public ResponseEntity<EmployeesResponse> getEmployeeByIdUsingQueryParam(
             @RequestParam("id") Integer id) {
-        return new ResponseEntity<EmployeesResponse>(
+        return new ResponseEntity<>(
                 employeeService.getEmployeeById(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/pagination/{offset}/{pageSize}")
     // http://localhost:8080/empController/listPageable/0/2
     public ResponseEntity<List<Employees>> employeesPageable(@PathVariable int offset, @PathVariable int pageSize) {
-        return new ResponseEntity<List<Employees>>(
+        return new ResponseEntity<>(
                 employeeService.employeesPageable(offset, pageSize), HttpStatus.OK);
     }
 
@@ -114,7 +114,7 @@ public class EmployeeController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") int empid) {
         employeeService.deleteEmployee(empid);
-        return new ResponseEntity<String>("Employee deleted successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Employee deleted successfully", HttpStatus.OK);
     }
 
 
@@ -128,7 +128,7 @@ public class EmployeeController {
     @GetMapping(value = "/paginationAndSort/{offset}/{pageSize}/{field}")
     // http://localhost:8080/empController/listPageable/0/2
     public ResponseEntity<List<Employees>> employeesPageableAndSorting(@PathVariable int offset, @PathVariable int pageSize, @PathVariable String field) {
-        return new ResponseEntity<List<Employees>>(
+        return new ResponseEntity<>(
                 employeeService.findEmployeeWithPaginationAndSorting(offset, pageSize, field), HttpStatus.OK);
     }
 

@@ -1,16 +1,14 @@
 package com.java.fullProject.repository;
 
-import com.java.fullProject.entity.Employees;
+import com.java.fullProject.entities.Employees;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Repository
 public interface EmployeeRepo extends JpaRepository<Employees, Integer> {
 
 

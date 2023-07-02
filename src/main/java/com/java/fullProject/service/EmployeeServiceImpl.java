@@ -1,7 +1,7 @@
 package com.java.fullProject.service;
 
 import com.java.fullProject.employeeModel.EmployeesResponse;
-import com.java.fullProject.entity.Employees;
+import com.java.fullProject.entities.Employees;
 import com.java.fullProject.exception.customException.EmployeeNotFound;
 import com.java.fullProject.repository.EmployeeRepo;
 import org.modelmapper.ModelMapper;
@@ -62,7 +62,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employees existingEmployee =
                 employeeRepo.findById(id).orElseThrow(() -> new EmployeeNotFound("Employee not found in the database"));
 
-        // Now we will set our data from the newly fetched data.
+        // Now we will set our updated employee data to the fetched employee above.
         existingEmployee.setEmName(updatedEmployeeData.getEmName());
         existingEmployee.setStatus(updatedEmployeeData.getStatus());
         existingEmployee.setSalary(updatedEmployeeData.getSalary());

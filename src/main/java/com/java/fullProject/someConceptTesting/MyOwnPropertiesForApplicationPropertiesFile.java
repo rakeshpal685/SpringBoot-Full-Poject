@@ -7,10 +7,10 @@ import java.util.List;
 
 /*@EnableConfigurationProperties(value ={MyOwnPropertiesForApplicationPropertiesFile.class}) write this on the main class,
 add spring-boot-configuration-processor dependency too.
-//@PropertySource(value = {"classpath:application-anything.properties"}) write this on the main class to load the properties from the specific file
+//@PropertySource(value = {"classpath:application-otherthendefault.properties"}) write this on the main class to load the properties from the specific file
 In second way, we can create a class here and create a @Bean of this class in @Configuration file and use @ConfigurationProperties on top of it.
 
-@PropertySource(value = {"classpath:application-anything.properties"}) This is used to load the properties from the specific file
+@PropertySource(value = {"classpath:application-otherthendefault.properties"}) This is used to load the properties from the specific file
 @Autowire Environment variable as below and use it to get the value from the property file.
 this will only work with properties files but not with yml files
 */

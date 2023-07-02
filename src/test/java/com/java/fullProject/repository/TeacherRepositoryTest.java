@@ -4,7 +4,9 @@ package com.java.fullProject.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest//This will load all the beans from the context which will be heavy when we are just testing
+for the repo layer only
+@DataJpaTest//use this to test for repo layer
 class TeacherRepositoryTest {
 
   @Autowired private TeacherRepository teacherRepository;
@@ -24,9 +26,6 @@ class TeacherRepositoryTest {
             .build();
 
     teacherRepository.save(teacher);
-  }*//*
-
-
-
+  }
 }
 */
