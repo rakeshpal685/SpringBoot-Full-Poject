@@ -1,6 +1,6 @@
 package com.java.fullProject;
 
-import com.java.fullProject.someConceptTesting.MyOwnPropertiesForApplicationPropertiesFile;
+import com.java.fullProject.someConceptTesting.MyOwnCustomPropertiesForApplication_PropertiesFile;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableCaching
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "productEntryCreatedBy")
-@EnableConfigurationProperties(value ={MyOwnPropertiesForApplicationPropertiesFile.class})//This annotation enables scanning for my custom properties class
+@EnableConfigurationProperties(value ={MyOwnCustomPropertiesForApplication_PropertiesFile.class})//This annotation enables scanning for my custom properties class
 /*The @SpringBootApplication annotation is there to configure three things. They are,
 Enabling or disabling Spring Boot auto-configuration. (@EnableAutoConfiguration)
 choosing which packages to scan for components (@ComponentScan)

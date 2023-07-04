@@ -16,7 +16,7 @@ this will only work with properties files but not with yml files
 */
 @ConfigurationProperties(prefix = "rakesh.details")
 @Data
-public class MyOwnPropertiesForApplicationPropertiesFile {
+public class MyOwnCustomPropertiesForApplication_PropertiesFile {
 
     /**
      * Name of the server. This is documentation for this property, when we will use this property in
