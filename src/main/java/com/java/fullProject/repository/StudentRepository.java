@@ -35,6 +35,12 @@ List<Student> getByFirstName(String firstName); This will also return the same r
 
   List<Student> findByGuardianName(String name);
 
+  /*List of all the Students sorted in descending order of Last name, This is called static sorting,
+because in the method only we are specifying on which column we have to sort the result,
+we must use dynamic sorting in which we will pass the field name through url during runtime to the
+controller, on which we want to sort the result, eg:- getEmployeeWithSort method in EmployeeController*/
+  List<Student> findByOrderByLastNameDesc();
+
   /*  We don't need @Param if the method parameter name and the Query arguments have the same name*/
   //@Query("FROM Student WHERE guardian.mobile BETWEEN :first AND :last")
   List<Student> findByGuardianMobileBetween(Integer first, Integer last);

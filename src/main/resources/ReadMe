@@ -1,0 +1,6 @@
+ENABLING SECOND LEVEL CACHE IN HIBERNATE
+1)
+2) #Enabling second level cache in hibernate
+  spring.jpa.properties.hibernate.cache.use_second_level_cache=true
+
+  Use @Cachable from javax.persistance on top of the @Entity whom we want to cache.

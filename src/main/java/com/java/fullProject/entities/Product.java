@@ -1,11 +1,9 @@
 package com.java.fullProject.entities;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+
+import java.math.BigDecimal;
 
 /*This annotation is used to tell springframework that this class is an entity,
 i.e, create a database table with the given class name and column name as the local fields name.*/
@@ -31,7 +29,14 @@ boot will give the same name as the class name but in small case.*/
 @NoArgsConstructor
 @ToString
 @AllArgsConstructor
-public class Product {
+@Builder
+/*@EntityListeners(AuditingEntityListener.class)
+Helps with Audit related stuffs like @CreatedBy, @LastModifiedBy,@LastModifiedDate, etc. It's Better
+to keep all the auditing related stuff in different class, so that other entities can also use them
+and the code is not repetitive. If we are doing so then we will remove @EntityListeners(AuditingEntityListener.class)
+from here and put it in the main class. Here my entity class will extend the main auditing class, and
+will get the Auditing fields from there*/
+public class Product extends CommonAuditingPropertiesForAllEntities{
 
   @Id // This defines that the below column is the primary key of the table.
   /*The @GeneratedValue defines how we will generate the primary key value.The strategy attribute is used to specify the primary key generation strategy
@@ -76,6 +81,15 @@ public class Product {
   private boolean active;
   private String imageUrl;
 
+/* We are moving all the audit related stuff to the common class (CommonAuditingPropertiesForAllEntities).
+so that the code is not repetitive in case if some other entity class also need the same auditing
+fields.
+
+@CreatedDate We can use this annotation too for datetime, but to enable this we have to do below things
+ 1) use @CreatedDate on the field,
+ 2) use @EntityListeners(AuditingEntityListener.class) on top of the entity class,
+ 3) use @EnableJpaAuditing on top of main class
+ We can replace all teh above things by just one annotation i.e, @CreationTimestamp*//*
   @CreationTimestamp
   // This annotation is provided by hibernate, and it will get the current timestamp from JVM and
   // assign it to the field.
@@ -87,4 +101,12 @@ public class Product {
   // was updated.
   @Column(insertable = false)
   private LocalDateTime lastUpdated;
+
+  @CreatedBy
+  *//*This annotation is used to keep track of the person who have created the record, to get the name
+  of the person I have to create a new class called ProductEntityCreatedBy, check it for more info.
+  1- use @EntityListeners(AuditingEntityListener.class) on top of the entity class,
+  2- use @EnableJpaAuditing(auditorAwareRef = "productEntryCreatedBy") on top of main class, here
+  auditorAwareRef takes the bean of our class that implements AuditorAware*//*
+  private String createdBy;*/
 }

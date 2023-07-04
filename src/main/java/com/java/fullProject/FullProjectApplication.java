@@ -4,8 +4,12 @@ import com.java.fullProject.someConceptTesting.MyOwnPropertiesForApplicationProp
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+@EnableCaching
 @SpringBootApplication
+@EnableJpaAuditing(auditorAwareRef = "productEntryCreatedBy")
 @EnableConfigurationProperties(value ={MyOwnPropertiesForApplicationPropertiesFile.class})//This annotation enables scanning for my custom properties class
 /*The @SpringBootApplication annotation is there to configure three things. They are,
 Enabling or disabling Spring Boot auto-configuration. (@EnableAutoConfiguration)

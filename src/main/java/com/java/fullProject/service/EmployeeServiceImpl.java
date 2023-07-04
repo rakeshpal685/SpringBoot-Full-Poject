@@ -79,17 +79,27 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employees> employeesPageable(int offset, int pageSize) {
-        return employeeRepo.findAll(PageRequest.of(offset, pageSize)).getContent();
+    public List<EmployeesResponse> employeesPageable(int offset, int pageSize) {
+        List<Employees> content = employeeRepo.findAll(PageRequest.of(offset, pageSize)).getContent();
+        return Arrays.asList(modelMapper.map(content, EmployeesResponse[].class));
     }
 
 
     /*Here we are taking the field dynamically on which we have to apply sorting, Sort.Direction says in which order the
    values will be sorted*/
     @Override
+    public List<EmployeesResponse> findEmployeeWithSorting(String field, String status) {
+        /*This way we can sort by two things, first it will sort by field, then if there are two entries
+    that are common then the sorted result will be sorted again by xyz*/
+        List<Employees> employeesList = employeeRepo.findAll(Sort.by(field).descending().and(Sort.by(status).descending()));
+        return Arrays.asList(modelMapper.map(employeesList, EmployeesResponse[].class));
+    }
+
+    @Override
     public List<Employees> findEmployeeWithSorting(String field) {
         //return employeeRepo.findAll(Sort.by(Sort.Direction.DESC,field)); We can do it like below also.
         return employeeRepo.findAll(Sort.by(field).descending());
+
     }
 
     @Override

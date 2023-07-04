@@ -99,9 +99,9 @@ public class EmployeeController {
 
     @GetMapping(value = "/pagination/{offset}/{pageSize}")
     // http://localhost:8080/empController/listPageable/0/2
-    public ResponseEntity<List<Employees>> employeesPageable(@PathVariable int offset, @PathVariable int pageSize) {
-        return new ResponseEntity<>(
-                employeeService.employeesPageable(offset, pageSize), HttpStatus.OK);
+    public ResponseEntity<List<EmployeesResponse>> employeesPageable(@PathVariable int offset, @PathVariable int pageSize) {
+       // return new ResponseEntity<>(                employeeService.employeesPageable(offset, pageSize), HttpStatus.OK);
+        return ResponseEntity.status(HttpStatus.OK).body(employeeService.employeesPageable(offset, pageSize));
     }
 
     @PutMapping("{id}")
@@ -122,6 +122,14 @@ public class EmployeeController {
     @GetMapping("/{field}")
     public ResponseEntity<List<Employees>> getEmployeeWithSort(@PathVariable String field) {
         return new ResponseEntity<>(employeeService.findEmployeeWithSorting(field), HttpStatus.OK);
+    }
+    /*Here we are sorting the employees based on the two attributes of the employee class that we will pass in the URL,
+    First the sorting will happen on one attribute and if two entries have the same thing then the result will be
+    again sorted based on the second attribute*/
+    @GetMapping("/{field}/{status}")
+    public ResponseEntity<List<EmployeesResponse>> getEmployeeWithMultipleSort(@PathVariable String field, @PathVariable String status) {
+        //return new ResponseEntity<>(employeeService.findEmployeeWithSorting(field,status), HttpStatus.OK);
+        return ResponseEntity.status(HttpStatus.OK).body(employeeService.findEmployeeWithSorting(field,status));
     }
 
     //Here we are applying both pagination and sorting

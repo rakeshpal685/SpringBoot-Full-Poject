@@ -17,7 +17,9 @@ public interface EmployeeService {
 
     void deleteEmployee(int id);
 
-    List<Employees> employeesPageable(int offset, int pageSize);
+    List<EmployeesResponse> employeesPageable(int offset, int pageSize);
+
+    List<EmployeesResponse> findEmployeeWithSorting(String field, String status);
 
     List<Employees> findEmployeeWithSorting(String field);
 

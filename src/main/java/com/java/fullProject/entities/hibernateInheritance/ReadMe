@@ -1,0 +1,9 @@
+We can use @Inheritance(strategy=InheritanceType.JOINED) for our abstract superclass then we have a separate
+table for the Player(our abstract superclass) which have a primary-foreign key relationship with concrete class
+entities.
+
+We can achieve the same separate super entity for the Player(our abstract superclass) by using @MappedSuperclass
+too (see CommonAuditingPropertiesForAllEntities.class for more info). If I do so then I have to remove @Entity
+from my abstract superclass and hence for the repo I cannot use "public interface PlayerRepo extends JpaRepository<Player,Integer>".
+So I have to create two separate repos, "public interface BatsmanRepo extends JpaRepository<Batsman,Integer>" and same for the Bowler
+repo.

@@ -1,5 +1,6 @@
 package com.java.fullProject.repository;
 
+import com.java.fullProject.entities.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,39 +26,40 @@ class StudentRepositoryTest {
     private StudentRepository studentRepository;
 
 
-/*  @Test
+ /* @Test
   public void saveStudent() {
     Student student =
         Student.builder()
-            .emailId("ra@gmail.com")
-            .firstName("Rakesh")
-            .lastName("Psl")
-             .guardianName("Nikhil")
-             .guardianEmail("pompom@gmail.com")
-             .guardianMobile("000909090")
+            .emailId("rakesh@gmail.com")
+            .firstName("Rex")
+            .lastName("Paul")
+             .guardianName("Nik")
+             .guardianEmail("niku@gmail.com")
+             .guardianMobile("45909090")
             .build();
 
     studentRepository.save(student);
-  }*//*
+  }*/
 
 
-  @Test
+
+/*  @Test
   public void saveStudentWithGuardianDetails() {
 
     Guardian guardian =
-        Guardian.builder().email("moi@gmail.com").mobile(12350).name("mom").build();
+        Guardian.builder().email("gur@gmail.com").mobile(123560).name("gur").build();
 
     Student student =
         Student.builder()
-            .emailId("onpii@gmail.com")
-            .firstName("mon")
-            .lastName("bibpiy")
+            .emailId("rak@gmail.com")
+            .firstName("rex")
+            .lastName("paul")
             .guardian(guardian)
             .build();
 
     studentRepository.save(student);
-  }
-
+  }*/
+    /*
   @Test
   public void printStudent() {
     List<Student> studentList = studentRepository.findAll();
@@ -129,6 +131,12 @@ class StudentRepositoryTest {
     void getByFirstNameNativeQuery() {
         List<StudentRepositoryDTOForFewFields> StudentDTO = studentRepository.getByFirstName("mon");
         StudentDTO.stream().forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName()));
+    }
+
+    @Test
+    void findByOrderByLastNameDesc() {
+        List<Student> Students = studentRepository.findByOrderByLastNameDesc();
+        Students.forEach(System.out::println);
     }
 
 /*  @Test
