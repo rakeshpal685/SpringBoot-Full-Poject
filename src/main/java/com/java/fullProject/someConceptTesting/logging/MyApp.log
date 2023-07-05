@@ -1362,3 +1362,803 @@ INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in
 INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
 INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
 INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 1 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-1 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-1 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10484 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 17 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 337 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-2 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1732befa
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-2 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@296691c9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@33d94657, org.springframework.security.web.context.SecurityContextHolderFilter@43e8e16e, org.springframework.security.web.header.HeaderWriterFilter@2c7ea025, org.springframework.web.filter.CorsFilter@29a90eb7, org.springframework.security.web.authentication.logout.LogoutFilter@45ac3b9a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7b174987, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7bd2146c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@186da5fc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@68b32174, org.springframework.security.web.access.ExceptionTranslationFilter@64ca208, org.springframework.security.web.access.intercept.AuthorizationFilter@648fdcbf]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 1.178 seconds (process running for 262.699)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-2 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-2 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10484 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 17 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 251 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-3 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4f8a5012
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-3 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a8939d8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2622dbf7, org.springframework.security.web.context.SecurityContextHolderFilter@662f8a4d, org.springframework.security.web.header.HeaderWriterFilter@31dde33a, org.springframework.web.filter.CorsFilter@7647e58f, org.springframework.security.web.authentication.logout.LogoutFilter@65948f18, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@339f9e62, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@657eaa3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21e9ec6d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@396409ab, org.springframework.security.web.access.ExceptionTranslationFilter@2da1570b, org.springframework.security.web.access.intercept.AuthorizationFilter@148897b3]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 0.938 seconds (process running for 440.304)
+INFO:05-07-23 58 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   InfoContributorAutoConfiguration#envInfoContributor matched:
+      - @ConditionalOnEnabledInfoContributor management.info.env.enabled is true (OnEnabledInfoContributorCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 1 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-3 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-3 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10484 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 16 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 257 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-4 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@416955d3
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-4 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@46cb96b0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@574d0ef0, org.springframework.security.web.context.SecurityContextHolderFilter@59ef03b6, org.springframework.security.web.header.HeaderWriterFilter@288a14d5, org.springframework.web.filter.CorsFilter@48086e75, org.springframework.security.web.authentication.logout.LogoutFilter@56505c0b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@12af30ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21372a9d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f57826d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23cb3ffe, org.springframework.security.web.access.ExceptionTranslationFilter@50dfd224, org.springframework.security.web.access.intercept.AuthorizationFilter@7d5c50dc]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 0.95 seconds (process running for 496.009)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 0 ms
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-4 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-4 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 15620 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 250 DeferredLog[logTo]-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+INFO:05-07-23 250 DeferredLog[logTo]-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 43 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 1135 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 44 Version[logVersion]-HHH000412: Hibernate ORM core version 6.1.7.Final
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-1 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15d1fbc7
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-1 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25e06bc6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d8d1448, org.springframework.security.web.context.SecurityContextHolderFilter@42823304, org.springframework.security.web.header.HeaderWriterFilter@3afe2e8, org.springframework.web.filter.CorsFilter@1c58c4c8, org.springframework.security.web.authentication.logout.LogoutFilter@76573065, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2f14ee3c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c57b9e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43d1bc5d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7eb8f796, org.springframework.security.web.access.ExceptionTranslationFilter@2b6ccece, org.springframework.security.web.access.intercept.AuthorizationFilter@7ce73e42]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 4.21 seconds (process running for 4.634)
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-1 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-1 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting StudentRepositoryTest using Java 20 with PID 10004 (started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 115 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 44 Version[logVersion]-HHH000412: Hibernate ORM core version 6.1.7.Final
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-1 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@424a152f
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-1 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@f48a79a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38fc1904, org.springframework.security.web.context.SecurityContextHolderFilter@6f014f27, org.springframework.security.web.header.HeaderWriterFilter@331886ac, org.springframework.web.filter.CorsFilter@7625bfbd, org.springframework.security.web.authentication.logout.LogoutFilter@7abe3d53, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1ca574db, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47c8c176, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d97a1a0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3bc2146c, org.springframework.security.web.access.ExceptionTranslationFilter@1cf45f46, org.springframework.security.web.access.intercept.AuthorizationFilter@3a0afe5b]
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started StudentRepositoryTest in 10.109 seconds (process running for 11.855)
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-1 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-1 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 5308 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 250 DeferredLog[logTo]-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+INFO:05-07-23 250 DeferredLog[logTo]-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 47 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 1171 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 44 Version[logVersion]-HHH000412: Hibernate ORM core version 6.1.7.Final
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-1 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15d1fbc7
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-1 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7a68d4e0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@457cd67c, org.springframework.security.web.context.SecurityContextHolderFilter@bed98cf, org.springframework.security.web.header.HeaderWriterFilter@284d9781, org.springframework.web.filter.CorsFilter@40ea7b3c, org.springframework.security.web.authentication.logout.LogoutFilter@68af1e37, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7bd88e67, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1aaca944, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c04f72d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f3cbbfd, org.springframework.security.web.access.ExceptionTranslationFilter@63ebdd20, org.springframework.security.web.access.intercept.AuthorizationFilter@7aad0ebd]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 4.55 seconds (process running for 4.947)
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 1 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-1 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-1 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 5308 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 24 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 330 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-2 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32018572
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-2 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@66b32248, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@157fef61, org.springframework.security.web.context.SecurityContextHolderFilter@408a3351, org.springframework.security.web.header.HeaderWriterFilter@676da8b0, org.springframework.web.filter.CorsFilter@128d0f9e, org.springframework.security.web.authentication.logout.LogoutFilter@6fc7fcff, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@36c3106b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@184b688e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74e446d9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c6315ec, org.springframework.security.web.access.ExceptionTranslationFilter@5fb66eb0, org.springframework.security.web.access.intercept.AuthorizationFilter@7a0fbf57]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 1.06 seconds (process running for 74.047)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 2 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-2 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-2 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 5308 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 19 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 259 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-3 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@268e791d
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-3 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 0 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6ae3751e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5233dcd2, org.springframework.security.web.context.SecurityContextHolderFilter@43fa7cdf, org.springframework.security.web.header.HeaderWriterFilter@7e267115, org.springframework.web.filter.CorsFilter@6a67fb47, org.springframework.security.web.authentication.logout.LogoutFilter@2d9b0f1d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1f75620a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2388ff35, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70f4f926, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e36a133, org.springframework.security.web.access.ExceptionTranslationFilter@598145df, org.springframework.security.web.access.intercept.AuthorizationFilter@1ee4c102]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 0.967 seconds (process running for 117.489)
+INFO:05-07-23 58 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   CachesEndpointAutoConfiguration#cachesEndpointWebExtension:
+      Did not match:
+         - @ConditionalOnAvailableEndpoint no 'management.endpoints' property marked it as exposed (OnAvailableEndpointCondition)
+      Matched:
+         - @ConditionalOnBean (types: org.springframework.boot.actuate.cache.CachesEndpoint; SearchStrategy: all) found bean 'cachesEndpoint'; @ConditionalOnMissingBean (types: org.springframework.boot.actuate.cache.CachesEndpointWebExtension; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   ConfigurationPropertiesReportEndpointAutoConfiguration#configurationPropertiesReportEndpointWebExtension:
+      Did not match:
+         - @ConditionalOnAvailableEndpoint no 'management.endpoints' property marked it as exposed (OnAvailableEndpointCondition)
+      Matched:
+         - @ConditionalOnBean (types: org.springframework.boot.actuate.context.properties.ConfigurationPropertiesReportEndpoint; SearchStrategy: all) found bean 'configurationPropertiesReportEndpoint'; @ConditionalOnMissingBean (types: org.springframework.boot.actuate.context.properties.ConfigurationPropertiesReportEndpointWebExtension; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   EnvironmentEndpointAutoConfiguration#environmentEndpointWebExtension:
+      Did not match:
+         - @ConditionalOnAvailableEndpoint no 'management.endpoints' property marked it as exposed (OnAvailableEndpointCondition)
+      Matched:
+         - @ConditionalOnBean (types: org.springframework.boot.actuate.env.EnvironmentEndpoint; SearchStrategy: all) found bean 'environmentEndpoint'; @ConditionalOnMissingBean (types: org.springframework.boot.actuate.env.EnvironmentEndpointWebExtension; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   HealthEndpointWebExtensionConfiguration:
+      Did not match:
+         - @ConditionalOnAvailableEndpoint no 'management.endpoints' property marked it as exposed (OnAvailableEndpointCondition)
+      Matched:
+         - found 'session' scope (OnWebApplicationCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 1 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-3 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-3 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 5308 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 16 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 256 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-4 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b343dc8
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-4 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5b61a667, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@cd7db91, org.springframework.security.web.context.SecurityContextHolderFilter@1f477be0, org.springframework.security.web.header.HeaderWriterFilter@499c6fc1, org.springframework.web.filter.CorsFilter@309cdb00, org.springframework.security.web.authentication.logout.LogoutFilter@2291ec78, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@763e66f4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b9a3502, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c658f1c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35901221, org.springframework.security.web.access.ExceptionTranslationFilter@7bc79fe2, org.springframework.security.web.access.intercept.AuthorizationFilter@18849e7d]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 0.935 seconds (process running for 167.074)
+INFO:05-07-23 58 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   CachesEndpointAutoConfiguration#cachesEndpointWebExtension matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.cache.CachesEndpoint; SearchStrategy: all) found bean 'cachesEndpoint'; @ConditionalOnMissingBean (types: org.springframework.boot.actuate.cache.CachesEndpointWebExtension; SearchStrategy: all) did not find any beans (OnBeanCondition)
+      - @ConditionalOnAvailableEndpoint marked as exposed by a 'management.endpoints.web.exposure' property (OnAvailableEndpointCondition)
+
+   ConfigurationPropertiesReportEndpointAutoConfiguration#configurationPropertiesReportEndpointWebExtension matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.context.properties.ConfigurationPropertiesReportEndpoint; SearchStrategy: all) found bean 'configurationPropertiesReportEndpoint'; @ConditionalOnMissingBean (types: org.springframework.boot.actuate.context.properties.ConfigurationPropertiesReportEndpointWebExtension; SearchStrategy: all) did not find any beans (OnBeanCondition)
+      - @ConditionalOnAvailableEndpoint marked as exposed by a 'management.endpoints.web.exposure' property (OnAvailableEndpointCondition)
+
+   EnvironmentEndpointAutoConfiguration#environmentEndpointWebExtension matched:
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.env.EnvironmentEndpoint; SearchStrategy: all) found bean 'environmentEndpoint'; @ConditionalOnMissingBean (types: org.springframework.boot.actuate.env.EnvironmentEndpointWebExtension; SearchStrategy: all) did not find any beans (OnBeanCondition)
+      - @ConditionalOnAvailableEndpoint marked as exposed by a 'management.endpoints.web.exposure' property (OnAvailableEndpointCondition)
+
+   HealthEndpointWebExtensionConfiguration matched:
+      - found 'session' scope (OnWebApplicationCondition)
+      - @ConditionalOnAvailableEndpoint marked as exposed by a 'management.endpoints.web.exposure' property (OnAvailableEndpointCondition)
+      - @ConditionalOnBean (types: org.springframework.boot.actuate.health.HealthEndpoint; SearchStrategy: all) found bean 'healthEndpoint' (OnBeanCondition)
+
+   HealthEndpointWebExtensionConfiguration#healthEndpointWebExtension matched:
+      - @ConditionalOnMissingBean (types: org.springframework.boot.actuate.health.HealthEndpointWebExtension; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   HealthEndpointWebExtensionConfiguration.MvcAdditionalHealthEndpointPathsConfiguration matched:
+      - @ConditionalOnAvailableEndpoint marked as exposed by a 'management.endpoints.web.exposure' property (OnAvailableEndpointCondition)
+      - @ConditionalOnBean (types: org.springframework.web.servlet.DispatcherServlet; SearchStrategy: all) found bean 'dispatcherServlet' (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+   HealthEndpointWebExtensionConfiguration.JerseyAdditionalHealthEndpointPathsConfiguration:
+      Did not match:
+         - @ConditionalOnClass did not find required class 'org.glassfish.jersey.server.ResourceConfig' (OnClassCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 2 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-4 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-4 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 5308 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 18 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 257 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-5 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d58d08f
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-5 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1f19b62, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57738bb, org.springframework.security.web.context.SecurityContextHolderFilter@421d2dc7, org.springframework.security.web.header.HeaderWriterFilter@200953e, org.springframework.web.filter.CorsFilter@2afb2ccd, org.springframework.security.web.authentication.logout.LogoutFilter@43339ff, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1c10a5de, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49e52758, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29c493a3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@335c4219, org.springframework.security.web.access.ExceptionTranslationFilter@65e0b42b, org.springframework.security.web.access.intercept.AuthorizationFilter@69d8cf6f]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 0.923 seconds (process running for 182.779)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 2 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-5 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-5 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 5308 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 20 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 473 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-6 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@adaac6a
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-6 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7957f5ca, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3632335f, org.springframework.security.web.context.SecurityContextHolderFilter@16776706, org.springframework.security.web.header.HeaderWriterFilter@776ef8b7, org.springframework.web.filter.CorsFilter@60f2a190, org.springframework.security.web.authentication.logout.LogoutFilter@257d1e0f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@34170821, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ef40e62, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8b4fdac, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ca8fbaf, org.springframework.security.web.access.ExceptionTranslationFilter@42e48858, org.springframework.security.web.access.intercept.AuthorizationFilter@44424a9b]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 1.55 seconds (process running for 201.198)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 1 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-6 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-6 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 5308 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 18 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 381 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-7 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@11e5c877
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-7 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@67892e5b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3d6f81bf, org.springframework.security.web.context.SecurityContextHolderFilter@2987b403, org.springframework.security.web.header.HeaderWriterFilter@259ebe53, org.springframework.web.filter.CorsFilter@cf7acd8, org.springframework.security.web.authentication.logout.LogoutFilter@1c39ebb0, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@509b4146, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a2ea0ca, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4701f836, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66c4d71, org.springframework.security.web.access.ExceptionTranslationFilter@443d27ee, org.springframework.security.web.access.intercept.AuthorizationFilter@ff7dbd9]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 1.222 seconds (process running for 429.339)
+INFO:05-07-23 58 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   InfoContributorAutoConfiguration#envInfoContributor:
+      Did not match:
+         - @ConditionalOnEnabledInfoContributor management.info.env.enabled is not true (OnEnabledInfoContributorCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-7 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-7 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10452 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 250 DeferredLog[logTo]-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+INFO:05-07-23 250 DeferredLog[logTo]-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 43 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 1121 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 44 Version[logVersion]-HHH000412: Hibernate ORM core version 6.1.7.Final
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-1 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@912bd1a
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-1 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ffe7393, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51a18501, org.springframework.security.web.context.SecurityContextHolderFilter@7e63a307, org.springframework.security.web.header.HeaderWriterFilter@5f9f54d3, org.springframework.web.filter.CorsFilter@2628b1ea, org.springframework.security.web.authentication.logout.LogoutFilter@660d9907, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3f3a653, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5f8d2b28, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@692bc7c7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16d6309f, org.springframework.security.web.access.ExceptionTranslationFilter@921859f, org.springframework.security.web.access.intercept.AuthorizationFilter@7b1b9b53]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 4.068 seconds (process running for 4.483)
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 1 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-1 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-1 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10452 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 17 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 294 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-2 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@18166f68
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-2 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@46da33e5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c7c2bb9, org.springframework.security.web.context.SecurityContextHolderFilter@440b0572, org.springframework.security.web.header.HeaderWriterFilter@37b92896, org.springframework.web.filter.CorsFilter@3418891c, org.springframework.security.web.authentication.logout.LogoutFilter@71595176, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7fcf01f6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a7d6429, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13669e5f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@335feed8, org.springframework.security.web.access.ExceptionTranslationFilter@464defe6, org.springframework.security.web.access.intercept.AuthorizationFilter@7e60cf8d]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 1.042 seconds (process running for 434.284)
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-2 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-2 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10452 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 20 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 516 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-3 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7d88dd7
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-3 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@432bf0e3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b117ed0, org.springframework.security.web.context.SecurityContextHolderFilter@2772a5c7, org.springframework.security.web.header.HeaderWriterFilter@5fc3fc21, org.springframework.web.filter.CorsFilter@2e4bcb99, org.springframework.security.web.authentication.logout.LogoutFilter@1d1ffd99, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@213a2268, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7763b820, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f93e21a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e12955a, org.springframework.security.web.access.ExceptionTranslationFilter@430b7c7a, org.springframework.security.web.access.intercept.AuthorizationFilter@7a44b60]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 1.685 seconds (process running for 471.306)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-3 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-3 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10452 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 17 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 250 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-4 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61800af9
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-4 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@39966e16, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73ddbe87, org.springframework.security.web.context.SecurityContextHolderFilter@6f9ad564, org.springframework.security.web.header.HeaderWriterFilter@6d62fff2, org.springframework.web.filter.CorsFilter@2a9fcc8a, org.springframework.security.web.authentication.logout.LogoutFilter@1f474d8e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1c186b26, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@286dd3c0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5ca874de, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7581d3a4, org.springframework.security.web.access.ExceptionTranslationFilter@18ad9380, org.springframework.security.web.access.intercept.AuthorizationFilter@4663ef11]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 0.953 seconds (process running for 484.982)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 1 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-4 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-4 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10452 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 19 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 265 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-5 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@343559cb
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-5 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72b6b148, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63b49e63, org.springframework.security.web.context.SecurityContextHolderFilter@6b50c8b7, org.springframework.security.web.header.HeaderWriterFilter@72cc788b, org.springframework.web.filter.CorsFilter@623b2a12, org.springframework.security.web.authentication.logout.LogoutFilter@5849b1e7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@67e5e2da, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5136dbaa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2428eeb8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a00e7bd, org.springframework.security.web.access.ExceptionTranslationFilter@3348c470, org.springframework.security.web.access.intercept.AuthorizationFilter@5c7baea1]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 0.997 seconds (process running for 596.0)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-5 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-5 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10452 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 17 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 257 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-6 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@52bbbe05
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-6 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4aed6e05, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3abe64cf, org.springframework.security.web.context.SecurityContextHolderFilter@2e6cc817, org.springframework.security.web.header.HeaderWriterFilter@471b2e8a, org.springframework.web.filter.CorsFilter@59613f68, org.springframework.security.web.authentication.logout.LogoutFilter@70398888, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@76acd590, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11202d7d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@262cc6d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49716181, org.springframework.security.web.access.ExceptionTranslationFilter@5aada2de, org.springframework.security.web.access.intercept.AuthorizationFilter@20b87080]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 1.203 seconds (process running for 615.056)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 1 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-6 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-6 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10452 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 18 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 404 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-7 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@18aa212d
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-7 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2d24bd08, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@757acc7c, org.springframework.security.web.context.SecurityContextHolderFilter@4d8e8490, org.springframework.security.web.header.HeaderWriterFilter@5686a1de, org.springframework.web.filter.CorsFilter@5ffa3759, org.springframework.security.web.authentication.logout.LogoutFilter@4a53a737, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7a99c773, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1243e1de, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@102bcc41, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6becd18a, org.springframework.security.web.access.ExceptionTranslationFilter@14c2c502, org.springframework.security.web.access.intercept.AuthorizationFilter@99467c5]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 1.591 seconds (process running for 654.946)
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO:05-07-23 532 FrameworkServlet[initServletBean]-Initializing Servlet 'dispatcherServlet'
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 554 FrameworkServlet[initServletBean]-Completed initialization in 1 ms
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Destroying Spring FrameworkServlet 'dispatcherServlet'
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-7 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-7 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10452 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 17 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 271 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-8 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67474cb3
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-8 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@33845ccd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c9a4e95, org.springframework.security.web.context.SecurityContextHolderFilter@43b62232, org.springframework.security.web.header.HeaderWriterFilter@25e4ef57, org.springframework.web.filter.CorsFilter@1aacd6a7, org.springframework.security.web.authentication.logout.LogoutFilter@3cc4fbe0, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2884b9c6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@74a09d88, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c0d2733, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17eb16bd, org.springframework.security.web.access.ExceptionTranslationFilter@569dc11e, org.springframework.security.web.access.intercept.AuthorizationFilter@69e9ff2e]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 0.975 seconds (process running for 712.736)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
+INFO:05-07-23 211 LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener[onApplicationEvent]-Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+INFO:05-07-23 173 DirectJDKLog[log]-Stopping service [Tomcat]
+INFO:05-07-23 650 AbstractEntityManagerFactoryBean[destroy]-Closing JPA EntityManagerFactory for persistence unit 'default'
+INFO:05-07-23 350 HikariDataSource[close]-HikariPool-8 - Shutdown initiated...
+INFO:05-07-23 352 HikariDataSource[close]-HikariPool-8 - Shutdown completed.
+INFO:05-07-23 51 StartupInfoLogger[logStarting]-Starting FullProjectApplication using Java 20 with PID 10452 (C:\WorkSpace\SpringBoot-Full-Poject\target\classes started by rakes in C:\WorkSpace\SpringBoot-Full-Poject)
+INFO:05-07-23 632 SpringApplication[logStartupProfileInfo]-No active profile set, falling back to 1 default profile: "default"
+INFO:05-07-23 138 RepositoryConfigurationDelegate[registerRepositoriesIn]-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+INFO:05-07-23 208 RepositoryConfigurationDelegate[registerRepositoriesIn]-Finished Spring Data repository scanning in 18 ms. Found 7 JPA repository interfaces.
+INFO:05-07-23 108 TomcatWebServer[initialize]-Tomcat initialized with port(s): 8080 (http)
+INFO:05-07-23 173 DirectJDKLog[log]-Starting service [Tomcat]
+INFO:05-07-23 173 DirectJDKLog[log]-Starting Servlet engine: [Apache Tomcat/10.1.8]
+INFO:05-07-23 173 DirectJDKLog[log]-Initializing Spring embedded WebApplicationContext
+INFO:05-07-23 291 ServletWebServerApplicationContext[prepareWebApplicationContext]-Root WebApplicationContext: initialization completed in 272 ms
+INFO:05-07-23 31 LogHelper[logPersistenceUnitInformation]-HHH000204: Processing PersistenceUnitInfo [name: default]
+INFO:05-07-23 110 HikariDataSource[getConnection]-HikariPool-9 - Starting...
+INFO:05-07-23 565 HikariPool[checkFailFast]-HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6737dcea
+INFO:05-07-23 123 HikariDataSource[getConnection]-HikariPool-9 - Start completed.
+INFO:05-07-23 66 DialectFactoryImpl[logSelectedDialect]-HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO:05-07-23 51 JtaPlatformInitiator[initiateService]-HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+INFO:05-07-23 437 AbstractEntityManagerFactoryBean[buildNativeEntityManagerFactory]-Initialized JPA EntityManagerFactory for persistence unit 'default'
+WARN:05-07-23 231 JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor]-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+INFO:05-07-23 58 EndpointLinksResolver[<init>]-Exposing 14 endpoint(s) beneath base path '/rakesh'
+INFO:05-07-23 54 DefaultSecurityFilterChain[<init>]-Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2aad58e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1090e825, org.springframework.security.web.context.SecurityContextHolderFilter@32bcdc03, org.springframework.security.web.header.HeaderWriterFilter@62dda833, org.springframework.web.filter.CorsFilter@400514b3, org.springframework.security.web.authentication.logout.LogoutFilter@78cc9f70, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1e01ee21, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20ca9634, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2357ba56, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51e49a74, org.springframework.security.web.access.ExceptionTranslationFilter@61ec5e4d, org.springframework.security.web.access.intercept.AuthorizationFilter@125853af]
+INFO:05-07-23 59 OptionalLiveReloadServer[startServer]-LiveReload server is running on port 35729
+INFO:05-07-23 220 TomcatWebServer[start]-Tomcat started on port(s): 8080 (http) with context path ''
+INFO:05-07-23 57 StartupInfoLogger[logStarted]-Started FullProjectApplication in 0.979 seconds (process running for 738.792)
+INFO:05-07-23 63 ConditionEvaluationDeltaLoggingListener[onApplicationEvent]-Condition evaluation unchanged
