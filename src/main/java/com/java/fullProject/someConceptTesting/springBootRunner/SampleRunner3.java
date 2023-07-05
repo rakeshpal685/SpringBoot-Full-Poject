@@ -1,4 +1,4 @@
-package com.java.fullProject.springBootRunner;
+package com.java.fullProject.someConceptTesting.springBootRunner;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

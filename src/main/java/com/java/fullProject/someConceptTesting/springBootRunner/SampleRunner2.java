@@ -1,6 +1,7 @@
-package com.java.fullProject.springBootRunner;
+package com.java.fullProject.someConceptTesting.springBootRunner;
 
 import com.java.fullProject.entities.hibernateInheritance.PlayerRepo;
+import com.java.fullProject.someConceptTesting.logging.MyClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.PropertySource;
@@ -25,6 +26,9 @@ public class SampleRunner2 implements CommandLineRunner {
     @Autowired
     private PlayerRepo playerRepo;
 
+    @Autowired
+    private MyClass myClass;
+
     @Override
     public void run(String... args) throws Exception {
         System.out.println("This is second command line runner");
@@ -38,6 +42,8 @@ public class SampleRunner2 implements CommandLineRunner {
 
         playerRepo.save(new Bowler(2, "irfan", 50, 42, "6/30"));
         playerRepo.save(new Bowler(16, "Azhar", 80, 92, "8/20"));*/
+
+        //myClass.testMethod();
 
 
     }
