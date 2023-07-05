@@ -1,0 +1,14 @@
+
+- IF WE ARE NOT USING LOMBOK THEN WE HAVE TO MANUALLY ADD THE JAR OF APACHE LOG4J TO OUR POM.XML FILE
+- LOGGER IS A INTERFACE AND HENCE WE CANNOT CREATE AN OBJECT OF IT, SO WE HAVE TO
+
+#For logging- check this in application.properties
+
+%d-date
+%m-message
+%n- new line
+%p- logging level
+%c- class name
+%M- method name
+%t- thread
+
