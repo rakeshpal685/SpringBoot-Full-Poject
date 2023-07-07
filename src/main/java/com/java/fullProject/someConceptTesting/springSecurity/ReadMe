@@ -1,3 +1,13 @@
+------------TOTAL FLOW----------------
+We will get the data from the user in the form of Json, then we will bind the data to our requestModel,
+we will pass that model to our controller (Internally Jackson will convert the json to java object and ,
+Now we will map the data in requestModel to DTO and send it to the service from the controller.
+Now the service will make a call to the entity by converting the DTO to entity object.
+Now we will again map the entity to DTO and send it to the controller
+Now from the controller we will convert the DTO to ResponseModel and send it to the user back.
+
+
+
 -- We will get the input from 3rd party in the below Json format
 {
   "firstName": "rakesh",
@@ -19,4 +29,25 @@ send back to the user, it will contain the fields mapped with DTO which we want 
 
 -- We will create a repo for the DB transaction methods.
 
---
+-- We will create a controller for the endpoints. for POST we will pass the Json which will be internally
+ get converted to type StudentRequestModel,
+here we will use @Valid to activate our validations that we wrote in our StudentRequestModel class.
+Now we will use ModelMapper to map the values coming from StudentResponseModel to StudentDTO,
+Now we will pass the mapped object to the service layer.
+
+--Inside the service layer we will map the DTO to entity and pass it to the repo layer to save it.
+
+--now in service layer we will map entity to the DTO and return it to the controller.
+
+--Now in controller we will map the DTO to StudentResponseModel and send it back to the user as response.
+
+--To implement DB authentication, in my service class I will override  UserDetails loadUserByUsername(String username)
+method, here it will take the argument and the argument is the value that we pass in Username during the
+basic authentication.
+
+--Now using that we will query in our repo to get the user details (Here in our case we are passing emailId
+as username and hence we will write a query in repo to fetch the user based on the mailId).
+
+--Now we will create and return an User object which contains the username and password, the username and password
+set over here will be compared with the username and password used by the user to login
+

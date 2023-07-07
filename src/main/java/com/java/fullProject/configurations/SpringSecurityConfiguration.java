@@ -1,3 +1,4 @@
+/*
 package com.java.fullProject.configurations;
 
 
@@ -12,8 +13,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity// This will create spring security filter chain
 public class SpringSecurityConfiguration {
 
-    /*    The below bean is created to tell spring which URLs has to be protected and which are not.
-     * This thing is common irrespective of the authentication type we are using*/
+    */
+/*    The below bean is created to tell spring which URLs has to be protected and which are not.
+     * This thing is common irrespective of the authentication type we are using*//*
+
     @Bean
     public SecurityFilterChain securityFilter(HttpSecurity http) throws Exception {
         http
@@ -44,9 +47,12 @@ public class SpringSecurityConfiguration {
 
 
 
+*/
 /*This is the process of using inMemory authentication, when we use InMemoryUserDetailsManager, spring automatically pick up the inMemory authentication,
-In this case spring won't provide us any default password in console.*/
+In this case spring won't provide us any default password in console.*//*
 
+
+*/
 /*   @Bean
     public UserDetailsManager configure() {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();//This is used to get bcrypt encoder type.
@@ -64,11 +70,13 @@ In this case spring won't provide us any default password in console.*/
                 //.authorities("USER")
                 .build();
         return new InMemoryUserDetailsManager(normalUser,adminUser);
-    }*/
+    }*//*
 
 
 
-    /*This is how we do DB configuration. If our DB has the tables in the same format as spring specified then
+
+    */
+/*This is how we do DB configuration. If our DB has the tables in the same format as spring specified then
     * we don't have to do anything extra to fetch the users and passwords for them here.
     * -- users table structure
 
@@ -85,8 +93,10 @@ create table authorities (
 	authority varchar(50) not null,
 	constraint fk_authorities_users foreign key(username) references users(username)
 );
- */
+ *//*
 
+
+*/
 /*
     @Autowired
     private DataSource dataSource; //import sql datasource, spring will automatically read the datasources from properties file
@@ -94,22 +104,27 @@ create table authorities (
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-                */
+                *//*
+
+*/
 /*We don't have to write these if we are using DB tables as specified by Spring,else if we are using any other DB
                 table then to fetch the username, password,authority we have to run the query
                 .usersByUsernameQuery("select u.username,u.password,u.enabled from usertable u where u.username=?")
                 .authoritiesByUsernameQuery("select a.username,a.authority from authorities a where a.username=?")*//*
+*/
+/*
 
                 //.passwordEncoder(NoOpPasswordEncoder.getInstance());
                 .passwordEncoder(new BCryptPasswordEncoder());//for rex the password is rex123
 
     }
-*/
+*//*
 
 
-    /*This is how we use UserDetailsService for authentication*/
 
-/*    @Autowired
+    */
+/*This is how we use UserDetailsService for authentication
+    @Autowired
     private MyUserDetailsServiceForAuthentication MyUserDtlsService;
 
     When the data in the form is submitted then AuthenticationManagerBuilder is called, AuthenticationManagerBuilder will call MyUserDetailsServiceForAuthentication
@@ -121,5 +136,6 @@ the value given in the form is present in the DB or not.
         auth.userDetailsService(MyUserDtlsService)
                 //.passwordEncoder(NoOpPasswordEncoder.getInstance());
                 .passwordEncoder(new BCryptPasswordEncoder());
-    }*/
-}
+    }
+
+}*/

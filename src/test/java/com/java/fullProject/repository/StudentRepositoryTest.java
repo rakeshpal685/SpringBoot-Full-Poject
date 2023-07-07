@@ -105,36 +105,36 @@ class StudentRepositoryTest {
     @Test
     void getStudentFirstNameByEmail() {
         List<String> studentFirstNameByEmail = studentRepository.getStudentFirstNameByEmail("onpi@gmail.com");
-        System.out.println(studentFirstNameByEmail);
+        //System.out.println(studentFirstNameByEmail);
     }
 
     @Test
     void countByFirstName() {
-        System.out.println(studentRepository.countByFirstName("mon"));
+        //System.out.println(studentRepository.countByFirstName("mon"));
     }
 
 
     @Test
     void findTop2ByFirstNameOrderByStudentIdDesc() {
-        System.out.println(studentRepository.findTop2ByFirstNameOrderByStudentIdDesc("mon"));
+        //System.out.println(studentRepository.findTop2ByFirstNameOrderByStudentIdDesc("mon"));
     }
 
     @Test
     void getByFirstName() {
         List<StudentRepositoryDTOForFewFields> StudentDTO = studentRepository.getByFirstName("mon");
-        StudentDTO.stream().forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName()));
+       // StudentDTO.stream().forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName()));
     }
 
     @Test
     void getByFirstNameNativeQuery() {
         List<StudentRepositoryDTOForFewFields> StudentDTO = studentRepository.getByFirstName("mon");
-        StudentDTO.stream().forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName()));
+        //StudentDTO.stream().forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName()));
     }
 
     @Test
     void findByOrderByLastNameDesc() {
         List<Student> Students = studentRepository.findByOrderByLastNameDesc();
-        Students.forEach(System.out::println);
+        //Students.forEach(System.out::println);
     }
 
 /*  @Test

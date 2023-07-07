@@ -22,7 +22,7 @@ public class MyUserDetailsServiceForAuthentication implements UserDetailsService
         return  User
                 .withUsername("rakesh")
                 //.password("{noop}rex123")//Use{noop} for NoOpPasswordEncoder, which store the password in plain text, highly recommended not to use in production
-                .password(encoder.encode("rak123"))//here we are encoding our plain password using Bcrypt encoder
+                .password(encoder.encode("12345678"))//here we are encoding our plain password using Bcrypt encoder
                 //.roles("USER","ADMIN")
                 .authorities("admin")
                 .build();

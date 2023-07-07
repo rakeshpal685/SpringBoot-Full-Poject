@@ -7,16 +7,21 @@ import lombok.Data;
 @Data
 public class Students {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
 
-    @Column(unique = true,nullable = false)
-    private String email;
-    private String encrypted_password;
-    private String firstName;
-    private String lastName;
-    @Column(unique = true,nullable = false)
-    private String userId;
+  @Column(unique = true, nullable = false)
+  private String email;
 
+  private String encrypted_password;
+
+  @Column(name = "first_name", nullable = false)
+  private String firstName;
+
+  @Column(nullable = false)
+  private String lastName;
+
+  @Column(unique = true, nullable = false)
+  private String userId;
 }
