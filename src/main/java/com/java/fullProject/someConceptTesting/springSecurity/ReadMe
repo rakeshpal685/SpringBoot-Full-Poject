@@ -1,0 +1,22 @@
+-- We will get the input from 3rd party in the below Json format
+{
+  "firstName": "rakesh",
+  "lastName": "pal",
+  "email": "rak.pal@gmail.com",
+  "password": "abcd1234"
+}
+
+--We will create an entity to store the data coming from the Json as well as few of our columns.
+
+-- We will create a model class called StudentRequestModel, This model is used to map the json object sent to us
+with this POJO, So that we can convert the json to object and use the fields of it. It will contains the
+fields mapped to each json entry.
+
+--Similarly we will create a StudentResponseModel, which will map our object to the Json output that we will
+send back to the user, it will contain the fields mapped with DTO which we want to send back.
+
+--We will create a DTO which will be mapped to the DB table columns.
+
+-- We will create a repo for the DB transaction methods.
+
+--

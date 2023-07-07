@@ -55,7 +55,8 @@ controller, on which we want to sort the result, eg:- getEmployeeWithSort method
   /*Here Student is the Entity class name not the table name and emailid is variable name not the table row name
   ?1 maps the first parameter of the method to the placeholder.
   However, rather than placing the values in placeholders like ?1, ?2 ,the better approach is to use named
-  params, see below getStudentsByStudentIdAndFirstName() for example*/
+  params, see below getStudentsByStudentIdAndFirstName() for example, try to avoid '?' as much as possible and use ':'
+  because of SQL injection issue*/
   @Query("select s from Student s where s.emailId = ?1")
   //@Query("from Student s where s.emailId = ?1") select is optional, and we can replace the above query with this
   List<Student> getStudentByEmail(String email);

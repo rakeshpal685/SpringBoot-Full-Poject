@@ -138,28 +138,18 @@
                         </exclude>
                     </excludes>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.2.1</version>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
                 <executions>
                     <execution>
                         <goals>
                             <goal>build-info</goal>
                         </goals>
-                        <configuration>
-                            <additionalProperties>
-                                <java.version>${java.version}</java.version>
-                                <project.version>${project.version}</project.version>
-                            </additionalProperties>
-                        </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>2.2.1</version>
             </plugin>
         </plugins>
     </build>

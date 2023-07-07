@@ -18,8 +18,6 @@ those beans won't be available here
 StudentController studentController;
 */
 
-
-
 class StudentRepositoryTest {
 
     @Autowired

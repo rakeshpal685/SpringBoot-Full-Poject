@@ -12,7 +12,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity// This will create spring security filter chain
 public class SpringSecurityConfiguration {
 
-
     /*    The below bean is created to tell spring which URLs has to be protected and which are not.
      * This thing is common irrespective of the authentication type we are using*/
     @Bean
