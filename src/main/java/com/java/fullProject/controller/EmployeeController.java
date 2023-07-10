@@ -9,12 +9,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/empController")
@@ -41,6 +40,13 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/getAll")
+  /*  @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")  
+    @PreAuthorize("hasAnyRole()")
+    We can use these annotations types to tell that the below URL can be accessed by the person with the 
+    given permissions, this is an alternative to 
+            .requestMatchers("/empController/getAll").hasAuthority("ADMIN") in securityFilter method of configuration class
+            and use @EnableMethodSecurity on top of security configuration class to tell spring that we are using method level security*/
     // Below annotations are for swagger
     @Operation(summary = "Get all employees") // Description of the controller method.
     @ApiResponses(

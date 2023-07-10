@@ -7,11 +7,11 @@ import java.util.List;
 
 /*@EnableConfigurationProperties(value ={MyOwnPropertiesForApplicationPropertiesFile.class}) write this on the main class,
 add spring-boot-configuration-processor dependency too.
-//@PropertySource(value = {"classpath:application-otherthendefault.properties"}) write this on the main class to load the properties from the specific file
-In second way, we can create a class here and create a @Bean of this class in @Configuration file and use @ConfigurationProperties on top of it.
+//@PropertySource(value = {"classpath:application-otherthendefault.properties"}) write this on the class where we want to load the properties from the specific file
 
-@PropertySource(value = {"classpath:application-otherthendefault.properties"}) This is used to load the properties from the specific file
-@Autowire Environment variable as below and use it to get the value from the property file.
+@Autowire Environment variable and use it to get the value from the property file, see SpringBootRunner.
+
+In second way, we can create a class here and create a @Bean of this class in @Configuration file and use @ConfigurationProperties on top of it.
 this will only work with properties files but not with yml files
 */
 @ConfigurationProperties(prefix = "rakesh.details")
@@ -32,7 +32,7 @@ public class MyOwnCustomPropertiesForApplication_PropertiesFile {
 
     private List<String> departments;//this can be defined as rakesh.details.departments[0]="abc" and so on.
 
-    //We can create a separate file for the below class too.
+    //We can create a separate file for the below class too or keep it nested like done here.
     @Data
     public static class Company {
 
