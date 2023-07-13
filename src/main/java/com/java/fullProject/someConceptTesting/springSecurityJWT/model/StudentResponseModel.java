@@ -1,4 +1,4 @@
-  package com.java.fullProject.someConceptTesting.springSecurity.model;
+  package com.java.fullProject.someConceptTesting.springSecurityJWT.model;
 
 import lombok.Data;
 

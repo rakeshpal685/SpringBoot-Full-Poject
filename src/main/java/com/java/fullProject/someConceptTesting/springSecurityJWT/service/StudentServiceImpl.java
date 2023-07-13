@@ -1,12 +1,18 @@
-package com.java.fullProject.someConceptTesting.springSecurity.service;
+package com.java.fullProject.someConceptTesting.springSecurityJWT.service;
 
-import com.java.fullProject.someConceptTesting.springSecurity.dto.StudentDTO;
-import com.java.fullProject.someConceptTesting.springSecurity.entity.Students;
-import com.java.fullProject.someConceptTesting.springSecurity.repository.StudentRepo;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.dto.StudentDTO;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.entity.Authority;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.entity.Students;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.repository.StudentRepo;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -46,6 +52,18 @@ public class StudentServiceImpl implements StudentService {
     return studentDtoReturn;
   }
 
+/*  Getting User details to form claims for the JWT token, here i am passing email as userName, if we pass
+  something else our repository query will change according to that. We are mapping the student object coming
+  from the repo to StudentDTO and returning it to the service */
+  @Override
+  public StudentDTO getUser(String userName) {
+    Students student = studentRepository.findByEmail(userName);
+    ModelMapper modelMapper = new ModelMapper();
+    modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+    StudentDTO studentDto = modelMapper.map(student, StudentDTO.class);
+    return studentDto;
+  }
+
   /*  Here I am trying to load the user email,password,authorities from the DB and matching the email against the
   username and password against the password that the user is provided while accessing the endpoint*/
   @Override
@@ -59,15 +77,24 @@ public class StudentServiceImpl implements StudentService {
     if (studentsDetails == null) {
       throw new UsernameNotFoundException("User with username " + username + " not found");
     }
-    /*    Here we will create and return an User object which contains the username and password,
+    /*    Here we will create and return a User object which contains the username, password, and roles.
     the username and password set over here will be compared with the username and password
     used by the user to login, here we are setting the user mailId as the username because user has
     input that only in username while logging. If we want any other field as username,
-    set that field here like I used FirstName as username in commented lines which i used during logging*/
-    return User.withUsername(studentsDetails.getEmail())
+    set that field here like I used FirstName as username in commented lines which I used during logging*/
+
+    ArrayList<GrantedAuthority> roleList=new ArrayList<GrantedAuthority>();
+
+    List<Authority> roles=studentsDetails.getRoles();
+    roles.stream().forEach(r->roleList.add(new SimpleGrantedAuthority(r.getRole())));
+
+/*    return User.withUsername(studentsDetails.getEmail())
         // .withUsername(studentsDetails.getFirstName())
         .password(studentsDetails.getEncrypted_password())
         .authorities("admin")
-        .build();
+            .roles(String.valueOf(roles))
+        .build();*/
+
+    return new User(studentsDetails.getEmail(),studentsDetails.getEncrypted_password(),roleList);
   }
 }

@@ -1,10 +1,13 @@
-package com.java.fullProject.someConceptTesting.springSecurity.entity;
+package com.java.fullProject.someConceptTesting.springSecurityJWT.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
+@Table(name = "jwtstudents")
 public class Students {
 
   @Id
@@ -24,4 +27,9 @@ public class Students {
 
   @Column(unique = true, nullable = false)
   private String userId;
+
+  @OneToMany(mappedBy = "student_id",fetch = FetchType.EAGER)
+  private List<Authority> roles;
+
+
 }

@@ -1,6 +1,8 @@
-package com.java.fullProject.someConceptTesting.springSecurity.dto;
+package com.java.fullProject.someConceptTesting.springSecurityJWT.dto;
 
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class StudentDTO {
@@ -12,4 +14,5 @@ public class StudentDTO {
   private String password;
   private String encryptedPassword;
   private String userId;
+  private List<AuthorityDTO> roles;
 }

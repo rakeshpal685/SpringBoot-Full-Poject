@@ -1,7 +1,7 @@
-package com.java.fullProject.someConceptTesting.springSecurity.configuration;
+package com.java.fullProject.someConceptTesting.springSecurityJWT.configuration;
 
-import com.java.fullProject.someConceptTesting.springSecurity.myCustomFilter.MyAuthenticationFilter;
-import com.java.fullProject.someConceptTesting.springSecurity.service.StudentService;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.myCustomFilter.MyAuthenticationFilter;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,13 +30,15 @@ public class SecurityConfiguration {
                 request
                     .requestMatchers(HttpMethod.POST, "/students")
                     .permitAll()
-                    .requestMatchers("/test")
-                    .authenticated()
-            // .anyRequest().permitAll()
+                    .requestMatchers("/test").hasRole("ADMIN")//here we can pass multiple roles by , separated
+                    .anyRequest().permitAll()
             )
         .formLogin().and()//This will give us a login page
-           // .addFilterBefore(myAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class )//Here we are telling that place my custom filer that I have created before going to the UsernamePasswordAuthenticationFilter in the filter chain
-        .httpBasic()//This will give us a login popup, in both the case, the login url is http://localhost:8080/login,then hit any GET endpoint,http://localhost:8080/logout
+           // .addFilterBefore(myAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class )//Here we are telling that place my custom filer that I have created before going to the
+            // UsernamePasswordAuthenticationFilter in the filter chain, this is for validating the user.
+           // .addFilterBefore(new MyAuthorizationFilter(authenticationManager()),BasicAuthenticationFilter.class)//Here we are telling that place my custom filer that I have created before going to
+            // the BasicAuthenticationFilter in the filter chain, this is for validating the JWT token given by the user
+            .httpBasic()//This will give us a login popup, in both the case, the login url is http://localhost:8080/login,then hit any GET endpoint,http://localhost:8080/logout
 
  /*When I am using userDetailsService for DB authentication, a cookie is generated for our session
  with our first successful request, and once we are logged in, then if we retry any endpoint with

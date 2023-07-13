@@ -1,6 +1,6 @@
-package com.java.fullProject.someConceptTesting.springSecurity.repository;
+package com.java.fullProject.someConceptTesting.springSecurityJWT.repository;
 
-import com.java.fullProject.someConceptTesting.springSecurity.entity.Students;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.entity.Students;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StudentRepo extends JpaRepository<Students,Integer> {

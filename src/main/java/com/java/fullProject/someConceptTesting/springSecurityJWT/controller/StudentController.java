@@ -1,9 +1,9 @@
-package com.java.fullProject.someConceptTesting.springSecurity.controller;
+package com.java.fullProject.someConceptTesting.springSecurityJWT.controller;
 
-import com.java.fullProject.someConceptTesting.springSecurity.dto.StudentDTO;
-import com.java.fullProject.someConceptTesting.springSecurity.model.StudentRequestModel;
-import com.java.fullProject.someConceptTesting.springSecurity.model.StudentResponseModel;
-import com.java.fullProject.someConceptTesting.springSecurity.service.StudentService;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.dto.StudentDTO;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.model.StudentRequestModel;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.model.StudentResponseModel;
+import com.java.fullProject.someConceptTesting.springSecurityJWT.service.StudentService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
