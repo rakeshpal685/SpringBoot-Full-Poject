@@ -1,9 +1,9 @@
-package com.java.fullProject.someConceptTesting.springSecurityJWT.service;
+package com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.dto;
 
 import lombok.Data;
 
 @Data
-public class JWTData {
+public class JWEData {
 
 private String issuer;
 private String subject;

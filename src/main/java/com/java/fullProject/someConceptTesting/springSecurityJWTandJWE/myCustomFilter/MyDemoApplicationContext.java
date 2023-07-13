@@ -1,4 +1,4 @@
-package com.java.fullProject.someConceptTesting.springSecurityJWT.myCustomFilter;
+package com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.myCustomFilter;
 
 
 import org.springframework.beans.BeansException;
@@ -16,6 +16,7 @@ Here we can either Autowired the ApplicationContext or implement ApplicationCont
 @Component
 public class MyDemoApplicationContext implements ApplicationContextAware {
 
+   // @Autowired, use this if we are not implementing ApplicationContextAware
     private static ApplicationContext applicationContext;
 
     //Instead of this we can autowire ApplicationContext too.

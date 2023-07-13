@@ -1,11 +1,14 @@
-package com.java.fullProject.someConceptTesting.springSecurityJWT.myCustomFilter;
+package com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.myCustomFilter;
 
-import com.java.fullProject.someConceptTesting.springSecurityJWT.dto.AuthorityDTO;
-import com.java.fullProject.someConceptTesting.springSecurityJWT.dto.StudentDTO;
-import com.java.fullProject.someConceptTesting.springSecurityJWT.service.JWTConstants;
-import com.java.fullProject.someConceptTesting.springSecurityJWT.service.JWTData;
-import com.java.fullProject.someConceptTesting.springSecurityJWT.service.JWTService;
-import com.java.fullProject.someConceptTesting.springSecurityJWT.service.StudentServiceImpl;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.configuration.JWEConstants;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.dto.AuthorityDTO;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.dto.JWEData;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.dto.StudentDTO;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.configuration.JWTConstants;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.dto.JWTData;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.service.JWEService;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.service.JWTService;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.service.StudentServiceImpl;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -35,6 +38,9 @@ public class MyAuthenticationFilter extends UsernamePasswordAuthenticationFilter
 
   private JWTService jwtService;
 
+  //Used this for JWE incase we are not using JWT authentication
+  private JWEService jweService;
+
  // public MyAuthenticationFilter() {}
 
   public MyAuthenticationFilter(AuthenticationManager authenticationManager) {
@@ -57,8 +63,7 @@ public class MyAuthenticationFilter extends UsernamePasswordAuthenticationFilter
   public Authentication attemptAuthentication(
       HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
-    // Here we will capture the username and password from the request object using the methods
-    // written below.
+    // Here we will capture the username and password from the request object using the methods written below.
     String username = captureUsername(request);
     String password = capturePassword(request);
 
@@ -95,9 +100,9 @@ Authentication token has all the details about the user*/
     System.out.println("My successfulAuthentication method is called");
     SecurityContextHolder.getContext().setAuthentication(authResult);
 
-//    Here we are building the JWT token with the claims
+  //    Here we are building the JWT token with the claims
 
-/*    Here we are getting the user details from the Authentication object that we got in the argument.*/
+  /*    Here we are getting the user details from the Authentication object that we got in the argument.*/
     String username = ((User) authResult.getPrincipal()).getUsername();//Here the username means the value that we are passing during login(email in this case)
 
     //Here we will get the details from the DB by using the getUser() method in the service
@@ -105,11 +110,10 @@ Authentication token has all the details about the user*/
     class here, Hence we have created MyDemoApplicationContext class to get the bean, see the class for more info*/
 
     StudentServiceImpl studentServiceImpl = (StudentServiceImpl)MyDemoApplicationContext.getBean("studentServiceImpl");//getting the bean of Student service
-    StudentDTO student = studentServiceImpl.getUser(username);//passing my username to the service to get the Student details
+    StudentDTO student = studentServiceImpl.getUser(username);//passing my username to the service to get the Student details from DB
 
-    //Here I am encoding the secret key, that is required for JWT creation
+    //Here I am encoding the secret key, that is required for JWT creation, no longer required as we are using generateToken()
     SecretKey key= Keys.hmacShaKeyFor("MyTopSecretKey".getBytes(StandardCharsets.UTF_8));
-
 
   //Now using the StudentDTO object we can get the student details and use it to set the claims in JWT
 
@@ -119,10 +123,10 @@ Authentication token has all the details about the user*/
     Map<String,Object> claims = new HashMap<>();
     claims.put("firstName","bholi");
     claims.put("lastName","surat");
-*/
+  */
 
-/* Here I have created a DTO called JWTData, which will get all the values from StudentDTO and set it in,
- so that we can pass the values to the jwtService.generateToken() method. which will generate the token for us*/
+  /* Here I have created a DTO called JWTData, which will get all the values from StudentDTO and set it in,
+  so that we can pass the values to the jwtService.generateToken() method. which will generate the token for us*/
     JWTData jwtData= new JWTData();
     jwtData.setIssuer(JWTConstants.ISSUER);
     jwtData.setEmail(student.getEmail());
@@ -131,29 +135,50 @@ Authentication token has all the details about the user*/
     jwtData.setAudience(student.getFirstName() +" "+ student.getLastName());
     jwtData.setRolesString(getAllRole(student));
 
-    //Like above as our filter class is not annotated then jwtService won't get injected and hence we follow the below technique to get the bean
+    //As our filter class is not annotated then jwtService won't get injected and hence we follow the below technique to get the bean
      jwtService =(JWTService) MyDemoApplicationContext.getBean("jwtService");//assigning the bean to the reference variable
 
     String token=jwtService.generateToken(jwtData);//here we are generating the token
-//            This thing has been moved to JWTService class and we used RSA to sign the token
-/*            = Jwts.builder()
+  //            This thing has been moved to JWTService class and we used RSA to sign the token
+  /*            = Jwts.builder()
             .setIssuer("www.rakesh.com")//Issuer name
             .setSubject(username)//coming from above
             .setAudience(student.getFirstName()+" "+student.getLastName())//To whom this token belongs
             .setExpiration(Date.from(ZonedDateTime.now().plusHours(1).toInstant()))//expires in 1 hour
-//            .setIssuedAt(new Date(System.currentTimeMillis()))
-//            .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
+  //            .setIssuedAt(new Date(System.currentTimeMillis()))
+  //            .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
             .setId(student.getUserId())
             .claim("email",student.getEmail())//this is my custom claim
             .claim("roles",getAllRole(student))//Here I am getting all the roles for the user above and adding it
-//          .addClaims(claims)//Here I can specify multiple claims together, that we declared above
+  //          .addClaims(claims)//Here I can specify multiple claims together, that we declared above
             .signWith(key)//the encrypted key is formed above
             .compact();*/
 
     response.addHeader("user id",student.getUserId());//we can send back any info that we need back in header
     response.addHeader("Authorization","Bearer "+token);// we can add Bearer too in front of the token
-  }
 
+    //------------------------THIS IS FOR JWE TOKEN GENERATION (Remove the above exact code for JWT, if using this)----------------------------
+
+    /* Here I have created a DTO called JWEData, which will get all the values from StudentDTO and set it in,
+  so that we can pass the values to the jwtService.generateToken() method. which will generate the token for us*/
+    JWEData jweData= new JWEData();
+    jweData.setIssuer(JWEConstants.ISSUER);
+    jweData.setEmail(student.getEmail());
+    jweData.setSubject(student.getFirstName());
+    jweData.setUserId(student.getUserId());
+    jweData.setAudience(student.getFirstName() +" "+ student.getLastName());
+    jweData.setRolesString(getAllRole(student));
+
+    //As our filter class is not annotated then jwtService won't get injected and hence we follow the below technique to get the bean
+    jweService =(JWEService) MyDemoApplicationContext.getBean("jweService");//assigning the bean to the reference variable
+
+    String jweToken=jweService.generateToken(jweData);//here we are generating the token
+
+    response.addHeader("user id",student.getUserId());//we can send back any info that we need back in header
+    response.addHeader("Authorization","Bearer "+jweToken);// we can add Bearer too in front of the token
+
+  }
+  //------------------------THIS ID END OF JWE TOKEN GENERATION----------------------------
   private String capturePassword(HttpServletRequest request) {
     return request.getParameter("password");
   }
@@ -162,7 +187,6 @@ Authentication token has all the details about the user*/
     return request.getParameter(
         "username"); // Here by default the username field is denoted by username in the form and same goes for teh password
   }
-
   /*Now we will register our authentication filter to the Security filter chain, and remember that we have to place it
       before the UsernamePasswordAuthenticationFilter because I want my attemptAuthentication() method to be called
   We can do this by adding this to our configuration file, i.e, SecurityConfiguration class in our case in securityFilter

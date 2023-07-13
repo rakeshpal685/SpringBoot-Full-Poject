@@ -1,7 +1,7 @@
-package com.java.fullProject.someConceptTesting.springSecurityJWT.configuration;
+package com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.configuration;
 
-import com.java.fullProject.someConceptTesting.springSecurityJWT.myCustomFilter.MyAuthenticationFilter;
-import com.java.fullProject.someConceptTesting.springSecurityJWT.service.StudentService;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.myCustomFilter.MyAuthenticationFilter;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

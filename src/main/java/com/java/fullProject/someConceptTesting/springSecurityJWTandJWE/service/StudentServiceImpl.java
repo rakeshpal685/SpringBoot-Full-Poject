@@ -1,9 +1,9 @@
-package com.java.fullProject.someConceptTesting.springSecurityJWT.service;
+package com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.service;
 
-import com.java.fullProject.someConceptTesting.springSecurityJWT.dto.StudentDTO;
-import com.java.fullProject.someConceptTesting.springSecurityJWT.entity.Authority;
-import com.java.fullProject.someConceptTesting.springSecurityJWT.entity.Students;
-import com.java.fullProject.someConceptTesting.springSecurityJWT.repository.StudentRepo;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.dto.StudentDTO;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.entity.Authority;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.entity.Students;
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.repository.StudentRepo;
 
 import java.util.ArrayList;
 import java.util.List;

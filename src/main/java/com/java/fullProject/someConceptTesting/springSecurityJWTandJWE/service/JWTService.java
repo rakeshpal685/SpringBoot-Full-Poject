@@ -1,5 +1,7 @@
-package com.java.fullProject.someConceptTesting.springSecurityJWT.service;
+package com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.service;
 
+import com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.dto.JWTData;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.*;
 import java.time.ZonedDateTime;
+import java.util.Base64;
 import java.util.Date;
 
 /*Here we are getting the data in JWTData DTO and use the values to create the JWT token for us*/
@@ -33,8 +36,6 @@ Therefore, the @PostConstruct method is called only once per bean instance, just
         publicKey= keyPair.getPublic();
         privateKey= keyPair.getPrivate();
     }
-
-
     public String generateToken(JWTData jwtData){
     String token = Jwts.builder()
             .setIssuer(jwtData.getIssuer())//Issuer name
@@ -50,8 +51,31 @@ Therefore, the @PostConstruct method is called only once per bean instance, just
             .signWith(privateKey)//the signed private key is formed above
             .compact();
 
-    return null;
-
+    printPublicKey(publicKey);
+    System.out.println(token);
+    return token;
 }
 
+private void printPublicKey(PublicKey pubKey){
+
+        String publicKeyEncodedVersion= Base64.getEncoder().encodeToString(pubKey.getEncoded());
+    String publicKey = "\n-----BEGIN PUBLIC KEY-----\n" +
+                        publicKeyEncodedVersion +
+                        "\n-----END PUBLIC KEY-----\n";
+    System.out.println(publicKey);
+}
+
+public Claims validateToken(String token){
+        try{
+           Claims claim= Jwts.parserBuilder()
+                    .setSigningKey(publicKey)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+           return claim;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+}
 }

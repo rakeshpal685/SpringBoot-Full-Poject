@@ -1,4 +1,4 @@
-package com.java.fullProject.someConceptTesting.springSecurityJWT.entity;
+package com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.entity;
 
 
 import jakarta.persistence.*;

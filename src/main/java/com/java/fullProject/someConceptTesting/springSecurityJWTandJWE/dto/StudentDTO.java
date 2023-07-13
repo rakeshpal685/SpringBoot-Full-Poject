@@ -1,4 +1,4 @@
-package com.java.fullProject.someConceptTesting.springSecurityJWT.dto;
+package com.java.fullProject.someConceptTesting.springSecurityJWTandJWE.dto;
 
 import lombok.Data;
 
