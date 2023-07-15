@@ -57,85 +57,87 @@ class StudentRepositoryTest {
 
     studentRepository.save(student);
   }*/
-    /*
-  @Test
+  
+/*  @Test
   public void printStudent() {
     List<Student> studentList = studentRepository.findAll();
     studentList.forEach(System.out::println);
-  }
+  }*/
 
+/*
   @Test
   void findByFirstName() {
     List<Student> studentList = studentRepository.findByFirstName("moka");
     studentList.forEach(System.out::println);
   }
+*/
 
-  @Test
+/*  @Test
   void readByLastName() {
     List<Student> studentList = studentRepository.readByLastName("Pal");
     studentList.forEach(System.out::println);
-  }
+  }*/
 
-  @Test
+/*  @Test
   void findByFirstNameOrLastName() {
     List<Student> byFirstNameOrLastName =
         studentRepository.findByFirstNameOrLastName("moka", "Pal");
     byFirstNameOrLastName.forEach(System.out::println);
-  }
+  }*/
 
-  @Test
+/*  @Test
   void findByFirstNameContains() {
     List<Student> nameContains = studentRepository.findByFirstNameContains("k");
     nameContains.forEach(System.out::println);
-  }
+  }*/
 
-  @Test
+/*  @Test
   void findByGuardianName() {
     List<Student> nameContains = studentRepository.findByGuardianName("mom");
     nameContains.forEach(System.out::println);
-  }
+  }*/
 
-  @Test
+/*  @Test
   void getStudentByEmail() {
     List<Student> studentByEmail = studentRepository.getStudentByEmail("moka");
     studentByEmail.forEach(System.out::println);
   }*/
 
 
-    @Test
+/*    @Test
     void getStudentFirstNameByEmail() {
         List<String> studentFirstNameByEmail = studentRepository.getStudentFirstNameByEmail("onpi@gmail.com");
         //System.out.println(studentFirstNameByEmail);
-    }
+    }*/
 
-    @Test
+/*    @Test
     void countByFirstName() {
         //System.out.println(studentRepository.countByFirstName("mon"));
-    }
+    }*/
 
 
-    @Test
+/*    @Test
     void findTop2ByFirstNameOrderByStudentIdDesc() {
         //System.out.println(studentRepository.findTop2ByFirstNameOrderByStudentIdDesc("mon"));
-    }
+    }*/
 
-    @Test
+/*    @Test
     void getByFirstName() {
         List<StudentRepositoryDTOForFewFields> StudentDTO = studentRepository.getByFirstName("mon");
        // StudentDTO.stream().forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName()));
-    }
+    }*/
 
-    @Test
+/*    @Test
     void getByFirstNameNativeQuery() {
         List<StudentRepositoryDTOForFewFields> StudentDTO = studentRepository.getByFirstName("mon");
         //StudentDTO.stream().forEach(s -> System.out.println(s.getFirstName() + " " + s.getLastName()));
-    }
+    }*/
 
-    @Test
+/*    @Test
     void findByOrderByLastNameDesc() {
         List<Student> Students = studentRepository.findByOrderByLastNameDesc();
         //Students.forEach(System.out::println);
-    }
+    }*/
 
 /*  @Test
   void getStudentFirstNameByGuardianName() {

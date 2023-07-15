@@ -43,7 +43,7 @@ public class SampleRunner2 implements CommandLineRunner {
         playerRepo.save(new Bowler(2, "irfan", 50, 42, "6/30"));
         playerRepo.save(new Bowler(16, "Azhar", 80, 92, "8/20"));*/
 
-        //myClass.testMethod();
+        myClass.testMethod();
 
 
     }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!-- appender shows where we want to log our o/p, here we have specified ConsoleAppender for
+    console display-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--        Encoder is used to say how we will display our log, either in pattern format or Json format-->
+        <encoder>
+            <pattern class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <!-- %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n-->
+                %d - %c - %p - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- This is the root logger, it will overshadow any logger defined for other package level,
+    we will put appender reference here to say that use the appender and show the logs in the format
+    defined in the appender-->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+
+<!--         FILE BASED LOGGING
+<configuration>
+    <property name="FILE_DIR" value="src/main/java/com/java/fullProject/someConceptTesting/logging"/>
+    <property name="FILE_NAME" value="MyApp"/>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        &lt;!&ndash;    location of the present log file&ndash;&gt;
+        <file>${FILE_DIR}/${FILE_NAME}.log</file>
+        <encoder>
+            <pattern class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                %d - %c - %p - %msg%n
+            </pattern>
+        </encoder>
+        &lt;!&ndash;    We have different kind of rolling policies&ndash;&gt;
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            &lt;!&ndash;            Location of the archived files&ndash;&gt;
+            <fileNamePattern>${FILE_DIR}/archived/${FILE_NAME}.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            &lt;!&ndash;        Max size of each file&ndash;&gt;
+            <maxFileSize>100MB</maxFileSize>
+            &lt;!&ndash;        Total size of all archive files, if total size > 20GB, it will delete old archived file&ndash;&gt;
+            <totalSizeCap>20GB</totalSizeCap>
+            &lt;!&ndash;     Keep 60 days worth of history&ndash;&gt;
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>-->

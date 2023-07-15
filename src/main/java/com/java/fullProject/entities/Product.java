@@ -89,7 +89,7 @@ fields.
  1) use @CreatedDate on the field,
  2) use @EntityListeners(AuditingEntityListener.class) on top of the entity class,
  3) use @EnableJpaAuditing on top of main class
- We can replace all teh above things by just one annotation i.e, @CreationTimestamp*//*
+ We can replace all the above things by just one annotation i.e, @CreationTimestamp*//*
   @CreationTimestamp
   // This annotation is provided by hibernate, and it will get the current timestamp from JVM and
   // assign it to the field.
@@ -103,10 +103,10 @@ fields.
   private LocalDateTime lastUpdated;
 
   @CreatedBy
-  *//*This annotation is used to keep track of the person who have created the record, to get the name
+  This annotation is used to keep track of the person who have created the record, to get the name
   of the person I have to create a new class called ProductEntityCreatedBy, check it for more info.
   1- use @EntityListeners(AuditingEntityListener.class) on top of the entity class,
   2- use @EnableJpaAuditing(auditorAwareRef = "productEntryCreatedBy") on top of main class, here
-  auditorAwareRef takes the bean of our class that implements AuditorAware*//*
+  auditorAwareRef takes the bean of our class that implements AuditorAware
   private String createdBy;*/
 }

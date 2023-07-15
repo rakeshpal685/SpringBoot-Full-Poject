@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-@Endpoint(id = "my-Endpoint")//This is my specific endpoint
+@Endpoint(id = "myEndpoint")//This is my specific endpoint
 public class MyCustomEndpoint {
 
 /*    @ReadOperation
-    public String getInfo(String name) { //http://localhost:8080/rakesh/my-Endpoint?name=kuch bhi
+    public String getInfo(String name) { //http://localhost:8080/rakesh/myEndpoint?name=kuch bhi
         return "company name is : " + name;
     }
 

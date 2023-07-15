@@ -21,7 +21,7 @@ from that entity class, see Product entity for more information*/
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 /*This annotation helps with @CreatedBy filed below to get the Auditing
-related properties like @CreatedBy, @LastModifiedBy,@LastModifiedDate, etc. If wew are using common
+related properties like @CreatedBy, @LastModifiedBy,@LastModifiedDate, etc. If we are using common
 class to hold the auditing entities then we will put this annotation here or else we will put the annotation
 in specific entity where auditing is required but not here*/
 @Data
