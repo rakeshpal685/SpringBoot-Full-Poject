@@ -6,8 +6,8 @@ import com.java.fullProject.entities.Employees;
 import java.util.List;
 
 public interface EmployeeService {
-
-    Employees saveEmployees(Employees employees);
+    
+    EmployeesResponse saveEmployees(Employees employees);
 
     List<EmployeesResponse> getAllEmployees();
 

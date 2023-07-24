@@ -19,69 +19,71 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/empController")
 public class EmployeeController {
 
-    @Autowired
-    EmployeeService employeeService;
+  @Autowired EmployeeService employeeService;
 
   /*  @Autowired
   public EmployeeController(EmployeeService employeeService) {
     this.employeeService = employeeService;
   }*/
 
-    /*  Here I am using ResponseEntity as the return type because it can give a lot of info back when
-    this url is hit, like header, code etc. @PostMapping will map the request to the url and @RequestBody will
-    take the  body of the request (json) and add to our method, (Internally DispatcherServlet will convert the json to
-    java object and map it to the parameter of the method*/
-    @PostMapping(value = "/save", consumes = "application/json")
+  /*  Here I am using ResponseEntity as the return type because it can give a lot of info back when
+  this url is hit, like header, code etc. @PostMapping will map the request to the url and @RequestBody will
+  take the  body of the request (json) and add to our method, (Internally DispatcherServlet will convert the json to
+  java object and map it to the parameter of the method*/
+  @PostMapping(value = "/save", consumes = "application/json")
   /*Here we are using @Valid to validate our data that is saved in the entity,in entity we have defined
   some validations for the fields and it will check whether the validations matches or not*/
-    public ResponseEntity<Employees> saveEmployee(@Valid @RequestBody Employees employees) {
-        return new ResponseEntity<>(
-                employeeService.saveEmployees(employees), HttpStatus.CREATED);
-    }
+  public ResponseEntity<EmployeesResponse> saveEmployee(@Valid @RequestBody Employees employees) {
+    return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.saveEmployees(employees));
 
-    @GetMapping(value = "/getAll")
+    // return new ResponseEntity<>(employeeService.saveEmployees(employees), HttpStatus.CREATED);
+    /* We can use @RequestHeader("name of the header") String VariableName) to capture the header coming in the request,
+    Name of the header is optional if VariableName is same as the header name*/
+  }
+
+  @GetMapping(value = "/getAll")
   /*  @PreAuthorize("hasAuthority('ADMIN')")
-    @PreAuthorize("hasRole('ADMIN')")  
-    @PreAuthorize("hasAnyRole()")
-    We can use these annotations types to tell that the below URL can be accessed by the person with the 
-    given permissions, this is an alternative to 
-            .requestMatchers("/empController/getAll").hasAuthority("ADMIN") in securityFilter method of configuration class
-            and use @EnableMethodSecurity on top of security configuration class to tell spring that we are using method level security*/
-    // Below annotations are for swagger
-    @Operation(summary = "Get all employees") // Description of the controller method.
-    @ApiResponses(
-            value = { // what to show when we have different status codes.
-                    @ApiResponse(
-                            responseCode = "200",
-                            description = "Found all employees",
-                            content = {
-                                    @Content(
-                                            mediaType = "application/json",
-                                            schema = @Schema(implementation = Employees.class))
-                            }),
-                    @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
-                    @ApiResponse(responseCode = "404", description = "Employee not found", content = @Content)
-            })
-    public ResponseEntity<List<EmployeesResponse>> getAllEmployee() {
-        return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAllEmployees());
-        /*    Rather than creating a new ResponseEntity<> object like below we can do this also*/
-    }
+  @PreAuthorize("hasRole('ADMIN')")
+  @PreAuthorize("hasAnyRole()")
+  We can use these annotations types to tell that the below URL can be accessed by the person with the
+  given permissions, this is an alternative to
+          .requestMatchers("/empController/getAll").hasAuthority("ADMIN") in securityFilter method of configuration class
+          and use @EnableMethodSecurity on top of security configuration class to tell spring that we are using method level security*/
+  // Below annotations are for swagger
+  @Operation(summary = "Get all employees") // Description of the controller method.
+  @ApiResponses(
+      value = { // what to show when we have different status codes.
+        @ApiResponse(
+            responseCode = "200",
+            description = "Found all employees",
+            content = {
+              @Content(
+                  mediaType = "application/json",
+                  schema = @Schema(implementation = Employees.class))
+            }),
+        @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+        @ApiResponse(responseCode = "404", description = "Employee not found", content = @Content)
+      })
+  public ResponseEntity<List<EmployeesResponse>> getAllEmployee() {
+    return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAllEmployees());
+    /*    Rather than creating a new ResponseEntity<> object like below we can do this also*/
+  }
 
-    /*PathParameter can be present anywhere in the URl, we just have to keep it inside the {}, /getEmployeeById/{id}/data*/
-    @GetMapping(
-            value = "/getEmployeeById/{id}",
-            produces = {
-                    "application/json",
-                    "application/xml"
-            } // If our project has JAX-B dependency then it will return xml value.
-    )
-    public ResponseEntity<EmployeesResponse> getEmployeeById(@PathVariable("id") int empid) {
-        //Here if the name of the argument in uri is same as the name of the parameter in the method, then we don't need to use the name in @PathVariable
-        return new ResponseEntity<>(
-                employeeService.getEmployeeById(empid), HttpStatus.OK);
-    }
+  /*PathParameter can be present anywhere in the URl, we just have to keep it inside the {}, /getEmployeeById/{id}/data*/
+  @GetMapping(
+      value = "/getEmployeeById/{id}",
+      produces = {
+        "application/json",
+        "application/xml"
+      } // If our project has JAX-B dependency then it will return xml value.
+      )
+  public ResponseEntity<EmployeesResponse> getEmployeeById(@PathVariable("id") int empid) {
+    // Here if the name of the argument in uri is same as the name of the parameter in the method,
+    // then we don't need to use the name in @PathVariable
+    return new ResponseEntity<>(employeeService.getEmployeeById(empid), HttpStatus.OK);
+  }
 
-/*  Here we will get ambiguous uri exception because spring will get confused that which uri to fetch, is it the above one with id or the below one with
+  /*  Here we will get ambiguous uri exception because spring will get confused that which uri to fetch, is it the above one with id or the below one with
     name, because their pattern are same. so to resolve this issue we will have to pass params in GetMapping,and now if the uri is /getEmployeeById/{name}?xxx
     then the below uri will be called. we can use similar way for the above uri too.
   @GetMapping(
@@ -92,58 +94,73 @@ public class EmployeeController {
             employeeService.getEmployeeByName(name), HttpStatus.OK);
   }*/
 
-    @GetMapping(value = "/getEmployeeById")
+  @GetMapping(value = "/getEmployeeById")
   /*Here I will use query parameter while calling the get mapping (http://localhost:8080/empController/getEmployeeById?id=5)
   anything after the ? will be treated as Query parameter and we have to use @RequestParam to capture the data, Query param will be present
   in key:value pair. We can have multiple parameters (they wil be separated by & in the url, http://localhost:8080/empController/getEmployeeById?id=5&userName=rakesh)
   and in that case we have to capture both the parameters using @RequestParam*/
-    public ResponseEntity<EmployeesResponse> getEmployeeByIdUsingQueryParam(
-            @RequestParam("id") Integer id) {
-        return new ResponseEntity<>(
-                employeeService.getEmployeeById(id), HttpStatus.OK);
-    }
+  public ResponseEntity<EmployeesResponse> getEmployeeByIdUsingQueryParam(
+      @RequestParam("id") Integer id) {
+    return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
+  }
 
-    @GetMapping(value = "/pagination/{offset}/{pageSize}")
-    // http://localhost:8080/empController/listPageable/0/2
-    public ResponseEntity<List<EmployeesResponse>> employeesPageable(@PathVariable int offset, @PathVariable int pageSize) {
-       // return new ResponseEntity<>(                employeeService.employeesPageable(offset, pageSize), HttpStatus.OK);
-        return ResponseEntity.status(HttpStatus.OK).body(employeeService.employeesPageable(offset, pageSize));
-    }
+  @GetMapping(value = "/pagination/{offset}/{pageSize}")
+  // http://localhost:8080/empController/listPageable/0/2
+  public ResponseEntity<List<EmployeesResponse>> employeesPageable(
+      @PathVariable int offset, @PathVariable int pageSize) {
+    // return new ResponseEntity<>(                employeeService.employeesPageable(offset,
+    // pageSize), HttpStatus.OK);
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(employeeService.employeesPageable(offset, pageSize));
+  }
 
-    @PutMapping("{id}")
-//  We will take the id from the uri and rest we will pass as a json in the body
-    public ResponseEntity<Employees> updateEmployee(
-            @PathVariable int id, @RequestBody Employees employee) {
-        return ResponseEntity.status(HttpStatus.OK).body(employeeService.updateEmployee(employee, id));
-    }
+  @PutMapping("{id}")
+  //  We will take the id from the uri and rest we will pass as a json in the body
+  public ResponseEntity<Employees> updateEmployee(
+      @PathVariable int id, @RequestBody Employees employee) {
+    return ResponseEntity.status(HttpStatus.OK).body(employeeService.updateEmployee(employee, id));
+  }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteEmployee(@PathVariable("id") int empid) {
-        employeeService.deleteEmployee(empid);
-        return new ResponseEntity<>("Employee deleted successfully", HttpStatus.OK);
-    }
+  @DeleteMapping("/delete/{id}")
+  public ResponseEntity<String> deleteEmployee(@PathVariable("id") int empid) {
+    employeeService.deleteEmployee(empid);
+    return new ResponseEntity<>("Employee deleted successfully", HttpStatus.OK);
+  }
 
+  //  Here we are sorting the employees based on the attribute of the employee class that we will
+  // pass in the URL
+  @GetMapping("/{field}")
+  public ResponseEntity<List<Employees>> getEmployeeWithSort(@PathVariable String field) {
+    return new ResponseEntity<>(employeeService.findEmployeeWithSorting(field), HttpStatus.OK);
+  }
+  /*Here we are sorting the employees based on the two attributes of the employee class that we will pass in the URL,
+  First the sorting will happen on one attribute and if two entries have the same thing then the result will be
+  again sorted based on the second attribute*/
+  @GetMapping("/{field}/{status}")
+  public ResponseEntity<List<EmployeesResponse>> getEmployeeWithMultipleSort(
+      @PathVariable String field, @PathVariable String status) {
+    // return new ResponseEntity<>(employeeService.findEmployeeWithSorting(field,status),
+    // HttpStatus.OK);
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(employeeService.findEmployeeWithSorting(field, status));
+  }
 
-    //  Here we are sorting the employees based on the attribute of the employee class that we will pass in the URL
-    @GetMapping("/{field}")
-    public ResponseEntity<List<Employees>> getEmployeeWithSort(@PathVariable String field) {
-        return new ResponseEntity<>(employeeService.findEmployeeWithSorting(field), HttpStatus.OK);
-    }
-    /*Here we are sorting the employees based on the two attributes of the employee class that we will pass in the URL,
-    First the sorting will happen on one attribute and if two entries have the same thing then the result will be
-    again sorted based on the second attribute*/
-    @GetMapping("/{field}/{status}")
-    public ResponseEntity<List<EmployeesResponse>> getEmployeeWithMultipleSort(@PathVariable String field, @PathVariable String status) {
-        //return new ResponseEntity<>(employeeService.findEmployeeWithSorting(field,status), HttpStatus.OK);
-        return ResponseEntity.status(HttpStatus.OK).body(employeeService.findEmployeeWithSorting(field,status));
-    }
+  // Here we are applying both pagination and sorting
+  @GetMapping(value = "/paginationAndSort/{offset}/{pageSize}/{field}")
+  // http://localhost:8080/empController/listPageable/0/2
+  public ResponseEntity<List<Employees>> employeesPageableAndSorting(
+      @PathVariable int offset, @PathVariable int pageSize, @PathVariable String field) {
+    return new ResponseEntity<>(
+        employeeService.findEmployeeWithPaginationAndSorting(offset, pageSize, field),
+        HttpStatus.OK);
+  }
 
-    //Here we are applying both pagination and sorting
-    @GetMapping(value = "/paginationAndSort/{offset}/{pageSize}/{field}")
-    // http://localhost:8080/empController/listPageable/0/2
-    public ResponseEntity<List<Employees>> employeesPageableAndSorting(@PathVariable int offset, @PathVariable int pageSize, @PathVariable String field) {
-        return new ResponseEntity<>(
-                employeeService.findEmployeeWithPaginationAndSorting(offset, pageSize, field), HttpStatus.OK);
-    }
-
+  /* We can use @RequestHeader("name of the header") String VariableName) to capture the header coming in the request,
+  "Name of the header" is optional if VariableName is same as the header name*/
+  @GetMapping(value = "/getEmployeeHeader")
+  public ResponseEntity<String> getEmployeeHeader(@RequestHeader("value") String value) {
+      //We can use @Nullable to make any parameter optionable,i.e, it the value is not present, if so it will return null,or we can use Required="false" also
+    // We can pass this header info to the other layer and do our task
+    return ResponseEntity.status(HttpStatus.OK).body(value);
+  }
 }

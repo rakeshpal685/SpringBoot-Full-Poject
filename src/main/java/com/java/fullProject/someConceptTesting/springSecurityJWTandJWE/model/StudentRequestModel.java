@@ -14,6 +14,7 @@ public class StudentRequestModel {
 /*When the Json is coming to us, we will validate that the field data is json is present or not,
 for that we will use the below annotations to check like @NotNull, @Size*/
     @NotNull(message = "First name cannot be null")
+    //@JsonProperty("json key name") This is used when my json key is different from the variable name, hence the binding will not happen automatically
     private String firstName;
 
     @NotNull(message = "Last name cannot be null")

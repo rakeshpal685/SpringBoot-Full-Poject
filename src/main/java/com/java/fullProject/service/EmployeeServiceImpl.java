@@ -27,8 +27,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     private ModelMapper modelMapper;
 
     @Override
-    public Employees saveEmployees(Employees employees) {
-        return employeeRepo.save(employees);
+    public EmployeesResponse saveEmployees(Employees employees) {
+        Employees saved = employeeRepo.save(employees);
+        return modelMapper.map(saved,EmployeesResponse.class);
+        
     }
 
     @Override

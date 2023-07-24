@@ -8,7 +8,7 @@ import java.util.List;
 /*@EnableConfigurationProperties(value ={MyOwnPropertiesForApplicationPropertiesFile.class}) write this on the main class,
 add spring-boot-configuration-processor dependency too.
 //@PropertySource(value = {"classpath:application-otherthendefault.properties"}) write this on the class where we want to load the properties from the specific file
-
+//see SampleRunner2 class
 @Autowire Environment variable and use it to get the value from the property file, see SpringBootRunner.
 
 In second way, we can create a class here and create a @Bean of this class in @Configuration file and use @ConfigurationProperties on top of it.
