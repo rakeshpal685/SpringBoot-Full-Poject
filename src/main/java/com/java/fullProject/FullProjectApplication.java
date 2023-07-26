@@ -22,19 +22,24 @@ Basically, The @SpringBootApplication is a short way to define @SpringBootConfig
 and @ComponentScan together.*/
 //@EnableSwagger2
 public class FullProjectApplication {
+	
+	//public static UUID userID;
 
 	public static void main(String[] args) {
 	SpringApplication.run(FullProjectApplication.class, args);
-		/*Spring IoC container is responsible for instantiating, wiring, configuring,and managing the
-entire life cycle of objects. BeanFactory and ApplicationContext represent the Spring IoC Containers,
-and they are interfaces. BeanFactory provides basic functionalities and is recommended to use for
-lightweight applications like mobile and applets. ApplicationContext provides basic features in
-addition to enterprise-specific functionalities. ApplicationContext Implementation Classes are below,
-AnnotationConfigApplicationContext container
-AnnotationConfigWebApplicationContext
-XmlWebApplicationContext
-Based on the type of dependencies we have,the run method internally will create which type of context we need.
-It takes 2 arguments, our main class and any arguments we pass to the main method during runtime */
+    /*Spring IoC container is responsible for instantiating, wiring, configuring,and managing the
+    entire life cycle of objects. BeanFactory and ApplicationContext represent the Spring IoC Containers,
+    and they are interfaces. BeanFactory provides basic functionalities and is recommended to use for
+    lightweight applications like mobile and applets. ApplicationContext provides basic features in
+    addition to enterprise-specific functionalities. ApplicationContext Implementation Classes are below,
+    AnnotationConfigApplicationContext container
+    AnnotationConfigWebApplicationContext
+    XmlWebApplicationContext
+    Based on the type of dependencies we have,the run method internally will create which type of context we need.
+    It takes 2 arguments, our main class and any arguments we pass to the main method during runtime */
+
+    //System.out.println(userID.randomUUID().toString());
+		
 	}
 
 /*	We can create our own bean here. While creating our own bean we have command on our bean creation.
@@ -50,5 +55,8 @@ It takes 2 arguments, our main class and any arguments we pass to the main metho
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
+	
+	
 }
 
