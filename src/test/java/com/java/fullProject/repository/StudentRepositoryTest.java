@@ -1,23 +1,22 @@
 package com.java.fullProject.repository;
 
-import com.java.fullProject.entities.Student;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-
 @SpringBootTest//This will load all the beans from the context which will be heavy when we are just testing
-/*for the repo layer only
-@DataJpaTest//use this to test for repo layer, Ideally we should use this method to test our repository, because once the test is completed,
+//for the repo layer only
+/*@DataJpaTest
+use this to test for repo layer, Ideally we should use this method to test our repository, because once the test is completed,
 it will flush the data and the database won't be impacted.
-
 If we use the above annotation and try to test our other layers like controller or service then
 those beans won't be available here
 @Autowired
 StudentController studentController;
-*/
 
+Use the below annotation if you are using any DB except H2
+@AutoConfigureTestDatabase (replace= AutoConfigureTestDatabase.Replace.NONE)
+
+ */
 class StudentRepositoryTest {
 
     @Autowired
@@ -38,18 +37,17 @@ class StudentRepositoryTest {
 
     studentRepository.save(student);
   }*/
-
-
-
-/*  @Test
+    
+    
+/*    @Test
   public void saveStudentWithGuardianDetails() {
 
     Guardian guardian =
-        Guardian.builder().email("gur@gmail.com").mobile(123560).name("gur").build();
+        Guardian.builder().email("hhh@gmail.com").mobile(1235670).name("huh").build();
 
     Student student =
         Student.builder()
-            .emailId("rak@gmail.com")
+            .emailId("hhh@gmail.com")
             .firstName("rex")
             .lastName("paul")
             .guardian(guardian)
@@ -57,20 +55,18 @@ class StudentRepositoryTest {
 
     studentRepository.save(student);
   }*/
-  
-/*  @Test
+    
+/*    @Test
   public void printStudent() {
     List<Student> studentList = studentRepository.findAll();
     studentList.forEach(System.out::println);
   }*/
-
-/*
-  @Test
+    
+/*    @Test
   void findByFirstName() {
     List<Student> studentList = studentRepository.findByFirstName("moka");
     studentList.forEach(System.out::println);
-  }
-*/
+  }*/
 
 /*  @Test
   void readByLastName() {

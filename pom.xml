@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -122,12 +122,12 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-<!--        &lt;!&ndash; This is for old JWT -->
-<!--        <dependency>-->
-<!--            <groupId>io.jsonwebtoken</groupId>-->
-<!--            <artifactId>jjwt-api</artifactId>-->
-<!--            <version>0.11.5</version>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash; This is for old JWT -->
+        <!--        <dependency>-->
+        <!--            <groupId>io.jsonwebtoken</groupId>-->
+        <!--            <artifactId>jjwt-api</artifactId>-->
+        <!--            <version>0.11.5</version>-->
+        <!--        </dependency>-->
 
         <!-- These are for new JWT -->
         <dependency>
@@ -167,6 +167,9 @@
     </dependencies>
 
     <build>
+        <!--This final name is optional, idf used then the given name will be our jar file name, else maven will take
+        <groupId>,<artifactId><version> in account to create the jar file name-->
+        <finalName>This-will-be-my-jar-fileName</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

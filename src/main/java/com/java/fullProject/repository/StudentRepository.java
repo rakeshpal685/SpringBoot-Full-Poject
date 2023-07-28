@@ -21,10 +21,13 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
    Here the name of the method has to be in camel case and must match with the variable name of the entity,
    WHILE USING JPQL WE WILL USE ENTITY NAME AND VARIABLES NAME, IN NATIVE QUERY WE WILL USE TABLE NAME AND COLUMN NAME,
    Before writing your custom query just check once that the query is present in boot Query or not
+   
+   query creation- find[limit]by[ property(s)][comparison][ordering] -
  */
   List<Student> findByFirstName(String firstName);
 /*  We can use getByXyz also
-List<Student> getByFirstName(String firstName); This will also return the same result as findBy method*/
+List<Student> getByFirstName(String firstName); This will also return the same result as findBy method, we can use getBy,StreamBy also
+findAllByFirstName will also return the same result*/
 
   // This is also Query method, we have to take care while writing the name of the method, camel case and variable name.
   List<Student> readByLastName(String lastName);
@@ -129,4 +132,7 @@ i.e, StudentRepository. See below getByFirstNameNativeQuery method*/
 
   @Query(value = "select first_name as firstName, last_name as lastName from tbl_student s where s.first_name=?1", nativeQuery = true)
   List<StudentRepositoryDTOForFewFields> getByFirstNameNativeQuery(String firstName);
+  
+  
+  
 }
