@@ -133,6 +133,10 @@ i.e, StudentRepository. See below getByFirstNameNativeQuery method*/
   @Query(value = "select first_name as firstName, last_name as lastName from tbl_student s where s.first_name=?1", nativeQuery = true)
   List<StudentRepositoryDTOForFewFields> getByFirstNameNativeQuery(String firstName);
   
+/*  //To find all the records in ascending order of the variable name
+  findAllByOrderByVariable_Name();
   
+  //To find all the records in descending order of the variable name
+  findAllByOrderByVariable_NameDesc();*/
   
 }
