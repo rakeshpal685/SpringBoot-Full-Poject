@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 // http://localhost:8080/swagger-ui/index.html --Swagger URL
+/*The Swagger UI page will then be available at http://localhost:8080/empController/swagger-ui.html
+and the OpenAPI description will be available at the following url for
+json format: http://localhost:8080/context-path/v3/api-docs*/
 @Configuration
 // @EnableSwagger2-  Old way
 public class SwaggerConfiguration {

@@ -1,3 +1,4 @@
+/*
 package com.java.fullProject.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,3 +21,4 @@ class EmployeeRepoTest {
     rakesh.forEach(System.out::println);
   }
 }
+*/

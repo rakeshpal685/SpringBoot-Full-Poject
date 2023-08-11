@@ -1,3 +1,4 @@
+/*
 package com.java.fullProject.configurations.MultipleDB;
 
 import jakarta.persistence.EntityManagerFactory;
@@ -11,7 +12,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -49,19 +52,24 @@ public class Db1Configuration {
     
     HashMap<String, Object> properties = new HashMap<>();
     properties.put("hibernate.hbm2ddl.auto", "update");
+    properties.put("hibernate.show_sql", "true");
     
+    JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
+*/
 /*   return builder
         .dataSource(dataSource)
         .properties(properties)
        //path of the entities for my DB1
         .packages("com/java/fullProject/entities")
         .persistenceUnit("db1")
-        .build();*/
+        .build();*//*
+
     
     entityManagerFactoryBean.setDataSource(dataSource);
     entityManagerFactoryBean.setPackagesToScan("com/java/fullProject/entities");
     entityManagerFactoryBean.setJpaPropertyMap(properties);
     entityManagerFactoryBean.setPersistenceUnitName("db1");
+    entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
     
     return  entityManagerFactoryBean;
   }
@@ -74,3 +82,4 @@ public class Db1Configuration {
     return new JpaTransactionManager(entityManagerFactory);
   }
 }
+*/
