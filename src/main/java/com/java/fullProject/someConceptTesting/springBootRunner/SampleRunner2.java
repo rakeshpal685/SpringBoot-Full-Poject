@@ -3,6 +3,7 @@ package com.java.fullProject.someConceptTesting.springBootRunner;
 import com.java.fullProject.entities.hibernateInheritance.PlayerRepo;
 import com.java.fullProject.someConceptTesting.logging.MyClass;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.annotation.Order;
@@ -16,35 +17,35 @@ import org.springframework.stereotype.Component;
 properties file, we can use Environment variable as below to get the values from the properties file*/
 public class SampleRunner2 implements CommandLineRunner {
 
-/*    @Autowired
-   /private MyInterface1 myInterface ;
-   set spring.profiles.active=classBcd in properties file*/
+  /*    @Autowired
+  /private MyInterface1 myInterface ;
+  set spring.profiles.active=classBcd in properties file*/
 
-    @Autowired
-    private Environment environment;
+  @Autowired private Environment environment;
 
-    @Autowired
-    private PlayerRepo playerRepo;
+  @Autowired private PlayerRepo playerRepo;
 
-    @Autowired
-    private MyClass myClass;
+  @Autowired private MyClass myClass;
 
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("This is second command line runner");
+  @Value("${rakesh.details.company-details.established-on}")
+  private String value;
 
-        //myInterface.sound();
+  @Override
+  public void run(String... args) throws Exception {
+    System.out.println("This is second command line runner");
 
-        //System.out.println(environment.getProperty("rakesh.details.company-details.established-on"));
+    // myInterface.sound();
+    
+/*    System.out.println(environment.getProperty("rakesh.details.company-details.established-on"));
+    OR
+    System.out.println(value);*/
 
-       /* playerRepo.save(new Batsman(12, "Sachin", 500, 92, 300));
-        playerRepo.save(new Batsman(1, "Rahul", 50, 56, 30));
+    /* playerRepo.save(new Batsman(12, "Sachin", 500, 92, 300));
+    playerRepo.save(new Batsman(1, "Rahul", 50, 56, 30));
 
-        playerRepo.save(new Bowler(2, "irfan", 50, 42, "6/30"));
-        playerRepo.save(new Bowler(16, "Azhar", 80, 92, "8/20"));*/
+    playerRepo.save(new Bowler(2, "irfan", 50, 42, "6/30"));
+    playerRepo.save(new Bowler(16, "Azhar", 80, 92, "8/20"));*/
 
-        myClass.testMethod();
-
-
-    }
+    myClass.testMethod();
+  }
 }

@@ -19,16 +19,16 @@ rather it will combine two columns to make a primary key. Hence, we will use @Id
 the class (name and country in our case) and will take the same fields in our @IdClass (StudentId in this case,
 Try to avoid this as much as possible.
     @Column(name = "student_name")
-   private String name;*/
+   private String name;
+    
+    @Id
+    We want to make a composite primary key and hence we will use @Id on two fields which we want to add and
+make a primary key
+    private String country;*/
 
     private Long mobile;
 
     private int age;
-
-/*    @Id
-    We want to make a composite primary key and hence we will use @Id on two fields which we want to add and
-make a primary key
-    private String country;*/
 
     @EmbeddedId
     /*If we are using @EmbeddedId then we should not use @Id, and we have to remove the field from this entity

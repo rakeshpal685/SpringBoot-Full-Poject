@@ -195,6 +195,35 @@
                 <artifactId>git-commit-id-plugin</artifactId>
                 <version>2.2.1</version>
             </plugin>
+
+<!--            This plugin is for docker, if we want to build the docker file straight from the maven as soon
+            as the build is successful
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    &lt;!&ndash;This is the username of my dockerhub, and it will use the project artifact name for my image&ndash;&gt;
+                    <repository>rakesh/${project.artifactId}</repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        &lt;!&ndash;Here we are specifying the path of the jar file, the name is taken from project->build->finalName&ndash;&gt;
+                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default</id>
+&lt;!&ndash;When we do the docker install, it will build and push the image to the docker hub&ndash;&gt;
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+
         </plugins>
     </build>
 

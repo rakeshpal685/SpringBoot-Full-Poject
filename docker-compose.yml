@@ -1,0 +1,50 @@
+#Docker compose file builds, (re)creates, starts and attaches different container to a service, here we need MYSql also
+#for our application, hence we can declare that here, internally it will create a big container with two containers,
+#one for the application and one for the sql and they are communicate internally by bridge network
+
+version: '3.8'
+
+#Here we will declare services, i.e, how many different containers we need,the first one is our application and the
+#second one is for MYSQL
+services:
+  app:
+#    (Name of the image of our application used in DockerFile, nameOfTheImageYouLike in our case if we are not using tagName/nameOfTheImageYouLike:1.0.0)
+    image: nameOfTheImageYouLike
+    ports:
+      - 9090:8080
+    environment:
+#See that we are not using jdbc:mysql://localhost:3306/schooldb rather we are using db instead of localhost, because our db is
+# in docker not running in localhost, if we provide the DB details here then any DB details in .properties will be ignored
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/schooldb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+    depends_on:
+      - db
+
+
+  db:
+    image: mysql:8.0.27
+    environment:
+      DATASOURCE_HOST: docker-mysql
+      DATASOURCE_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: schooldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+
+#now we first have to create an image of our application by running
+#docker build -t imageName
+
+#now we have to run the docker compose command rather than docker run command for the container, this will create a container with two inside containers
+#for our app and MYSql
+#docker-compose up
+
+Now we can go inside our sql container to see the table
+docker exec -it container_id bash
+mysql -u userNameGivenInDockerCompose(root in our case) -p
+now provide the password(password in our case)
+now we can write queries to check the data like 
+show databases (here we can see our DB (schooldb in our case))
+use schooldb
+show tables
+select * from table

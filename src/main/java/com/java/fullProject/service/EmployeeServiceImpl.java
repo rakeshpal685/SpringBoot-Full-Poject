@@ -2,6 +2,7 @@ package com.java.fullProject.service;
 
 import com.java.fullProject.employeeModel.EmployeesResponse;
 import com.java.fullProject.entities.Employees;
+import com.java.fullProject.exception.customException.BusinessException;
 import com.java.fullProject.exception.customException.EmployeeNotFound;
 import com.java.fullProject.repository.EmployeeRepo;
 import java.util.Arrays;
@@ -26,10 +27,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public EmployeesResponse saveEmployees(Employees employees) {
-    Employees saved = employeeRepo.save(employees);
-    return modelMapper.map(saved, EmployeesResponse.class);
-    //We can use java's inbuilt BeanUtils to copy the properties too
-    //BeanUtils.copyProperties(saved, EmployeesResponse.class);
+
+    if (employees.getEmName().isBlank() || employees.getEmName().isEmpty()) {
+      throw new BusinessException("601", "Please provide a valid employee name");
+    }
+    try {
+      Employees saved = employeeRepo.save(employees);
+      return modelMapper.map(saved, EmployeesResponse.class);
+      // We can use java's inbuilt BeanUtils to copy the properties too
+      // BeanUtils.copyProperties(saved, EmployeesResponse.class);
+    } catch (Exception e) {
+      throw new BusinessException("602", "Unable to save the employee");
+    }
   }
 
   @Override
@@ -96,7 +105,7 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Override
   public List<EmployeesResponse> findEmployeeWithSorting(String field, String status) {
     /*This way we can sort by two things, first it will sort by field, then if there are two entries
-    that are common then the sorted result will be sorted again by xyz*/
+    that are common, then the sorted result will be sorted again by xyz*/
     List<Employees> employeesList =
         employeeRepo.findAll(Sort.by(field).descending().and(Sort.by(status).descending()));
     return Arrays.asList(modelMapper.map(employeesList, EmployeesResponse[].class));

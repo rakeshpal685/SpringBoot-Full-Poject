@@ -1,13 +1,14 @@
 package com.java.fullProject.repository;
 
 import com.java.fullProject.entities.Employees;
+import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 public interface EmployeeRepo extends JpaRepository<Employees, Integer> {
 
@@ -29,5 +30,8 @@ public interface EmployeeRepo extends JpaRepository<Employees, Integer> {
     findAll(Sort sort) and findAll(Pageable pagination), hence we don't have to create custom query in repo,
     we can directly use these methods in service.
     */
-
+    
+   // @Override
+    //Slice<Employees> findAllByEmName(String name,Pageable pageable);
+    Page<Employees> findAllByEmName(String name, Pageable pageable);
 }

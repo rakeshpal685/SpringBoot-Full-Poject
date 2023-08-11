@@ -41,7 +41,7 @@ public class EmployeeController {
     Name of the header is optional if VariableName is same as the header name*/
   }
 
-  @GetMapping(value = "/getAll")
+  @GetMapping("/getAll")
   /*  @PreAuthorize("hasAuthority('ADMIN')")
   @PreAuthorize("hasRole('ADMIN')")
   @PreAuthorize("hasAnyRole()")

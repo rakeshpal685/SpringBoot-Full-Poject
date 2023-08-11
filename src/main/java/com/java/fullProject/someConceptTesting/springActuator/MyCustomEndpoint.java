@@ -1,13 +1,19 @@
 package com.java.fullProject.someConceptTesting.springActuator;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.boot.actuate.endpoint.annotation.*;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.Map;
-
+/*By default after spring 2.2.x the HttpTraceRepository endpoint is desabled, If we want to enable it then we can do it like this
+In the configuration class, create a bean of httpTraceRepository()
+@Bean
+public HttpTraceRepository httpTraceRepository(){
+    return new InMemoryHttpTraceRepository();
+    }
+    This uses the in memory to store the recent 100 http requests that are made.*/
 @Component
-@Endpoint(id = "myEndpoint")//This is my specific endpoint
+@Endpoint(id = "myEndpoint") // This is my specific endpoint
 public class MyCustomEndpoint {
 
 /*    @ReadOperation

@@ -10,8 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@EnableCaching
+@EnableCaching// For enabling hibernate level 2 cache
 @SpringBootApplication
+//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class}) //This is used if we want some class present in classpath not to be configured via autoconfiguration
 @EnableJpaAuditing(auditorAwareRef = "productEntryCreatedBy")
 @EnableConfigurationProperties(value ={MyOwnCustomPropertiesForApplication_PropertiesFile.class})//This annotation enables scanning for my custom properties class
 /*The @SpringBootApplication annotation is there to configure three things. They are,
