@@ -25,3 +25,26 @@ APPLICATION.PROPERTIES
 --WE WILL TAKE CONTROL OF OUR LOGGING THINGS IN PRODUCTION GRADE APPLICATION AND HENCE WE WILL CREATE A
 LOGBACK.XML FILE IN RESOURCES FOLDER
 
+--TO EXCLUDE DEFAULT LOGGING AND TO ADD LOG4J2 IN OUR APPLICATION DO THE FOLLOWING THINGS
+
+ exclude spring-boot-starter-logging dependency from spring-boot-starter and
+ explicitly include the spring-boot-starter-log4j2 in the build file.
+ <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter</artifactId>
+     <exclusions>
+         <exclusion>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-logging</artifactId>
+         </exclusion>
+     </exclusions>
+ </dependency>
+ <dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-log4j2</artifactId>
+ </dependency>
+
+ --ADD A FILE IN THE RESOURCES FOLDER WITH ANY OF THE BELOW NAMES
+ log4j2-spring.xml
+ log4j2.xml
+
