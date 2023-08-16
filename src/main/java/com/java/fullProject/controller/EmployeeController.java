@@ -7,7 +7,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/empController")
 public class EmployeeController {
 
-  @Autowired EmployeeService employeeService;
+  @Autowired private EmployeeService employeeService;
 
   /*  @Autowired
   public EmployeeController(EmployeeService employeeService) {
@@ -50,9 +49,10 @@ public class EmployeeController {
           .requestMatchers("/empController/getAll").hasAuthority("ADMIN") in securityFilter method of configuration class
           and use @EnableMethodSecurity on top of security configuration class to tell spring that we are using method level security*/
   // Below annotations are for swagger
-  @Operation(summary = "Get all employees") // Description of the controller method.
-  @ApiResponses(
-      value = { // what to show when we have different status codes.
+  @Operation(
+      summary = "This is a short summary for the api",
+      description = "This is a long description about this API", // Description of the controller method.     
+      responses = {
         @ApiResponse(
             responseCode = "200",
             description = "Found all employees",
@@ -61,12 +61,25 @@ public class EmployeeController {
                   mediaType = "application/json",
                   schema = @Schema(implementation = Employees.class))
             }),
-        @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
-        @ApiResponse(responseCode = "404", description = "Employee not found", content = @Content)
+        @ApiResponse(responseCode = "400",
+            description = "Invalid id supplied",
+            content = @Content),
+        @ApiResponse(
+            responseCode = "403",
+            description = "Unauthorized / Invalid Token",
+            content = @Content),
+        @ApiResponse(responseCode = "404",
+            description = "Employee not found",
+            content = @Content)
       })
+  /*@Hidden This is a swagger annotation used to hide this endpoint in the swagger page so that no one can see it*/
   public ResponseEntity<List<EmployeesResponse>> getAllEmployee() {
+    return ResponseEntity.ok(employeeService.getAllEmployees());
+    /*
     return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAllEmployees());
-    /*    Rather than creating a new ResponseEntity<> object like below we can do this also*/
+       OR
+    return new ResponseEntity<>(employeeService.getAllEmployees(), HttpStatus.OK);
+    */
   }
 
   /*PathParameter can be present anywhere in the URl, we just have to keep it inside the {}, /getEmployeeById/{id}/data*/
@@ -101,7 +114,8 @@ public class EmployeeController {
   and in that case we have to capture both the parameters using @RequestParam*/
   public ResponseEntity<EmployeesResponse> getEmployeeByIdUsingQueryParam(
       @RequestParam("id") Integer id) {
-    return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
+    // return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
+    return ResponseEntity.ok(employeeService.getEmployeeById(id));
   }
 
   @GetMapping(value = "/pagination/{offset}/{pageSize}")
@@ -124,7 +138,8 @@ public class EmployeeController {
   @DeleteMapping("/delete/{id}")
   public ResponseEntity<String> deleteEmployee(@PathVariable("id") int empid) {
     employeeService.deleteEmployee(empid);
-    return new ResponseEntity<>("Employee deleted successfully", HttpStatus.OK);
+    // return new ResponseEntity<>("Employee deleted successfully", HttpStatus.OK);
+    return ResponseEntity.accepted().build();
   }
 
   //  Here we are sorting the employees based on the attribute of the employee class that we will
@@ -159,7 +174,8 @@ public class EmployeeController {
   "Name of the header" is optional if VariableName is same as the header name*/
   @GetMapping(value = "/getEmployeeHeader")
   public ResponseEntity<String> getEmployeeHeader(@RequestHeader("value") String value) {
-      //We can use @Nullable to make any parameter optionable,i.e, it the value is not present, if so it will return null,or we can use Required="false" also
+    // We can use @Nullable to make any parameter optionable,i.e, it the value is not present, if so
+    // it will return null,or we can use Required="false" also
     // We can pass this header info to the other layer and do our task
     return ResponseEntity.status(HttpStatus.OK).body(value);
   }

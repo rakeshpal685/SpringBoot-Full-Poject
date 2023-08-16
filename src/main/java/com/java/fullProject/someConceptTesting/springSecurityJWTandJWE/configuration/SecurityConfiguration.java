@@ -31,6 +31,7 @@ public class SecurityConfiguration {
                     .requestMatchers(HttpMethod.POST, "/students")
                     .permitAll()
                     .requestMatchers("/test").hasRole("ADMIN")//here we can pass multiple roles by , separated
+//                    Add the swagger URL to here to expose it to outside
                     .anyRequest().permitAll()
             )
         .formLogin().and()//This will give us a login page

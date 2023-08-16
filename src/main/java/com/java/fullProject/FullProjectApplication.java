@@ -12,7 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableCaching// For enabling hibernate level 2 cache
 @SpringBootApplication
-//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class}) //This is used if we want some class present in classpath not to be configured via autoconfiguration
+/*@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class}) This is used if we want some class present in classpath not to be configured via autoconfiguration,
+we can use this directly on @SpringBootApplication,as this annotation internally contains @EnableAutoConfiguration*/
 @EnableJpaAuditing(auditorAwareRef = "productEntryCreatedBy")
 @EnableConfigurationProperties(value ={MyOwnCustomPropertiesForApplication_PropertiesFile.class})//This annotation enables scanning for my custom properties class
 /*The @SpringBootApplication annotation is there to configure three things. They are,
