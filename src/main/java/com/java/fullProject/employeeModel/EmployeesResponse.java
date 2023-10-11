@@ -6,7 +6,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-/*This is the model class that is mapped to the entity, we will never be going to send the entity object
+/*This is the model class that is mapped to the entity, we will never go to send the entity object
 directly to the controller to prevent exposing our DB data directly to outside world via API call*/
 @Data
 public class EmployeesResponse {

@@ -30,8 +30,8 @@ public class EmployeeController {
   take the  body of the request (json) and add to our method, (Internally DispatcherServlet will convert the json to
   java object and map it to the parameter of the method*/
   @PostMapping(value = "/save", consumes = "application/json")
-  /*Here we are using @Valid to validate our data that is saved in the entity,in entity we have defined
-  some validations for the fields and it will check whether the validations matches or not*/
+  /*Here we are using @Valid to validate our data that is saved in the entity,in entity class we have defined
+  some validations for the fields, and it will check whether the validations match or not*/
   public ResponseEntity<EmployeesResponse> saveEmployee(@Valid @RequestBody Employees employees) {
     return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.saveEmployees(employees));
 

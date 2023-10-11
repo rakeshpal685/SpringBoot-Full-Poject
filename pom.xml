@@ -55,7 +55,8 @@
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.2.0</version>
         </dependency>
-<!--If using openapi version below 2.2.0 , then we have to add validation dependency else not required-->
+<!--If using openapi version below 2.2.0 , then we have to add validation dependency else not required,
+This also include hibernate-validator jar, which is required for validation in entity fields-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
