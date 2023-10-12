@@ -41,7 +41,8 @@ public class GlobalExceptionHandling {
               // Here errors will return a key-value pair with all the validation errors.
               errors.put(fieldName, errorMessage);
             });
-    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
+    //Here 601 is my own error code
+    return ResponseEntity.status(601).body(errors);
   }
 
   @ExceptionHandler(value = NoSuchElementException.class)
@@ -66,7 +67,8 @@ public class GlobalExceptionHandling {
     response.setErrorClass(e.getClass().getSimpleName());
     response.setMyCustomErrorMessage(
         "My custom error message that is not coming from error object e");
-    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    //return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    return ResponseEntity.status(601).body(response);
   }
 
   @ExceptionHandler(value = BusinessException.class)

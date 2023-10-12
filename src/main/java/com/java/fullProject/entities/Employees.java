@@ -2,6 +2,7 @@ package com.java.fullProject.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
@@ -28,6 +29,7 @@ public class Employees {
   private Integer id;
 
   @Column(name = "empName")
+  @NotBlank(message = "The name of the employee cannot be blank")
   private String emName;
 
   /*  For validation, we need to add either hibernate-validator jar or spring-boot-starter-validation jar

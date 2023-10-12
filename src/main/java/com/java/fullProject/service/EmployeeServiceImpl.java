@@ -27,7 +27,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public EmployeesResponse saveEmployees(Employees employees) {
-
+    /*  I can either check the values that are coming here like below or I can use validator dependency to
+validate the data, where I put the validation in entity class and in controller method use @Valid*/
     if (employees.getEmName().isBlank() || employees.getEmName().isEmpty()) {
       throw new BusinessException("601", "Please provide a valid employee name");
     }
