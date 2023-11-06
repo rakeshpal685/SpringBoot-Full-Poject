@@ -63,7 +63,8 @@ validate the data, where I put the validation in entity class and in controller 
         employeeRepo
             .findById(id)
             .orElseThrow(() -> new EmployeeNotFound("Employee not found in the database"));
-    // All the fields of our Employees entity will be mappd to the EmployeeResponse model
+
+    // All the fields of our Employees entity will be mapped to the EmployeeResponse model
     EmployeesResponse employeesResponse = modelMapper.map(employee, EmployeesResponse.class);
     return employeesResponse;
   }
@@ -82,9 +83,26 @@ validate the data, where I put the validation in entity class and in controller 
     existingEmployee.setStatus(updatedEmployeeData.getStatus());
     existingEmployee.setSalary(updatedEmployeeData.getSalary());
 
-    // Now we will save the updated data
+    // Now we will save the updated data.
     employeeRepo.save(existingEmployee);
     return existingEmployee;
+
+//---------------------------We can do it like this also, but we can't return anything--------------
+/*
+    Consumer<Employees> consumer =(existingEmployee2)->{
+      existingEmployee2.setEmName(updatedEmployeeData.getEmName());
+      existingEmployee2.setStatus(updatedEmployeeData.getStatus());
+      existingEmployee2.setSalary(updatedEmployeeData.getSalary());
+      employeeRepo.save(existingEmployee2);
+    };
+
+    Optional<Employees> employees=employeeRepo.findById(id);
+    if (employees.isPresent()){
+      employees.ifPresent(consumer);
+    }else{
+      throw new EmployeeNotFound("Employee not found in the database");
+    }*/
+
   }
 
   @Override
