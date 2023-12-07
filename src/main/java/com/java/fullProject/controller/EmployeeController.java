@@ -36,8 +36,14 @@ public class EmployeeController {
     return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.saveEmployees(employees));
 
     // return new ResponseEntity<>(employeeService.saveEmployees(employees), HttpStatus.CREATED);
-    /* We can use @RequestHeader("name of the header") String VariableName) to capture the header coming in the request,
+    /* We can use (@RequestHeader("name of the header") String VariableName) to capture the header coming in the request,
     Name of the header is optional if VariableName is same as the header name*/
+
+    /*    We can use @ResponseStatus like this also
+    @PostMapping(value = "/save", consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveEmployee(@Valid @RequestBody Employees employees) {
+     employeeService.saveEmployees(employees);*/
   }
 
   @GetMapping("/getAll")
@@ -51,7 +57,8 @@ public class EmployeeController {
   // Below annotations are for swagger
   @Operation(
       summary = "This is a short summary for the api",
-      description = "This is a long description about this API", // Description of the controller method.     
+      description =
+          "This is a long description about this API", // Description of the controller method.
       responses = {
         @ApiResponse(
             responseCode = "200",
@@ -61,16 +68,12 @@ public class EmployeeController {
                   mediaType = "application/json",
                   schema = @Schema(implementation = Employees.class))
             }),
-        @ApiResponse(responseCode = "400",
-            description = "Invalid id supplied",
-            content = @Content),
+        @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
         @ApiResponse(
             responseCode = "403",
             description = "Unauthorized / Invalid Token",
             content = @Content),
-        @ApiResponse(responseCode = "404",
-            description = "Employee not found",
-            content = @Content)
+        @ApiResponse(responseCode = "404", description = "Employee not found", content = @Content)
       })
   /*@Hidden This is a swagger annotation used to hide this endpoint in the swagger page so that no one can see it*/
   public ResponseEntity<List<EmployeesResponse>> getAllEmployee() {
@@ -122,7 +125,7 @@ public class EmployeeController {
   // http://localhost:8080/empController/listPageable/0/2
   public ResponseEntity<List<EmployeesResponse>> employeesPageable(
       @PathVariable int offset, @PathVariable int pageSize) {
-    // return new ResponseEntity<>(                employeeService.employeesPageable(offset,
+    // return new ResponseEntity<>(employeeService.employeesPageable(offset,
     // pageSize), HttpStatus.OK);
     return ResponseEntity.status(HttpStatus.OK)
         .body(employeeService.employeesPageable(offset, pageSize));
@@ -148,6 +151,7 @@ public class EmployeeController {
   public ResponseEntity<List<Employees>> getEmployeeWithSort(@PathVariable String field) {
     return new ResponseEntity<>(employeeService.findEmployeeWithSorting(field), HttpStatus.OK);
   }
+
   /*Here we are sorting the employees based on the two attributes of the employee class that we will pass in the URL,
   First the sorting will happen on one attribute and if two entries have the same thing then the result will be
   again sorted based on the second attribute*/

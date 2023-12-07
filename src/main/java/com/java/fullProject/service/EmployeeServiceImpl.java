@@ -51,14 +51,14 @@ validate the data, where I put the validation in entity class and in controller 
   }
 
   public EmployeesResponse getEmployeeById(int id) {
-    //        Optional<Employees> employees= employeeRepo.findById(id);
-    //        if(employees.isPresent()){
-    //            return employees.get();
-    //        }
-    //        else {
-    //            throw new ResourceNotFound("Employee", "id", id);
-    //        }
-    // same in lambda
+/*            Optional<Employees> employees= employeeRepo.findById(id);
+            if(employees.isPresent()){
+                return employees.get();
+            }
+            else {
+                throw new ResourceNotFound("Employee", "id", id);
+            }
+     same in lambda*/
     Employees employee =
         employeeRepo
             .findById(id)
