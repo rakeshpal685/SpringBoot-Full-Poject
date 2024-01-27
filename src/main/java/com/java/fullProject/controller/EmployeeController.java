@@ -85,7 +85,8 @@ public class EmployeeController {
     */
   }
 
-  /*PathParameter can be present anywhere in the URl, we just have to keep it inside the {}, /getEmployeeById/{id}/data*/
+  /*PathParameter can be present anywhere in the URl, we just have to keep it inside the {}, /getEmployeeById/{id}/data,
+  * we can keep any number of path variables*/
   @GetMapping(
       value = "/getEmployeeById/{id}",
       produces = {
