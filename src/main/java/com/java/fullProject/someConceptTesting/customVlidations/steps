@@ -1,0 +1,35 @@
+Step 1 : Suppose if we have a requirement to not allow some weak passwords inside our user registration form,
+ we first need to create a custom annotation like below. Here we need to provide the class name where the actual validation logic present.
+
+ @Documented
+ @Constraint(validatedBy = PasswordStrengthValidator.class)//The actual validation class
+ @Target( { ElementType.METHOD, ElementType.FIELD })
+ @Retention(RetentionPolicy.RUNTIME)
+ public @interface PasswordValidator //This w ill be the name of our annotation
+ String message() default "Please choose a strong password";
+ Class <? >[] groups() default {};
+ Class <? extends Payload>[] payload() default {};
+}
+
+Step 2 : We need to create a class that implements ConstraintValidator interface and overriding the isValid() method like shown below,
+Here initialize method is optional, but we are using it and it will  be called when the class is created
+
+public class PasswordStrengthValidator implements
+ConstraintValidator<PasswordValidator, String> { //Here we have to tell what is the annotation name and the type of filed on which it is applied
+List<String> weakPasswords;
+
+@Override
+public void initialize(PasswordValidator passwordValidator) {
+weakPasswords = Arrays.asList("12345", "password", "qwerty");
+
+@Override
+public boolean isValid(String passwordField,
+ConstraintValidatorContext cxt) {
+return passwordField != null && (!weakPasswords.contains(passwordField));
+
+Step 3 : Finally we can mention the annotation that we created on top of the field inside a POJO class,
+
+@NotBlank(message="Password must not be blank")
+asize(min=5, message="Password must be at least 5 characters long")
+@PasswordValidator
+private String pwd;
