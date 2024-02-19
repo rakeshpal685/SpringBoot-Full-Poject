@@ -32,7 +32,9 @@ in the @Embedded location too instead of here*/
 /*@Entity, here we won't use entity because we don't want to create a separate table in the DB, we just want to
 add these fields to my @Embedded table, this is done so that let's say we have few other tables also which to
 need this Guardian values, so it's better to create a Guardian class separately and embed it wherever necessary,
-rather than declaring the values again and again in all the entities, We also don't have id here*/
+rather than declaring the values again and again in all the entities, We also don't have id here, There is another way also,
+we can create a base entity abd use that for all other entities, for eg- when we have auditing related entries which we need in all the tables,
+in that case we can create a base entity and in our entity we can use extends Base entity name*/
 public class Guardian {
 
 /*  @Column(name = "guardian_name"), We can use this also, if we are creating this embeddable table by ourselves,

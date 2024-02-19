@@ -59,4 +59,15 @@ public class Employees {
   @JsonProperty(access = JsonProperty.Access.READ_ONLY)
   private LocalDate date_updated;
   //  I can take LocalDateTime also to show the full timestamp including time
+
+  /*  This can be used on top of the field when I want to change the name of the key when sending back to the client
+    @JsonProperty("custom_name")
+
+    This can be used when I don't want to send the field back to the client
+    @JsonIgnore
+
+  If we have multiple fields to ignore then we can specify the properties together on top of the POJO class
+  @JsonIgnoreProperties(value={"date_created", "date_updated"}
+    */
+
 }

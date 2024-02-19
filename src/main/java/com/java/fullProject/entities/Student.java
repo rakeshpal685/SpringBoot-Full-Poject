@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -26,7 +27,11 @@ field and create a query, to neglect the null value in query we can use @Dynamic
       @UniqueConstraint(name = "emailId_unique", columnNames = "email_address"),
       @UniqueConstraint(columnNames = {"last_name"})
     })
-public class Student {
+/*Here my entity class is extending another entity called BaseEntity, this means that please include the fields of the base class in this
+* entity too, we have created a separate base entity so that the base entity contains all the common fields that are required in many other
+* entities, hence rather hen repeating the fields again and again in all the entities we are keeping them at a common place, just like java
+* parent class*/
+public class Student extends BaseEntity{
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence")
@@ -60,8 +65,12 @@ but just that here a separate table will be created.*/
 /*  @MapKeyColumn(name = "nameType")//If we want to store map value then we can use this, this will ack as a key*/
   private List<String> nickNames;
 
+
+@ManyToMany(mappedBy = "students", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)//This is the owner entity in many to many mapping
+  private Set<Course> courses;
+
   @Embedded
-  /*This annotation will tell spring that the fields in Guardian class will be added to the Student entity.
+  /*This annotation will tell spring that the fields in Guardian class will be added to the Student entity, and don't create a separate entity for Guardian
   * Here guardian is a value field of type Guardian, just like emailId above is a value field of type String,
 there won't be nay separate table created for the Guardian, when ever we query for the student, the guardian
 will be queried automatically.the embedded class also won't have nay primary key and hence we can't query

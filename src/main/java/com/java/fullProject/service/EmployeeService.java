@@ -4,6 +4,7 @@ import com.java.fullProject.employeeModel.EmployeesResponse;
 import com.java.fullProject.entities.Employees;
 
 import java.util.List;
+import java.util.Map;
 
 public interface EmployeeService {
     
@@ -25,4 +26,5 @@ public interface EmployeeService {
 
     List<Employees> findEmployeeWithPaginationAndSorting(int offset, int pageSize, String field);
 
+    Employees updateLittleBitEmployee(int id, Map<String, Object> fields);
 }

@@ -27,7 +27,7 @@ public class Teacher {
   private String firstName;
   private String lastName;
 
-@OneToMany(mappedBy = "teacher",orphanRemoval = true)
+@OneToMany(mappedBy = "teacher",fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
 /* This is used for biDirectional mapping for @ManyToOne (From one side it will be ManyToOne and from other side
 it will be OneToMany). where mappedBy is the variable used in Course Entity as foreign key,"teacher" in our case.
 Here Teacher is the secondary table and Course is the primary table(many table) which will hold the foreign key.

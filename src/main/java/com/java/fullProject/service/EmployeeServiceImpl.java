@@ -5,8 +5,10 @@ import com.java.fullProject.entities.Employees;
 import com.java.fullProject.exception.customException.BusinessException;
 import com.java.fullProject.exception.customException.EmployeeNotFound;
 import com.java.fullProject.repository.EmployeeRepo;
+import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -28,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Override
   public EmployeesResponse saveEmployees(Employees employees) {
     /*  I can either check the values that are coming here like below or I can use validator dependency to
-validate the data, where I put the validation in entity class and in controller method use @Valid*/
+    validate the data, where I put the validation in entity class and in controller method use @Valid*/
     if (employees.getEmName().isBlank() || employees.getEmName().isEmpty()) {
       throw new BusinessException("601", "Please provide a valid employee name");
     }
@@ -51,14 +54,14 @@ validate the data, where I put the validation in entity class and in controller 
   }
 
   public EmployeesResponse getEmployeeById(int id) {
-/*            Optional<Employees> employees= employeeRepo.findById(id);
-            if(employees.isPresent()){
-                return employees.get();
-            }
-            else {
-                throw new ResourceNotFound("Employee", "id", id);
-            }
-     same in lambda*/
+    /*            Optional<Employees> employees= employeeRepo.findById(id);
+           if(employees.isPresent()){
+               return employees.get();
+           }
+           else {
+               throw new ResourceNotFound("Employee", "id", id);
+           }
+    same in lambda*/
     Employees employee =
         employeeRepo
             .findById(id)
@@ -87,8 +90,9 @@ validate the data, where I put the validation in entity class and in controller 
     employeeRepo.save(existingEmployee);
     return existingEmployee;
 
-//---------------------------We can do it like this also, but we can't return anything--------------
-/*
+    // ---------------------------We can do it like this also, but we can't return
+    // anything--------------
+    /*
     Consumer<Employees> consumer =(existingEmployee2)->{
       existingEmployee2.setEmName(updatedEmployeeData.getEmName());
       existingEmployee2.setStatus(updatedEmployeeData.getStatus());
@@ -141,7 +145,32 @@ validate the data, where I put the validation in entity class and in controller 
   public List<Employees> findEmployeeWithPaginationAndSorting(
       int offset, int pageSize, String field) {
     return employeeRepo
-        .findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field).descending()))
+        // .findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field).descending()))
+        // OR
+        .findAll(PageRequest.of(offset, pageSize, Sort.by(field).descending()))
+        // We can do multiple sorting too.
+        // findAll(PageRequest.of(offset, pageSize,
+        // Sort.by(field).descending().and(Sort.by(status).descending())))
         .getContent();
+  }
+
+//  This is for PATCH mapping
+  @Override
+  public Employees updateLittleBitEmployee(int id, Map<String, Object> employee) {
+    Employees existingEmployee =
+        employeeRepo
+            .findById(id)
+            .orElseThrow(() -> new EmployeeNotFound("Employee not found in the database"));
+    //    Here we will loop through the values in the map (we can update multiple columns together) and using ReflectionUtils class to get the
+    // field which we want to update using the key
+    employee.forEach(
+        (key, value) -> {
+          Field field = ReflectionUtils.findField(Employees.class, key);
+          //      Here we are giving access to modify the object
+            field.setAccessible(true);
+          // Here we are updating the field with the new value of the existingEmployee object
+          ReflectionUtils.setField(field, existingEmployee, value);
+        });
+    return employeeRepo.save(existingEmployee);
   }
 }

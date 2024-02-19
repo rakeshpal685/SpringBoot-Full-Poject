@@ -1,13 +1,12 @@
 package com.java.fullProject.entities;
 
 import jakarta.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /*Here my Course Class has one to one mapping with the CourseMaterial class and I have already defined the
 relationship in CourseMaterial class. Now here I have to define CourseMaterial also and provide just
@@ -28,7 +27,8 @@ public class Course {
   private String title;
   private Integer credit;
 
-  @OneToOne(mappedBy = "course")
+  @OneToOne(mappedBy = "course", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//  TODO @JoinColumn(name="MyForeignKey", referencedColumnName = "OtherTablePrimaryKey", nullable = true)
 /* We have OneToOne for the courseMaterial and the course bidirectional mapping, Here CourseMaterial is the primary table
 and Course is the secondary table, by default it is unidirectional mapping, means when we fetch the data
 about CourseMaterial table, course table data will also come, but the reverse is not possible. Hence to make
@@ -55,25 +55,25 @@ the Teacher entity */
 
   /*Many students can be many courses, For @ManyToMany a separate table will be created which will
   store the relationship (primary key), in other mappings only foreign keys were created.
-  Here we are going from course as primary to student as secondary.
+  Here we are going from course as primary to student as secondary. WE have to write many to many in Student also for mapping with the 3rd table
   We can write the same in student also in that case below joinColumns and inverseJoinColumns will be reversed*/
-  @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+  @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
   @JoinTable(
-      name = "student_course_mapping",// name of the 3rd table
-      joinColumns = @JoinColumn(name = "course_id", referencedColumnName = "courseId"),//referring to the columns of the 3rd table
-      inverseJoinColumns = @JoinColumn(name = "student_id", referencedColumnName = "studentId"))
+      name = "student_course_mapping",// name of the 3rd table, which will be created, and it will hold all the mappings of the rows from both the tables
+      joinColumns = @JoinColumn(name = "course_id", referencedColumnName = "courseId"),//referring to the columns of the 3rd table, where courseId is the primary key of course table
+      inverseJoinColumns = @JoinColumn(name = "student_id", referencedColumnName = "studentId"))//referring to the columns of the 3rd table, where studentId is the primary key of student table
   //ManyToMany has default fetch type as LAZY
-  /*Here we will use joinTable which will be the table that is created for joining the two entities and
+  /*Here we will use joinTable which will be the table that is created for joining the two entities, and
   we will specify which two columns to refer from each entity,
   referencedColumnName is the name of the attribute of the two entities which we want to refer and can
   give any name which will act as column name for the joined table, inverseJoinColumns will specify the other
 entity column details, using these two columns hibernate will create a new table which will have two columns
 with course_id and student_id as name which will refer to courseId and studentId of the entities respectively.*/
-  private List<Student> students;
+  private Set<Student> students;
 
   public void addStudents(Student student) {
     if (students == null) {
-      students = new ArrayList<>();
+      students = new HashSet<>();
     }
     students.add(student);
   }

@@ -8,14 +8,21 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/empController")
+@Slf4j
 public class EmployeeController {
 
   @Autowired private EmployeeService employeeService;
@@ -33,7 +40,10 @@ public class EmployeeController {
   /*Here we are using @Valid to validate our data that is saved in the entity,in entity class we have defined
   some validations for the fields, and it will check whether the validations match or not*/
   public ResponseEntity<EmployeesResponse> saveEmployee(@Valid @RequestBody Employees employees) {
-    return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.saveEmployees(employees));
+    return ResponseEntity.status(HttpStatus.CREATED)
+        /*    this way we can send a header back
+        .header("headerName", "headerValue")*/
+        .body(employeeService.saveEmployees(employees));
 
     // return new ResponseEntity<>(employeeService.saveEmployees(employees), HttpStatus.CREATED);
     /* We can use (@RequestHeader("name of the header") String VariableName) to capture the header coming in the request,
@@ -44,6 +54,21 @@ public class EmployeeController {
     @ResponseStatus(HttpStatus.CREATED)
     public void saveEmployee(@Valid @RequestBody Employees employees) {
      employeeService.saveEmployees(employees);*/
+  }
+
+  //  Using @RequestHeader we can fetch the headers, but using RequestEntity is the best way to
+  // fetch multiple request headers and body together
+  @PostMapping("/path")
+  public ResponseEntity<EmployeesResponse> saveEmployee(RequestEntity<Employees> requestEntity) {
+    HttpHeaders headers = requestEntity.getHeaders();
+    headers.forEach(
+        (key, value) -> {
+          log.info(
+              String.format(
+                  "Header '%s' = '%s", key, value.stream().collect(Collectors.joining("|"))));
+        });
+    Employees employees = requestEntity.getBody();
+    return ResponseEntity.status(HttpStatus.CREATED).body(new EmployeesResponse());
   }
 
   @GetMapping("/getAll")
@@ -86,7 +111,7 @@ public class EmployeeController {
   }
 
   /*PathParameter can be present anywhere in the URl, we just have to keep it inside the {}, /getEmployeeById/{id}/data,
-  * we can keep any number of path variables*/
+   * we can keep any number of path variables*/
   @GetMapping(
       value = "/getEmployeeById/{id}",
       produces = {
@@ -97,7 +122,13 @@ public class EmployeeController {
   public ResponseEntity<EmployeesResponse> getEmployeeById(@PathVariable("id") int empid) {
     // Here if the name of the argument in uri is same as the name of the parameter in the method,
     // then we don't need to use the name in @PathVariable
-    return new ResponseEntity<>(employeeService.getEmployeeById(empid), HttpStatus.OK);
+
+    // Here we are creating our custom header and sending it back to the user.
+    HttpHeaders responseHeaders = new HttpHeaders();
+    responseHeaders.set("HeaderName", "HeaderValue");
+    // Here in the response we are sending back our custom header also.
+    return new ResponseEntity<>(
+        employeeService.getEmployeeById(empid), responseHeaders, HttpStatus.OK);
   }
 
   /*  Here we will get ambiguous uri exception because spring will get confused that which uri to fetch, is it the above one with id or the below one with
@@ -117,7 +148,9 @@ public class EmployeeController {
   in key:value pair. We can have multiple parameters (they wil be separated by & in the url, http://localhost:8080/empController/getEmployeeById?id=5&userName=rakesh)
   and in that case we have to capture both the parameters using @RequestParam*/
   public ResponseEntity<EmployeesResponse> getEmployeeByIdUsingQueryParam(
-      @RequestParam("id") Integer id) {
+      /*Here I am telling that the RequestParameter is not mandatory, it's optional, if the parameter is not given then
+       * we can use 1 as default parameter*/
+      @RequestParam(value = "id", required = false, defaultValue = "1") Integer id) {
     // return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
     return ResponseEntity.ok(employeeService.getEmployeeById(id));
   }
@@ -126,17 +159,33 @@ public class EmployeeController {
   // http://localhost:8080/empController/listPageable/0/2
   public ResponseEntity<List<EmployeesResponse>> employeesPageable(
       @PathVariable int offset, @PathVariable int pageSize) {
-    // return new ResponseEntity<>(employeeService.employeesPageable(offset,
-    // pageSize), HttpStatus.OK);
+    // return new ResponseEntity<>(employeeService.employeesPageable(offset, pageSize),
+    // HttpStatus.OK);
     return ResponseEntity.status(HttpStatus.OK)
         .body(employeeService.employeesPageable(offset, pageSize));
   }
 
-  @PutMapping("{id}")
+  //  PutMapping is used when we want to entirely replace the existing data with the new updated
+  // one, PatchMapping is used when
+  //  we partially want to update the data, in put we have to send the whole object with the updated
+  // data
+  @PutMapping("/{id}")
   //  We will take the id from the uri and rest we will pass as a json in the body
   public ResponseEntity<Employees> updateEmployee(
       @PathVariable int id, @RequestBody Employees employee) {
     return ResponseEntity.status(HttpStatus.OK).body(employeeService.updateEmployee(employee, id));
+  } //  PutMapping is used when we want to entirely replace the existing data with the new updated
+
+  // one, PatchMapping is used when
+
+  //  we partially want to update the data, in patch we don't have to send the whole object, only
+  // the fields we want to update in json
+  @PatchMapping("/{id}")
+  //  We will take the id from the uri and rest we will pass as a json in the body
+  public ResponseEntity<Employees> updateLittleBitEmployee(
+      @PathVariable int id, @RequestBody Map<String, Object> fields) {
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(employeeService.updateLittleBitEmployee(id, fields));
   }
 
   @DeleteMapping("/delete/{id}")
@@ -176,12 +225,17 @@ public class EmployeeController {
   }
 
   /* We can use @RequestHeader("name of the header") String VariableName) to capture the header coming in the request,
-  "Name of the header" is optional if VariableName is same as the header name*/
+  "Name of the headers" are optional if VariableName(value1/2 in this case) is same as the header name*/
   @GetMapping(value = "/getEmployeeHeader")
-  public ResponseEntity<String> getEmployeeHeader(@RequestHeader("value") String value) {
-    // We can use @Nullable to make any parameter optionable,i.e, it the value is not present, if so
-    // it will return null,or we can use Required="false" also
+  public ResponseEntity<Map<String, String>> getEmployeeHeader(
+      @RequestHeader("name of the header1") String value1,
+      @RequestHeader("name of the header2") String value2) {
+
+    Map<String, String> requestHeaders = new HashMap<>();
+    requestHeaders.put("incomingHeader1", value1);
+    requestHeaders.put("incomingHeader2", value2);
+
     // We can pass this header info to the other layer and do our task
-    return ResponseEntity.status(HttpStatus.OK).body(value);
+    return ResponseEntity.status(HttpStatus.OK).body(requestHeaders);
   }
 }
